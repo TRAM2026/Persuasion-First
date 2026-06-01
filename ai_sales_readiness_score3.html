@@ -1,0 +1,310 @@
+<!--
+  THE AI SALES READINESS SCORE — working prototype
+  Single file. No dependencies. No backend. Clone into your own stack.
+
+  TO GO LIVE:
+  1. Wire the lead form: see submitLead() — replace the console.log with a POST
+     to your CRM / email tool (HubSpot, ConvertKit, GoHighLevel webhook, etc.).
+  2. The emailed "full breakdown" asset is built from results.dimensions — generate
+     it server-side or in your email automation.
+  3. Restyle via the CSS variables in :root.
+  Scoring lives in the QUESTIONS array (pts) and computeResult(). Edit there.
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The AI Sales Readiness Score</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#000000;
+    --ink-2:#071827;
+    --card:#0F2E4D;
+    --line:#173B57;
+    --paper:#FFFFFF;
+    --cream:#E8E5E0;
+    --muted:#888888;
+    --gold:#C9A961;
+    --gold-soft:#D8BE86;
+    --amber:#F4C842;
+    --teal:#1E5F6B;
+    --cyan:#5FD4D4;
+    --ice:#9FD8FF;
+    --low:#1E5F6B;
+    --mid:#C9A961;
+    --high:#5FD4D4;
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'DM Sans',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--ink);color:var(--paper);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  body{
+    min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px 18px;
+    background:
+      radial-gradient(900px 500px at 80% -10%, rgba(95,212,212,.10), transparent 60%),
+      radial-gradient(760px 620px at -10% 110%, rgba(15,46,77,.55), transparent 55%),
+      var(--ink);
+  }
+  .stage{width:100%;max-width:620px}
+  .card{
+    background:linear-gradient(180deg,var(--card),var(--ink-2));
+    border:1px solid var(--line);border-radius:18px;padding:38px 34px;
+    box-shadow:0 30px 70px -30px rgba(0,0,0,.7);position:relative;overflow:hidden;
+  }
+  .card::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");pointer-events:none;mix-blend-mode:overlay}
+  .eyebrow{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);font-weight:600;margin-bottom:18px}
+  h1{font-family:var(--serif);font-weight:500;font-size:clamp(30px,6vw,42px);line-height:1.05;letter-spacing:-.01em;margin-bottom:16px}
+  h1 em{font-style:italic;color:var(--gold-soft)}
+  .lede{color:var(--muted);font-size:16px;line-height:1.6;max-width:46ch}
+  .meta{margin:26px 0 30px;display:flex;gap:22px;color:var(--muted);font-size:13px;letter-spacing:.02em}
+  .meta b{color:var(--paper);font-weight:600}
+  button{font-family:var(--sans);cursor:pointer;border:none}
+  .btn{
+    background:var(--amber);color:#071827;font-weight:600;font-size:15px;
+    padding:15px 26px;border-radius:11px;letter-spacing:.01em;transition:transform .15s ease,filter .15s ease;
+  }
+  .btn:hover{filter:brightness(1.06);transform:translateY(-1px)}
+  .btn.ghost{background:transparent;color:var(--paper);border:1px solid var(--line)}
+  .btn:disabled{opacity:.4;cursor:not-allowed;transform:none;filter:none}
+
+  /* progress */
+  .prog-wrap{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+  .prog{flex:1;height:4px;background:var(--line);border-radius:99px;overflow:hidden}
+  .prog span{display:block;height:100%;width:0;background:var(--gold);border-radius:99px;transition:width .4s cubic-bezier(.4,0,.2,1)}
+  .prog-num{font-size:12px;color:var(--muted);letter-spacing:.08em;white-space:nowrap}
+
+  .qdim{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);font-weight:600;margin-bottom:12px}
+  .qtext{font-family:var(--serif);font-weight:500;font-size:clamp(21px,4.4vw,26px);line-height:1.22;margin-bottom:24px;letter-spacing:-.01em}
+  .opts{display:flex;flex-direction:column;gap:11px}
+  .opt{
+    text-align:left;background:var(--ink-2);border:1px solid var(--line);color:var(--paper);
+    padding:16px 18px;border-radius:12px;font-size:15px;line-height:1.4;transition:border-color .15s,background .15s,transform .1s;
+  }
+  .opt:hover{border-color:var(--cyan);background:#0F2E4D}
+  .opt:active{transform:scale(.995)}
+  .back{margin-top:22px;background:none;color:var(--muted);font-size:13px;letter-spacing:.03em;padding:4px 0}
+  .back:hover{color:var(--paper)}
+
+  /* result */
+  .scorewrap{display:flex;align-items:baseline;gap:6px;margin:6px 0 4px}
+  .score{font-family:var(--serif);font-size:clamp(64px,16vw,96px);font-weight:500;line-height:.9;letter-spacing:-.02em}
+  .score-max{font-family:var(--serif);font-size:26px;color:var(--muted)}
+  .tier{font-family:var(--serif);font-style:italic;font-size:clamp(22px,5vw,28px);font-weight:500;margin:14px 0 18px}
+  .bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin:18px 0 26px}
+  .bar span{display:block;height:100%;width:0;border-radius:99px;transition:width 1s cubic-bezier(.2,.7,.2,1) .2s}
+  .readout{color:var(--cream);font-size:15.5px;line-height:1.65;margin-bottom:22px}
+  .weakest{background:var(--ink-2);border:1px solid var(--line);border-left:3px solid var(--cyan);border-radius:10px;padding:16px 18px;margin-bottom:28px}
+  .weakest small{display:block;color:var(--cyan);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;margin-bottom:6px}
+  .weakest p{font-size:15px;line-height:1.45}
+  .gate-intro{color:var(--muted);font-size:14px;line-height:1.55;margin-bottom:18px}
+
+  /* form */
+  .field{margin-bottom:14px}
+  .field label{display:block;font-size:12px;letter-spacing:.04em;color:var(--muted);margin-bottom:6px}
+  .field input,.field select{
+    width:100%;background:var(--ink);border:1px solid var(--line);color:var(--paper);
+    padding:13px 14px;border-radius:10px;font-family:var(--sans);font-size:15px;
+  }
+  .field input:focus,.field select:focus{outline:none;border-color:var(--cyan)}
+  .row{display:flex;gap:12px}
+  .row .field{flex:1}
+  .next-line{color:var(--muted);font-style:italic;font-family:var(--serif);font-size:16px;line-height:1.5;margin-top:10px}
+
+  .reveal{animation:rise .5s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .hidden{display:none}
+  .center{text-align:center}
+</style>
+
+<div class="stage">
+  <div class="card" id="card"></div>
+</div>
+
+<script>
+// ===== LEAD DELIVERY — EDIT THE EMAIL BELOW =====
+// Replace REPLACE_WITH_YOUR_EMAIL with your professional inbox (e.g. amy@yourdomain.com).
+// FormSubmit emails each submission there. No backend needed; works on GitHub Pages.
+// First submission triggers a one-time activation email from FormSubmit — click it once.
+// Privacy: after activating, FormSubmit gives you a random string you can use in place of
+// your raw email, so your address isn't exposed in this public repo.
+const LEAD_ENDPOINT = "https://formsubmit.co/ajax/amy@lighthouseexotech.com";
+// ================================================
+
+const DIMS = {
+  human:{label:"Human Signal", max:10},
+  depth:{label:"Strategic Depth", max:20},
+  persuasion:{label:"Persuasion Structure", max:20},
+  impact:{label:"Measured Impact", max:20},
+  system:{label:"Team System & Skill", max:30},
+};
+const WEAK = {
+  human:"Your AI output reads as machine-made. The fastest gain is teaching it to sound like a person before anything reaches a buyer.",
+  depth:"AI is being used to produce, not to think. The leverage is in using it to understand how buyers decide — not just to write faster.",
+  persuasion:"There's no persuasion structure behind the output. It leads with you, not the buyer's world. That's the layer that makes messages land.",
+  impact:"Nothing is being measured, so you can't tell if AI is helping or quietly repelling. Visibility comes before optimization.",
+  system:"AI lives in individual reps, not in the team. Without shared training and a documented system, the capability walks out the door with people.",
+};
+
+const QUESTIONS = [
+  {dim:"human", q:"When a prospect reads your team's AI-assisted outreach, could they tell it was AI-written?",
+   a:[["Almost certainly — it reads like a template",0],["Probably, if they were paying attention",3],["Rarely — we edit heavily before it goes out",7],["No — sounding human is the whole point of how we use it",10]]},
+  {dim:"depth", q:"What is your team mostly using AI for?",
+   a:[["Producing more — outreach, follow-ups, content at volume",0],["Mostly producing, with some research",3],["A mix of producing and understanding buyers",7],["Understanding more — buyer psychology, objections, strategy",10]]},
+  {dim:"depth", q:"Does anyone use AI to prep for specific high-stakes conversations — objections, stakeholders, negotiation?",
+   a:[["Never — it's a writing tool to us",0],["Rarely",3],["Sometimes, for big deals",7],["Routinely — it's how we walk in prepared",10]]},
+  {dim:"persuasion", q:"Before AI writes anything, what does it get told?",
+   a:[["Just the product or offer details",0],["The product, plus who we're sending it to",3],["Some context on the buyer's situation",7],["What the buyer actually wants and fears, first",10]]},
+  {dim:"persuasion", q:"Your team's AI output tends to lead with —",
+   a:[["Our company, product, or credentials",0],["A mix, usually us first",3],["The buyer's situation most of the time",7],["The buyer's world, always — we earn the right to talk about us",10]]},
+  {dim:"impact", q:"Where AI touches your pipeline, can you point to a metric that improved because of it?",
+   a:[["No — we adopted it but haven't measured",0],["We think so, but can't prove it",3],["Yes, one or two metrics",7],["Yes, clearly — and we know which moves did it",10]]},
+  {dim:"impact", q:"Since increasing AI-assisted outreach, what happened to your reply rates?",
+   a:[["They dropped",0],["Not sure — we don't track it that way",3],["Held steady",7],["Went up",10]]},
+  {dim:"system", q:"How standardized is AI use across your team?",
+   a:[["Totally ad hoc — every rep does their own thing",0],["Loosely — a few shared tips",3],["Mostly — shared prompts and some guidelines",7],["Fully — a documented system everyone runs",10]]},
+  {dim:"system", q:"If your best rep left tomorrow, what happens to their AI workflow?",
+   a:[["It walks out the door with them",0],["We'd lose most of it",3],["We'd keep some of it",7],["It stays — it lives in the team, not one person",10]]},
+  {dim:"system", q:"Has your team been trained on how to actually prompt AI?",
+   a:[["No — everyone figures it out themselves",0],["A little — we shared some tips",3],["Some structured training",7],["Yes — ongoing, and it's part of how we operate",10]]},
+];
+
+const TIERS = [
+  {min:0,max:40,color:"var(--low)",name:"AI is working against you.",
+   text:"A score here usually means AI is making your team faster at the wrong things. The output is going out, activity looks healthy, and buyers are quietly tuning it out. The good news: this is the most fixable score on the chart. The problem isn't effort or talent — it's that no one taught the AI the one thing that makes a message land: what the buyer actually feels.",
+   next:"If you want to see exactly where the leaks are, that's a conversation worth having."},
+  {min:41,max:70,color:"var(--mid)",name:"You're leaking trust in places.",
+   text:"You're doing real things right. AI is in the workflow and parts of it are working. But somewhere between the tool and the buyer, trust is leaking — usually one or two dimensions dragging the rest down. Teams in this band are often one adjustment from a real edge. They just can't see which one from the inside.",
+   next:"Your breakdown shows which dimension is costing you most. Worth a look."},
+  {min:71,max:100,color:"var(--high)",name:"Ahead of the market.",
+   text:"This is rare. Your team is using AI the way the best closers sell — to get more human, not less. The risk now isn't catching up. It's that the edge you've built is copyable and the market moves fast. The teams that stay ahead treat this like a system they protect and sharpen, not a box they checked.",
+   next:"If protecting that edge is on your mind, that's the conversation to have."},
+];
+
+let answers = [];   // points per question
+let idx = 0;
+const card = document.getElementById('card');
+
+function renderIntro(){
+  card.innerHTML = `
+    <div class="reveal">
+      <div class="eyebrow">Diagnostic · Sales &amp; Revenue Teams</div>
+      <h1>The AI Sales<br>Readiness <em>Score</em></h1>
+      <p class="lede">Ten questions. About six minutes. You'll get a score out of 100 and a straight read on where AI is working for your pipeline — and where it's quietly working against you.</p>
+      <div class="meta"><span><b>10</b> questions</span><span><b>~6</b> minutes</span><span><b>0–100</b> score</span></div>
+      <button class="btn" id="start">Start the diagnostic</button>
+    </div>`;
+  document.getElementById('start').onclick = ()=>{ idx=0; answers=[]; renderQuestion(); };
+}
+
+function renderQuestion(){
+  const item = QUESTIONS[idx];
+  const pct = Math.round((idx/QUESTIONS.length)*100);
+  card.innerHTML = `
+    <div class="reveal">
+      <div class="prog-wrap">
+        <div class="prog"><span style="width:${pct}%"></span></div>
+        <div class="prog-num">${idx+1} / ${QUESTIONS.length}</div>
+      </div>
+      <div class="qdim">${DIMS[item.dim].label}</div>
+      <div class="qtext">${item.q}</div>
+      <div class="opts">
+        ${item.a.map((o,i)=>`<button class="opt" data-i="${i}">${o[0]}</button>`).join('')}
+      </div>
+      ${idx>0?`<button class="back" id="back">← back</button>`:``}
+    </div>`;
+  card.querySelectorAll('.opt').forEach(b=>{
+    b.onclick = ()=>{ answers[idx] = item.a[+b.dataset.i][1];
+      if(idx < QUESTIONS.length-1){ idx++; renderQuestion(); } else { renderResult(); } };
+  });
+  const back = document.getElementById('back');
+  if(back) back.onclick = ()=>{ idx--; renderQuestion(); };
+}
+
+function computeResult(){
+  const total = answers.reduce((s,v)=>s+v,0);
+  const dimPts = {};
+  QUESTIONS.forEach((it,i)=>{ dimPts[it.dim]=(dimPts[it.dim]||0)+answers[i]; });
+  let weakest=null, weakestPct=2;
+  for(const k in DIMS){ const p=(dimPts[k]||0)/DIMS[k].max; if(p<weakestPct){weakestPct=p;weakest=k;} }
+  const tier = TIERS.find(t=>total>=t.min && total<=t.max);
+  return {total, tier, weakest, dimPts};
+}
+
+function renderResult(){
+  const r = computeResult();
+  card.innerHTML = `
+    <div class="reveal">
+      <div class="eyebrow">Your result</div>
+      <div class="scorewrap"><div class="score" style="color:${r.tier.color}">${r.total}</div><div class="score-max">/ 100</div></div>
+      <div class="tier" style="color:${r.tier.color}">${r.tier.name}</div>
+      <div class="bar"><span style="background:${r.tier.color}"></span></div>
+      <p class="readout">${r.tier.text}</p>
+      <div class="weakest">
+        <small>Lowest dimension · ${DIMS[r.weakest].label}</small>
+        <p>${WEAK[r.weakest]}</p>
+      </div>
+      <p class="gate-intro">Want the full breakdown — every dimension scored, plus the specific fixes for the two costing you most? I'll send it over.</p>
+      <button class="btn" id="toForm">Send me the full breakdown</button>
+    </div>`;
+  requestAnimationFrame(()=>{ const fill=card.querySelector('.bar span'); if(fill) fill.style.width=r.total+'%'; });
+  document.getElementById('toForm').onclick = ()=>renderForm(r);
+}
+
+function renderForm(r){
+  card.innerHTML = `
+    <div class="reveal">
+      <div class="eyebrow">One step to your breakdown</div>
+      <h1 style="font-size:clamp(24px,5vw,32px)">Where should I<br>send it?</h1>
+      <div style="margin-top:24px">
+        <div class="field"><label>Name</label><input id="f_name" autocomplete="name"></div>
+        <div class="field"><label>Work email</label><input id="f_email" type="email" autocomplete="email"></div>
+        <div class="row">
+          <div class="field"><label>Company</label><input id="f_co"></div>
+          <div class="field"><label>Role</label><input id="f_role"></div>
+        </div>
+        <div class="field"><label>Sales methodology your team runs</label>
+          <select id="f_method">
+            <option value="">Select…</option>
+            <option>Challenger</option><option>Sandler</option><option>MEDDIC</option>
+            <option>SPIN</option><option>Solution Selling</option>
+            <option>None / in-house</option><option>Other</option>
+          </select>
+        </div>
+        <button class="btn" id="submit" style="width:100%;margin-top:6px">Get my breakdown</button>
+      </div>
+    </div>`;
+  document.getElementById('submit').onclick = ()=>submitLead(r);
+}
+
+async function submitLead(r){
+  const lead = {
+    _subject: "New AI Sales Readiness lead",
+    _captcha: "false",
+    name: f_name.value.trim(), email: f_email.value.trim(),
+    company: f_co.value.trim(), role: f_role.value.trim(), methodology: f_method.value,
+    score: r.total, tier: r.tier.name, weakestDimension: DIMS[r.weakest].label,
+    dimensionBreakdown: Object.entries(r.dimPts).map(([k,v])=>`${DIMS[k].label}: ${v}/${DIMS[k].max}`).join(' · '),
+  };
+  if(!lead.email){ f_email.focus(); f_email.style.borderColor='var(--low)'; return; }
+
+  const sb = document.getElementById('submit');
+  if(sb){ sb.disabled = true; sb.textContent = 'Sending…'; }
+
+  // Delivers the lead to your inbox via FormSubmit (see LEAD_ENDPOINT at top).
+  try{
+    await fetch(LEAD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(lead)});
+  }catch(e){ /* don't trap the user if the network hiccups */ }
+
+  card.innerHTML = `
+    <div class="reveal center">
+      <div class="eyebrow">Got it</div>
+      <h1 style="font-size:clamp(26px,5.5vw,34px)">Thanks,<br><em>${lead.name? lead.name.split(' ')[0] : 'thanks'}</em>.</h1>
+      <p class="lede" style="margin:14px auto 0">I'll personally go through your answers and send your full breakdown to ${lead.email} — every dimension scored, and the two worth fixing first.</p>
+      <p class="next-line">${r.tier.next}</p>
+    </div>`;
+}
+
+renderIntro();
+</script>
