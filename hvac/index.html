@@ -3,92 +3,379 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Missed Call That Cost You $8,000 | Persuasion First AI</title>
+<title>Persuasion First AI — Stop losing the job to whoever answered first</title>
+<meta name="description" content="For Atlanta HVAC shops. We catch every missed call and web lead, text them back in seconds, and book the job onto your calendar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#0e2233; --navy2:#15324a; --ink:#0b1722;
-    --gold:#c9a24b; --gold2:#b8893b; --gold-soft:#e3c168; --gold-deep:#a8842f;
-    --goldtint:#f7f1e1; --paper:#f6f4ef; --white:#ffffff;
-    --muted:#5c6b78; --line:#e3ddd2;
+    --ink:#16212B;
+    --steel:#20567A;
+    --steel-deep:#143C56;
+    --amber:#DE7A2A;
+    --amber-press:#C56A1F;
+    --paper:#F4F6F2;
+    --card:#FFFFFF;
+    --line:#D9E0E0;
+    --muted:#566570;
+    --shadow:0 18px 50px -22px rgba(20,40,56,.40);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
-  h1,h2,h3{line-height:1.12;letter-spacing:-0.02em}
-  .accent{color:var(--gold-soft)}
+  body{
+    font-family:"Inter",system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 22px}
+  h1,h2,h3,.eyebrow,.btn,.stat-num{font-family:"Archivo",sans-serif}
+  .serif{font-family:"Fraunces",Georgia,serif;font-style:italic}
 
-  /* TOPBAR */
-  .topbar{background:var(--navy);padding:13px 0;border-bottom:1px solid rgba(255,255,255,.08)}
-  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px}
-  .topbar img.logo{height:48px;width:auto;display:block}
-  .topbar .ph{color:var(--gold-soft);font-weight:800;letter-spacing:.05em;font-size:17px}
-  .topbar a.mini{color:#fff;text-decoration:none;font-weight:700;font-size:14px;
-    border:1px solid rgba(227,193,104,.5);padding:9px 16px;border-radius:8px;white-space:nowrap}
-  .topbar a.mini:hover{background:rgba(227,193,104,.12)}
+  .eyebrow{
+    font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--steel);
+  }
 
-  /* HERO */
-  .hero{background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 100%);color:var(--white);
-    padding:70px 0 84px;position:relative;overflow:hidden}
-  .hero:before{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;
-    background:radial-gradient(circle,rgba(201,162,75,.30),transparent 65%);}
-  .eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--gold-soft);margin-bottom:20px}
-  .hero h1{font-size:clamp(34px,6vw,58px);font-weight:800;max-width:880px}
-  .hero p.sub{font-size:clamp(17px,2.4vw,21px);color:#cdd9e3;margin-top:22px;max-width:640px}
-  .cta-row{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
-  .btn{display:inline-block;font-weight:700;font-size:16px;padding:16px 28px;border-radius:10px;
-    text-decoration:none;transition:transform .12s ease, box-shadow .12s ease}
-  .btn-primary{background:linear-gradient(135deg,#d8b864,#b8893b);color:#1a1206;
-    box-shadow:0 10px 26px rgba(184,137,59,.35)}
-  .btn-primary:hover{transform:translateY(-2px)}
-  .btn-ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.25)}
-  .btn-ghost:hover{background:rgba(255,255,255,.16)}
+  /* ---- buttons ---- */
+  .btn{
+    display:inline-flex;align-items:center;gap:.5em;
+    background:var(--amber);color:#fff;text-decoration:none;
+    font-weight:700;font-size:1.02rem;letter-spacing:.01em;
+    padding:15px 26px;border-radius:11px;border:none;cursor:pointer;
+    box-shadow:0 10px 24px -10px rgba(222,122,42,.7);
+    transition:transform .15s ease, background .15s ease;
+  }
+  .btn:hover{background:var(--amber-press);transform:translateY(-2px)}
+  .btn:focus-visible{outline:3px solid var(--steel);outline-offset:3px}
+  .call-link{
+    display:inline-block;margin-top:14px;color:var(--ink);font-weight:600;
+    text-decoration:none;border-bottom:2px solid var(--amber);padding-bottom:1px;
+  }
+  .call-link span{color:var(--muted);font-weight:500;border:0}
 
-  /* STAT STRIP */
-  .stats{background:var(--ink);color:#fff;padding:0}
-  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(255,255,255,.08)}
-  .stat{padding:30px 22px;border-right:1px solid rgba(255,255,255,.08)}
-  .stat:last-child{border-right:none}
-  .stat .num{font-size:clamp(28px,4vw,40px);font-weight:800;color:var(--gold-soft);letter-spacing:-.02em}
-  .stat .lbl{font-size:14px;color:#b9c4ce;margin-top:6px}
-  @media(max-width:720px){.stat-grid{grid-template-columns:repeat(2,1fr)}
-    .stat{border-bottom:1px solid rgba(255,255,255,.08)}
-    .stat:nth-child(2n){border-right:none}}
+  /* ---- top bar ---- */
+  .topbar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+  .top{display:flex;align-items:center;justify-content:space-between;padding:11px 0}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
+  .brand img{height:54px;width:auto;display:block;mix-blend-mode:multiply}
+  .brand-fallback{font-family:"Archivo";font-weight:800;font-size:1.05rem;letter-spacing:-.01em}
+  .brand-fallback small{display:block;font-size:.62rem;font-weight:600;letter-spacing:.16em;color:var(--steel);text-transform:uppercase}
+  .top .btn{padding:11px 18px;font-size:.92rem}
+  @media(max-width:520px){.brand img{height:44px}.top .btn{padding:10px 15px;font-size:.86rem}}
 
-  /* SECTIONS */
-  section.block{padding:74px 0}
-  .kicker{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:14px}
-  h2.big{font-size:clamp(28px,4.4vw,44px);font-weight:800;max-width:760px}
-  .lead{font-size:clamp(17px,2.2vw,20px);color:var(--muted);margin-top:18px;max-width:680px}
-  .lead strong{color:var(--ink)}
+  /* ---- hero ---- */
+  .hero{padding:34px 0 60px}
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+  h1{
+    font-size:clamp(2.05rem,7vw,3.5rem);font-weight:800;line-height:1.02;
+    letter-spacing:-.02em;margin:16px 0 0;
+  }
+  h1 .hot{color:var(--amber)}
+  .hero p.sub{font-size:1.16rem;color:var(--muted);margin:20px 0 28px;max-width:34ch}
+  .hero p.sub b{color:var(--ink);font-weight:600}
 
-  /* REFRAME band */
-  .reframe{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .reframe h2{font-size:clamp(26px,4vw,40px)}
+  /* ---- phone / sms signature ---- */
+  .phone{
+    justify-self:center;width:300px;max-width:88vw;
+    background:var(--ink);border-radius:36px;padding:13px;
+    box-shadow:var(--shadow);position:relative;
+  }
+  .phone::before{content:"";position:absolute;top:20px;left:50%;transform:translateX(-50%);
+    width:96px;height:7px;background:#0c141b;border-radius:5px}
+  .screen{background:#EDF1F4;border-radius:26px;padding:34px 14px 18px;min-height:430px;display:flex;flex-direction:column;gap:10px}
+  .sms-head{text-align:center;font-size:.78rem;color:var(--muted);margin-bottom:4px}
+  .sms-head b{display:block;color:var(--ink);font-size:.95rem;font-family:"Archivo";font-weight:700}
+  .chip{align-self:center;background:#dfe5ea;color:#48555f;font-size:.72rem;font-weight:600;
+    padding:5px 12px;border-radius:20px;display:flex;align-items:center;gap:6px}
+  .chip.booked{background:#1f7a4d;color:#fff}
+  .bub{max-width:80%;padding:10px 14px;border-radius:18px;font-size:.9rem;line-height:1.4}
+  .bub.them{align-self:flex-start;background:#fff;color:var(--ink);border-bottom-left-radius:5px;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+  .bub.us{align-self:flex-end;background:var(--steel);color:#fff;border-bottom-right-radius:5px}
+  .bub .booklink{display:inline-block;margin-top:7px;background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.5);color:#fff;font-weight:600;font-size:.82rem;
+    padding:6px 12px;border-radius:8px}
+  /* reveal animation */
+  #phone.anim .reveal>*{opacity:0;transform:translateY(10px)}
+  #phone.anim.play .reveal>*{animation:pop .45s ease forwards}
+  .play .reveal>*:nth-child(1){animation-delay:.15s}
+  .play .reveal>*:nth-child(2){animation-delay:.7s}
+  .play .reveal>*:nth-child(3){animation-delay:1.3s}
+  .play .reveal>*:nth-child(4){animation-delay:1.9s}
+  .play .reveal>*:nth-child(5){animation-delay:2.5s}
+  .play .reveal>*:nth-child(6){animation-delay:3.1s}
+  @keyframes pop{to{opacity:1;transform:translateY(0)}}
 
-  /* OUTCOMES */
-  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:38px}
-  @media(max-width:720px){.cards{grid-template-columns:1fr}}
-  .card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:26px 24px}
-  .card .ic{width:44px;height:44px;border-radius:10px;background:var(--goldtint);display:flex;align-items:center;justify-content:center;
-    font-size:22px;margin-bottom:14px}
-  .card h3{font-size:19px;font-weight:800;margin-bottom:8px}
-  .card p{color:var(--muted);font-size:15.5px}
+  /* ---- problem ---- */
+  .section{padding:58px 0}
+  .band{background:var(--ink);color:#fff}
+  .band .eyebrow{color:#8fb6cf}
+  h2{font-size:clamp(1.7rem,4.5vw,2.4rem);font-weight:800;letter-spacing:-.018em;line-height:1.08;margin-top:12px}
+  .lede{font-size:1.16rem;margin-top:20px;max-width:60ch;color:var(--muted)}
+  .band .lede{color:#c3d2dc}
+  .human{font-size:clamp(1.3rem,3.6vw,1.7rem);line-height:1.35;margin-top:26px;max-width:46ch;color:#fff}
+  .human b{font-style:normal;font-family:"Inter";font-weight:600;color:#ffd9b0}
 
-  /* OFFER / risk reversal */
-  .offer{background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;border-radius:18px;
-    padding:46px 40px;margin-top:10px;position:relative;overflow:hidden}
-  .offer:before{content:"";position:absolute;left:-80px;bottom:-80px;width:300px;height:300px;
-    background:radial-gradient(circle,rgba(227,193,104,.22),transparent 65%)}
-  .offer h2{font-size:clamp(24px,3.4vw,34px);font-weight:800;max-width:620px}
-  .offer p{color:#cdd9e3;margin-top:16px;max-width:600px;font-size:17px}
-  .offer .btn{margin-top:26px}
+  /* ---- pain points ---- */
+  .pain-grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:36px}
+  .pain-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 22px;box-shadow:0 12px 34px -24px rgba(20,40,56,.45)}
+  .pain-when{font-family:"Archivo";font-weight:800;font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;color:var(--amber);margin-bottom:10px}
+  .pain-card p{color:var(--ink);font-size:1.02rem;line-height:1.5}
+  .pain-punch{font-family:"Fraunces",Georgia,serif;font-style:italic;font-size:clamp(1.22rem,3vw,1.55rem);line-height:1.42;margin-top:36px;max-width:60ch;color:var(--ink)}
+  .pain-punch b{font-style:normal;font-family:"Inter";font-weight:700;color:var(--steel-deep)}
 
-  /* FOUNDER */
-  .founder{display:flex;gap:34px;align-items:center;flex-wrap:wrap}
-  .founder .photo{flex:0 0 220px;position:relative;width:220px;height:286px;border-radius:16px;overflow:hidden;
-    background:linear-gradient(150deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;
-    box-shadow:0 14px 34px rgba(11,23,34,.18)}
-  .founder .photo .ph-fallback{position:absolute;color:#fff;font-weight:800;font-size:48px;letter-
+  /* ---- cost of loss ---- */
+  .loss-grid{display:grid;grid-template-columns:1fr;gap:1px;background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.14);border-radius:16px;overflow:hidden;margin-top:34px}
+  .loss-card{background:#1C2A37;padding:26px 24px}
+  .loss-num{font-family:"Archivo";font-weight:800;font-size:2rem;color:var(--amber);line-height:1.05}
+  .loss-num span{font-size:1rem;color:#9fb1bd;font-weight:600}
+  .loss-card p{margin-top:9px;color:#bcccd6;font-size:.97rem;line-height:1.45}
+
+  /* ---- how it works ---- */
+  .steps{display:grid;grid-template-columns:1fr;gap:22px;margin-top:40px}
+  .step{display:flex;gap:18px;align-items:flex-start}
+  .step .no{font-family:"Archivo";font-weight:800;font-size:1.05rem;color:#fff;background:var(--amber);
+    min-width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center}
+  .step h3{font-size:1.16rem;font-weight:700}
+  .step p{color:var(--muted);margin-top:3px}
+
+  /* ---- get list ---- */
+  .get{margin-top:34px;display:grid;grid-template-columns:1fr;gap:13px;max-width:58ch}
+  .get li{list-style:none;display:flex;gap:12px;align-items:flex-start;font-size:1.05rem}
+  .get .tick{color:var(--steel);font-weight:800;margin-top:1px}
+
+  /* ---- price ---- */
+  .price-card{background:var(--card);border:1px solid var(--line);border-radius:20px;
+    padding:36px 30px;box-shadow:var(--shadow);max-width:560px;margin-top:36px}
+  .price-row{display:flex;flex-wrap:wrap;gap:10px 34px;align-items:baseline}
+  .price-row .big{font-family:"Archivo";font-weight:800;font-size:2.5rem;color:var(--ink);line-height:1}
+  .price-row .lbl{color:var(--muted);font-size:.98rem}
+  .price-note{margin-top:18px;color:var(--muted)}
+  .guarantee{display:flex;gap:13px;align-items:flex-start;margin-top:22px;padding-top:22px;border-top:1px solid var(--line)}
+  .guarantee .seal{min-width:46px;height:46px;border-radius:50%;background:#eaf4ee;color:#1f7a4d;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-family:"Archivo"}
+  .guarantee b{font-weight:700}
+  .guarantee p{color:var(--muted);margin-top:2px}
+
+  /* ---- who ---- */
+  .who{display:grid;grid-template-columns:1fr;gap:26px;align-items:center;justify-items:center;text-align:center}
+  .who .photo{width:208px;height:296px;border-radius:18px;object-fit:cover;object-position:50% 14%;border:4px solid #fff;box-shadow:var(--shadow);background:var(--steel)}
+  .who .photo.ph{display:flex;align-items:center;justify-content:center;color:#fff;font-family:"Archivo";font-weight:800;font-size:2.4rem}
+  .who p{font-size:1.12rem;color:var(--ink);max-width:56ch}
+  .who .name{font-family:"Archivo";font-weight:700;margin-top:14px}
+  .who .name span{display:block;color:#C5CFD6;font-weight:500;font-family:"Inter";font-size:.95rem;line-height:1.55;margin-top:6px}
+
+  /* ---- final cta ---- */
+  .final{text-align:center}
+  .final .lede{margin:20px auto 30px}
+  .final .btn{font-size:1.1rem;padding:17px 34px}
+
+  footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between;align-items:center}
+
+  /* ---- responsive ---- */
+  @media(min-width:760px){
+    .hero-grid{grid-template-columns:1.05fr .95fr;gap:30px}
+    .pain-grid{grid-template-columns:repeat(3,1fr)}
+    .loss-grid{grid-template-columns:repeat(3,1fr)}
+    .steps{grid-template-columns:repeat(3,1fr);gap:30px}
+    .step{flex-direction:column;gap:14px}
+    .who{grid-template-columns:auto 1fr;gap:40px;justify-items:start;text-align:left}
+    .get{grid-template-columns:1fr 1fr;gap:13px 34px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .reveal>*{opacity:1!important;transform:none!important;animation:none!important}
+    html{scroll-behavior:auto}
+    .btn:hover{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="#top" aria-label="Persuasion First AI home">
+        <img src="LOGO.jpg" alt="Persuasion First AI" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="brand-fallback" style="display:none">Persuasion First<small>AI · for HVAC</small></span>
+      </a>
+      <a class="btn" href="https://persuasionfirstai.zohobookings.com/#/4943760000000039045" target="_blank" rel="noopener">Book a call</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">For Atlanta HVAC shops</span>
+        <h1>Stop losing the job to whoever <span class="hot">answered first.</span></h1>
+        <p class="sub">When a call rings out, it doesn't leave a voicemail — it dials the next company. <b>We catch every missed call and web lead, text them back in seconds, and book the job onto your calendar.</b></p>
+        <a class="btn" href="https://persuasionfirstai.zohobookings.com/#/4943760000000039045" target="_blank" rel="noopener">Book a 15-minute call →</a>
+        <a class="call-link" href="sms:+14045132822">or text Amy <span>· 404-513-2822</span></a>
+      </div>
+
+      <!-- SIGNATURE: the text-back, playing out -->
+      <div class="phone" id="phone">
+        <div class="screen">
+          <div class="sms-head"><b>Northside Heating &amp; Air</b>Text message · just now</div>
+          <div class="reveal" style="display:flex;flex-direction:column;gap:10px">
+            <div class="chip">📞 Missed call · 7:42 PM</div>
+            <div class="bub us">Hey, this is Northside Heating &amp; Air — sorry we missed you, we're on a job. Want us to grab you a spot today?</div>
+            <div class="bub them">Yes please — AC's out and it's 96° in here 🥵</div>
+            <div class="bub us">Got you. Here's our next opening:<a class="booklink" href="https://persuasionfirstai.zohobookings.com/#/4943760000000039045" target="_blank" rel="noopener">Tomorrow, 8:00 AM →</a></div>
+            <div class="bub them">Perfect, book it 🙏</div>
+            <div class="chip booked">✓ Booked — Tomorrow 8:00 AM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- PROBLEM -->
+<section class="section band">
+  <div class="wrap">
+    <span class="eyebrow">You already know this</span>
+    <h2>The call comes in while you're<br>on the job.</h2>
+    <p class="lede">Up on a roof. Under a unit. Driving between stops. It rings out — and by the time you check your phone, the job's already booked with someone else.</p>
+    <p class="human serif">Nobody can be elbow-deep in a condenser and answer the phone at the same time. <b>It's not a hustle problem.</b> The calls just don't wait — and right now, nothing catches them.</p>
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<section class="section" style="padding-top:46px">
+  <div class="wrap">
+    <span class="eyebrow">You know exactly how this happens</span>
+    <h2>The phone never rings at a good time.</h2>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-when">After hours</div>
+        <p>It's 9 PM, a system just died, and the house is already getting hot. Your phone's charging in the other room. They're scrolling to the next name before you ever hear it.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-when">Lunch &amp; drive time</div>
+        <p>Noon rush, or you're between jobs with both hands on the wheel. The call rings out. You see it an hour later — they booked someone forty minutes ago.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-when">Every line's tied up</div>
+        <p>One person, three calls at once. Two get answered. The third hears ringing, then nothing — and quietly moves on.</p>
+      </div>
+    </div>
+    <p class="pain-punch">Here's the truth: your customer doesn't care who gets there first — they just want the heat fixed. <b>You're the one who has to care.</b> Because miss that first call and you don't lose one job. You lose every tune-up, every repair, every referral that customer would have sent you for years. You lose them for life.</p>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow">Here's what gets fixed</span>
+    <h2>Three steps. It runs itself.</h2>
+    <div class="steps">
+      <div class="step"><div class="no">01</div><div><h3>A call comes in</h3><p>You can't grab it — you're on the job. After hours, weekend, doesn't matter.</p></div></div>
+      <div class="step"><div class="no">02</div><div><h3>We text them back</h3><p>Within seconds, with a friendly message and a link to book a time right then.</p></div></div>
+      <div class="step"><div class="no">03</div><div><h3>The job lands on your calendar</h3><p>Instead of your competitor's. You just show up and do the work.</p></div></div>
+    </div>
+
+    <ul class="get">
+      <li><span class="tick">✓</span> Instant text-back on every missed call</li>
+      <li><span class="tick">✓</span> Instant response to every website lead</li>
+      <li><span class="tick">✓</span> A booking link that drops jobs onto your calendar</li>
+      <li><span class="tick">✓</span> Built inside your own accounts — it's yours, not rented</li>
+      <li><span class="tick">✓</span> Handed to you with plain instructions</li>
+      <li><span class="tick">✓</span> Up and running in days, not months</li>
+    </ul>
+  </div>
+</section>
+
+<!-- COST OF LOSS -->
+<section class="section band">
+  <div class="wrap">
+    <span class="eyebrow">The cost of a missed call</span>
+    <h2>You already paid for your phone to ring.</h2>
+    <p class="lede">You spend real money to make that phone ring — Google, mailers, ValPak, the truck wraps, the yard signs. When it rings out, that money's already gone, and the job walks out with it.</p>
+    <div class="loss-grid">
+      <div class="loss-card"><div class="loss-num">$80–$150</div><p>What a single call costs you to earn — across ads, mailers, and ValPak</p></div>
+      <div class="loss-card"><div class="loss-num">$300–$600</div><p>The repair that walks — and a new system runs $6,000 and up</p></div>
+      <div class="loss-card"><div class="loss-num">$2,500–$10,000</div><p>What one loyal customer is worth over the years you'll never get back</p></div>
+    </div>
+    <p class="human serif">A shop missing a dozen calls a month bleeds around <b>$3,900</b> in work it already paid to win. And the customer who picks someone else tonight doesn't come back tomorrow.</p>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <span class="eyebrow">What it costs</span>
+    <h2>One recovered repair covers it.</h2>
+    <div class="price-card">
+      <div class="price-row">
+        <div><div class="big">$497</div><div class="lbl">to build &amp; install</div></div>
+        <div><div class="big">$297<span style="font-size:1rem;color:var(--muted)">/mo</span></div><div class="lbl">to run &amp; maintain</div></div>
+      </div>
+      <p class="price-note">Everything after that first recovered job is revenue you were already losing.</p>
+      <div class="guarantee">
+        <div class="seal">30</div>
+        <div><b>Thirty days.</b><p>If it isn't catching leads you'd have lost, you walk — no monthly, no hard feelings.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="section band">
+  <div class="wrap">
+    <div class="who">
+      <img class="photo" src="AMY.png" alt="Amy Henry" onerror="this.classList.add('ph');this.removeAttribute('src');this.textContent='AH'">
+      <div>
+        <span class="eyebrow">Who builds it</span>
+        <p style="color:#fff" class="serif" >I build these systems for service businesses right here in Atlanta — into your own accounts, handed off with simple instructions so it runs without me.</p>
+        <p class="name" style="color:#fff">Amy Henry<span>CEO of Persuasion First AI · 15 years of turning leads into clients · AI Automation Expert · Local Atlanta connection · Georgia Institute of Technology graduate</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section final" id="book">
+  <div class="wrap">
+    <span class="eyebrow">Let's talk</span>
+    <h2>See what your shop is missing.</h2>
+    <p class="lede">Fifteen minutes. I'll show you the calls slipping through right now and what they're worth. If it fits, the rest is easy.</p>
+    <!-- Live booking: Zoho Bookings 15-minute call -->
+    <a class="btn" href="https://persuasionfirstai.zohobookings.com/#/4943760000000039045" target="_blank" rel="noopener">Book a 15-minute call →</a>
+    <p style="margin-top:16px;color:var(--muted)">or call / text <a href="tel:+14045132822" style="color:var(--ink);font-weight:600">404-513-2822</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Persuasion First AI · Atlanta, GA</span>
+    <span>amy@persuasionfirstai.com · 404-513-2822</span>
+  </div>
+</footer>
+
+<script>
+  // Play the text-back thread when the phone scrolls into view.
+  // Bubbles are visible by default; we only hide+animate when JS + motion are available.
+  (function(){
+    var phone = document.getElementById('phone');
+    if(!phone) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce) return;                 // leave the thread fully visible
+    phone.classList.add('anim');       // engage the hidden start state
+    function play(){ phone.classList.add('play'); }
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting){ play(); io.unobserve(phone);} });
+      },{threshold:.35});
+      io.observe(phone);
+    } else { play(); }
+  })();
+</script>
+</body>
+</html>
