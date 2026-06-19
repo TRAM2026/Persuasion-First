@@ -1,311 +1,196 @@
-<!--
-  THE AI SALES READINESS SCORE — working prototype
-  Single file. No dependencies. No backend. Clone into your own stack.
-
-  TO GO LIVE:
-  1. Wire the lead form: see submitLead() — replace the console.log with a POST
-     to your CRM / email tool (HubSpot, ConvertKit, GoHighLevel webhook, etc.).
-  2. The emailed "full breakdown" asset is built from results.dimensions — generate
-     it server-side or in your email automation.
-  3. Restyle via the CSS variables in :root.
-  Scoring lives in the QUESTIONS array (pts) and computeResult(). Edit there.
--->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The AI Sales Readiness Score</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Persuasion First AI — Find them. Close them. Keep them.</title>
+<meta name="description" content="AI built on the human layer of selling — for service businesses and corporate sales teams. Find more customers, close more of them, and keep them coming back.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#000000;
-    --ink-2:#071827;
-    --card:#0F2E4D;
-    --line:#173B57;
-    --paper:#FFFFFF;
-    --cream:#E8E5E0;
-    --muted:#888888;
-    --gold:#C9A961;
-    --gold-soft:#D8BE86;
-    --amber:#F4C842;
-    --teal:#1E5F6B;
-    --cyan:#5FD4D4;
-    --ice:#9FD8FF;
-    --low:#1E5F6B;
-    --mid:#C9A961;
-    --high:#5FD4D4;
-    --serif:'Fraunces',Georgia,serif;
-    --sans:'DM Sans',system-ui,sans-serif;
+    --ink:#16212B;
+    --steel:#20567A;
+    --steel-deep:#143C56;
+    --amber:#DE7A2A;
+    --amber-press:#C56A1F;
+    --paper:#F4F6F2;
+    --card:#FFFFFF;
+    --line:#D9E0E0;
+    --muted:#566570;
+    --shadow:0 18px 50px -22px rgba(20,40,56,.40);
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html,body{background:var(--ink);color:var(--paper);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  html{scroll-behavior:smooth}
   body{
-    min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px 18px;
-    background:
-      radial-gradient(900px 500px at 80% -10%, rgba(95,212,212,.10), transparent 60%),
-      radial-gradient(760px 620px at -10% 110%, rgba(15,46,77,.55), transparent 55%),
-      var(--ink);
+    font-family:"Inter",system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
   }
-  .stage{width:100%;max-width:620px}
-  .card{
-    background:linear-gradient(180deg,var(--card),var(--ink-2));
-    border:1px solid var(--line);border-radius:18px;padding:38px 34px;
-    box-shadow:0 30px 70px -30px rgba(0,0,0,.7);position:relative;overflow:hidden;
+  .wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 22px}
+  h1,h2,h3,.eyebrow,.btn{font-family:"Archivo",sans-serif}
+  .serif{font-family:"Fraunces",Georgia,serif;font-style:italic}
+
+  .eyebrow{
+    font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--steel);
   }
-  .card::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");pointer-events:none;mix-blend-mode:overlay}
-  .eyebrow{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);font-weight:600;margin-bottom:18px}
-  h1{font-family:var(--serif);font-weight:500;font-size:clamp(30px,6vw,42px);line-height:1.05;letter-spacing:-.01em;margin-bottom:16px}
-  h1 em{font-style:italic;color:var(--gold-soft)}
-  .lede{color:var(--muted);font-size:16px;line-height:1.6;max-width:46ch}
-  .meta{margin:26px 0 30px;display:flex;gap:22px;color:var(--muted);font-size:13px;letter-spacing:.02em}
-  .meta b{color:var(--paper);font-weight:600}
-  button{font-family:var(--sans);cursor:pointer;border:none}
+
+  /* ---- buttons ---- */
   .btn{
-    background:var(--amber);color:#071827;font-weight:600;font-size:15px;
-    padding:15px 26px;border-radius:11px;letter-spacing:.01em;transition:transform .15s ease,filter .15s ease;
+    display:inline-flex;align-items:center;gap:.5em;
+    background:var(--amber);color:#fff;text-decoration:none;
+    font-weight:700;font-size:1.02rem;letter-spacing:.01em;
+    padding:15px 26px;border-radius:11px;border:none;cursor:pointer;
+    box-shadow:0 10px 24px -10px rgba(222,122,42,.7);
+    transition:transform .15s ease, background .15s ease;
   }
-  .btn:hover{filter:brightness(1.06);transform:translateY(-1px)}
-  .btn.ghost{background:transparent;color:var(--paper);border:1px solid var(--line)}
-  .btn:disabled{opacity:.4;cursor:not-allowed;transform:none;filter:none}
+  .btn:hover{background:var(--amber-press);transform:translateY(-2px)}
+  .btn:focus-visible{outline:3px solid var(--steel);outline-offset:3px}
 
-  /* progress */
-  .prog-wrap{display:flex;align-items:center;gap:14px;margin-bottom:26px}
-  .prog{flex:1;height:4px;background:var(--line);border-radius:99px;overflow:hidden}
-  .prog span{display:block;height:100%;width:0;background:var(--gold);border-radius:99px;transition:width .4s cubic-bezier(.4,0,.2,1)}
-  .prog-num{font-size:12px;color:var(--muted);letter-spacing:.08em;white-space:nowrap}
+  /* ---- top bar ---- */
+  .topbar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+  .top{display:flex;align-items:center;justify-content:space-between;padding:8px 0}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
+  .brand img{height:80px;width:auto;display:block;mix-blend-mode:multiply}
+  .brand-fallback{font-family:"Archivo";font-weight:800;font-size:1.05rem;letter-spacing:-.01em}
+  .brand-fallback small{display:block;font-size:.62rem;font-weight:600;letter-spacing:.16em;color:var(--steel);text-transform:uppercase}
+  @media(max-width:520px){.brand img{height:58px}}
 
-  .qdim{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);font-weight:600;margin-bottom:12px}
-  .qtext{font-family:var(--serif);font-weight:500;font-size:clamp(21px,4.4vw,26px);line-height:1.22;margin-bottom:24px;letter-spacing:-.01em}
-  .opts{display:flex;flex-direction:column;gap:11px}
-  .opt{
-    text-align:left;background:var(--ink-2);border:1px solid var(--line);color:var(--paper);
-    padding:16px 18px;border-radius:12px;font-size:15px;line-height:1.4;transition:border-color .15s,background .15s,transform .1s;
+  /* ---- hero ---- */
+  .hero{padding:40px 0 16px}
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:34px;align-items:center}
+  h1{
+    font-size:clamp(2.4rem,8.5vw,4rem);font-weight:800;line-height:1.0;
+    letter-spacing:-.025em;margin:16px 0 0;
   }
-  .opt:hover{border-color:var(--cyan);background:#0F2E4D}
-  .opt:active{transform:scale(.995)}
-  .back{margin-top:22px;background:none;color:var(--muted);font-size:13px;letter-spacing:.03em;padding:4px 0}
-  .back:hover{color:var(--paper)}
+  h1 .hot{color:var(--amber)}
+  .hero p.sub{font-size:1.18rem;color:var(--muted);margin:22px 0 0;max-width:40ch}
+  .hero p.sub b{color:var(--ink);font-weight:600}
 
-  /* result */
-  .scorewrap{display:flex;align-items:baseline;gap:6px;margin:6px 0 4px}
-  .score{font-family:var(--serif);font-size:clamp(64px,16vw,96px);font-weight:500;line-height:.9;letter-spacing:-.02em}
-  .score-max{font-family:var(--serif);font-size:26px;color:var(--muted)}
-  .tier{font-family:var(--serif);font-style:italic;font-size:clamp(22px,5vw,28px);font-weight:500;margin:14px 0 18px}
-  .bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin:18px 0 26px}
-  .bar span{display:block;height:100%;width:0;border-radius:99px;transition:width 1s cubic-bezier(.2,.7,.2,1) .2s}
-  .readout{color:var(--cream);font-size:15.5px;line-height:1.65;margin-bottom:22px}
-  .weakest{background:var(--ink-2);border:1px solid var(--line);border-left:3px solid var(--cyan);border-radius:10px;padding:16px 18px;margin-bottom:28px}
-  .weakest small{display:block;color:var(--cyan);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;margin-bottom:6px}
-  .weakest p{font-size:15px;line-height:1.45}
-  .gate-intro{color:var(--muted);font-size:14px;line-height:1.55;margin-bottom:18px}
-
-  /* form */
-  .field{margin-bottom:14px}
-  .field label{display:block;font-size:12px;letter-spacing:.04em;color:var(--muted);margin-bottom:6px}
-  .field input,.field select{
-    width:100%;background:var(--ink);border:1px solid var(--line);color:var(--paper);
-    padding:13px 14px;border-radius:10px;font-family:var(--sans);font-size:15px;
+  /* ---- hero photo (very visible) ---- */
+  .portrait{
+    justify-self:center;width:340px;max-width:86vw;height:430px;
+    border-radius:22px;object-fit:cover;object-position:50% 16%;
+    border:5px solid #fff;box-shadow:var(--shadow);background:var(--steel);
   }
-  .field input:focus,.field select:focus{outline:none;border-color:var(--cyan)}
-  .row{display:flex;gap:12px}
-  .row .field{flex:1}
-  .next-line{color:var(--muted);font-style:italic;font-family:var(--serif);font-size:16px;line-height:1.5;margin-top:10px}
+  .portrait.ph{display:flex;align-items:center;justify-content:center;color:#fff;font-family:"Archivo";font-weight:800;font-size:3rem}
 
-  .reveal{animation:rise .5s cubic-bezier(.2,.7,.2,1) both}
-  @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-  .hidden{display:none}
-  .center{text-align:center}
+  /* ---- fork ---- */
+  .section{padding:54px 0}
+  .fork-head{text-align:center}
+  .fork-head h2{font-size:clamp(1.6rem,4.5vw,2.2rem);font-weight:800;letter-spacing:-.018em;margin-top:10px}
+  .fork{display:grid;grid-template-columns:1fr;gap:18px;margin-top:34px}
+  .door{
+    display:block;text-decoration:none;color:var(--ink);
+    background:var(--card);border:1px solid var(--line);border-radius:18px;
+    padding:28px 26px;box-shadow:0 12px 34px -24px rgba(20,40,56,.45);
+    transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+    position:relative;
+  }
+  .door:hover{transform:translateY(-3px);box-shadow:0 22px 48px -26px rgba(20,40,56,.55);border-color:#c4d2d2}
+  .door:focus-visible{outline:3px solid var(--steel);outline-offset:3px}
+  .door .k{font-family:"Archivo";font-weight:800;font-size:1.32rem;letter-spacing:-.01em;line-height:1.12}
+  .door .d{color:var(--muted);margin-top:10px;font-size:1.02rem;line-height:1.5;max-width:42ch}
+  .door .arrow{color:var(--amber);font-family:"Archivo";font-weight:800;font-size:1.4rem;
+    position:absolute;top:26px;right:26px;transition:transform .16s ease}
+  .door:hover .arrow{transform:translateX(4px)}
+
+  /* ---- bio ---- */
+  .band{background:var(--ink);color:#fff}
+  .band .eyebrow{color:#8fb6cf}
+  .bio h2{font-size:clamp(1.7rem,4.5vw,2.3rem);font-weight:800;letter-spacing:-.018em;margin-top:12px;color:#fff}
+  .bio p{font-size:1.12rem;margin-top:18px;max-width:64ch;color:#cdd9e1}
+  .bio p b{color:#fff;font-weight:600}
+  .bio .cat{font-family:"Fraunces",Georgia,serif;font-style:italic}
+  .bio .cat b{color:#ffd9b0;font-style:normal;font-family:"Inter";font-weight:600}
+  .bio .name{font-family:"Archivo";font-weight:700;margin-top:24px;color:#fff;font-size:1.05rem}
+  .bio .name span{display:block;color:#9fb1bd;font-weight:500;font-family:"Inter";font-size:.95rem;line-height:1.55;margin-top:6px}
+
+  footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between;align-items:center}
+
+  /* ---- responsive ---- */
+  @media(min-width:760px){
+    .hero{padding:56px 0 24px}
+    .hero-grid{grid-template-columns:1.05fr .95fr;gap:44px}
+    .fork{grid-template-columns:1fr 1fr;gap:22px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .btn:hover,.door:hover{transform:none}
+  }
 </style>
+</head>
+<body>
 
-<div class="stage">
-  <div class="card" id="card"></div>
+<div class="topbar">
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="#top" aria-label="Persuasion First AI home">
+        <img src="logo.jpg" alt="Persuasion First AI" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="brand-fallback" style="display:none">Persuasion First<small>AI</small></span>
+      </a>
+    </div>
+  </div>
 </div>
 
-<script>
-// ===== LEAD DELIVERY — EDIT THE EMAIL BELOW =====
-// Replace REPLACE_WITH_YOUR_EMAIL with your professional inbox (e.g. amy@yourdomain.com).
-// FormSubmit emails each submission there. No backend needed; works on GitHub Pages.
-// First submission triggers a one-time activation email from FormSubmit — click it once.
-// Privacy: after activating, FormSubmit gives you a random string you can use in place of
-// your raw email, so your address isn't exposed in this public repo.
-const LEAD_ENDPOINT = "https://formsubmit.co/ajax/07ca9bef515db2a4a2b9e2adeb6228e9";
-// ================================================
-
-const DIMS = {
-  human:{label:"Human Signal", max:10},
-  depth:{label:"Strategic Depth", max:20},
-  persuasion:{label:"Persuasion Structure", max:20},
-  impact:{label:"Measured Impact", max:20},
-  system:{label:"Team System & Skill", max:30},
-};
-const WEAK = {
-  human:"Your AI output reads as machine-made. The fastest gain is teaching it to sound like a person before anything reaches a buyer.",
-  depth:"AI is being used to produce, not to think. The leverage is in using it to understand how buyers decide — not just to write faster.",
-  persuasion:"There's no persuasion structure behind the output. It leads with you, not the buyer's world. That's the layer that makes messages land.",
-  impact:"Nothing is being measured, so you can't tell if AI is helping or quietly repelling. Visibility comes before optimization.",
-  system:"AI lives in individual reps, not in the team. Without shared training and a documented system, the capability walks out the door with people.",
-};
-
-const QUESTIONS = [
-  {dim:"human", q:"When a prospect reads your team's AI-assisted outreach, could they tell it was AI-written?",
-   a:[["Almost certainly — it reads like a template",0],["Probably, if they were paying attention",3],["Rarely — we edit heavily before it goes out",7],["No — sounding human is the whole point of how we use it",10]]},
-  {dim:"depth", q:"What is your team mostly using AI for?",
-   a:[["Producing more — outreach, follow-ups, content at volume",0],["Mostly producing, with some research",3],["A mix of producing and understanding buyers",7],["Understanding more — buyer psychology, objections, strategy",10]]},
-  {dim:"depth", q:"Does anyone use AI to prep for specific high-stakes conversations — objections, stakeholders, negotiation?",
-   a:[["Never — it's a writing tool to us",0],["Rarely",3],["Sometimes, for big deals",7],["Routinely — it's how we walk in prepared",10]]},
-  {dim:"persuasion", q:"Before AI writes anything, what does it get told?",
-   a:[["Just the product or offer details",0],["The product, plus who we're sending it to",3],["Some context on the buyer's situation",7],["What the buyer actually wants and fears, first",10]]},
-  {dim:"persuasion", q:"Your team's AI output tends to lead with —",
-   a:[["Our company, product, or credentials",0],["A mix, usually us first",3],["The buyer's situation most of the time",7],["The buyer's world, always — we earn the right to talk about us",10]]},
-  {dim:"impact", q:"Where AI touches your pipeline, can you point to a metric that improved because of it?",
-   a:[["No — we adopted it but haven't measured",0],["We think so, but can't prove it",3],["Yes, one or two metrics",7],["Yes, clearly — and we know which moves did it",10]]},
-  {dim:"impact", q:"Since increasing AI-assisted outreach, what happened to your reply rates?",
-   a:[["They dropped",0],["Not sure — we don't track it that way",3],["Held steady",7],["Went up",10]]},
-  {dim:"system", q:"How standardized is AI use across your team?",
-   a:[["Totally ad hoc — every rep does their own thing",0],["Loosely — a few shared tips",3],["Mostly — shared prompts and some guidelines",7],["Fully — a documented system everyone runs",10]]},
-  {dim:"system", q:"If your best rep left tomorrow, what happens to their AI workflow?",
-   a:[["It walks out the door with them",0],["We'd lose most of it",3],["We'd keep some of it",7],["It stays — it lives in the team, not one person",10]]},
-  {dim:"system", q:"Has your team been trained on how to actually prompt AI?",
-   a:[["No — everyone figures it out themselves",0],["A little — we shared some tips",3],["Some structured training",7],["Yes — ongoing, and it's part of how we operate",10]]},
-];
-
-const TIERS = [
-  {min:0,max:40,color:"var(--low)",name:"AI is working against you.",
-   text:"A score here usually means AI is making your team faster at the wrong things. The output is going out, activity looks healthy, and buyers are quietly tuning it out. The good news: this is the most fixable score on the chart. The problem isn't effort or talent — it's that no one taught the AI the one thing that makes a message land: what the buyer actually feels.",
-   next:"If you want to see exactly where the leaks are, that's a conversation worth having."},
-  {min:41,max:70,color:"var(--mid)",name:"You're leaking trust in places.",
-   text:"You're doing real things right. AI is in the workflow and parts of it are working. But somewhere between the tool and the buyer, trust is leaking — usually one or two dimensions dragging the rest down. Teams in this band are often one adjustment from a real edge. They just can't see which one from the inside.",
-   next:"Your breakdown shows which dimension is costing you most. Worth a look."},
-  {min:71,max:100,color:"var(--high)",name:"Ahead of the market.",
-   text:"This is rare. Your team is using AI the way the best closers sell — to get more human, not less. The risk now isn't catching up. It's that the edge you've built is copyable and the market moves fast. The teams that stay ahead treat this like a system they protect and sharpen, not a box they checked.",
-   next:"If protecting that edge is on your mind, that's the conversation to have."},
-];
-
-let answers = [];   // points per question
-let idx = 0;
-const card = document.getElementById('card');
-
-function renderIntro(){
-  card.innerHTML = `
-    <div class="reveal">
-      <div class="eyebrow">Diagnostic · Sales &amp; Revenue Teams</div>
-      <h1>The AI Sales<br>Readiness <em>Score</em></h1>
-      <p class="lede">Ten questions. About six minutes. You'll get a score out of 100 and a straight read on where AI is working for your pipeline — and where it's quietly working against you.</p>
-      <div class="meta"><span><b>10</b> questions</span><span><b>~6</b> minutes</span><span><b>0–100</b> score</span></div>
-      <button class="btn" id="start">Start the diagnostic</button>
-    </div>`;
-  document.getElementById('start').onclick = ()=>{ idx=0; answers=[]; renderQuestion(); };
-}
-
-function renderQuestion(){
-  const item = QUESTIONS[idx];
-  const pct = Math.round((idx/QUESTIONS.length)*100);
-  card.innerHTML = `
-    <div class="reveal">
-      <div class="prog-wrap">
-        <div class="prog"><span style="width:${pct}%"></span></div>
-        <div class="prog-num">${idx+1} / ${QUESTIONS.length}</div>
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Persuasion-First AI</span>
+        <h1>Find them.<br>Close them.<br><span class="hot">Keep them.</span></h1>
+        <p class="sub">Every business runs on the same three moves — and most are slipping on all three, then calling it a slow season. <b>I build AI that strengthens the part the software keeps missing: the human one.</b></p>
       </div>
-      <div class="qdim">${DIMS[item.dim].label}</div>
-      <div class="qtext">${item.q}</div>
-      <div class="opts">
-        ${item.a.map((o,i)=>`<button class="opt" data-i="${i}">${o[0]}</button>`).join('')}
-      </div>
-      ${idx>0?`<button class="back" id="back">← back</button>`:``}
-    </div>`;
-  card.querySelectorAll('.opt').forEach(b=>{
-    b.onclick = ()=>{ answers[idx] = item.a[+b.dataset.i][1];
-      if(idx < QUESTIONS.length-1){ idx++; renderQuestion(); } else { renderResult(); } };
-  });
-  const back = document.getElementById('back');
-  if(back) back.onclick = ()=>{ idx--; renderQuestion(); };
-}
+      <img class="portrait" src="amy.jpg" alt="Amy Henry, founder of Persuasion First AI" onerror="this.classList.add('ph');this.removeAttribute('src');this.textContent='AH'">
+    </div>
+  </div>
+</header>
 
-function computeResult(){
-  const total = answers.reduce((s,v)=>s+v,0);
-  const dimPts = {};
-  QUESTIONS.forEach((it,i)=>{ dimPts[it.dim]=(dimPts[it.dim]||0)+answers[i]; });
-  let weakest=null, weakestPct=2;
-  for(const k in DIMS){ const p=(dimPts[k]||0)/DIMS[k].max; if(p<weakestPct){weakestPct=p;weakest=k;} }
-  const tier = TIERS.find(t=>total>=t.min && total<=t.max);
-  return {total, tier, weakest, dimPts};
-}
+<!-- FORK -->
+<section class="section">
+  <div class="wrap">
+    <div class="fork-head">
+      <span class="eyebrow">Two doors</span>
+      <h2>Start where you are.</h2>
+    </div>
+    <div class="fork">
+      <a class="door" href="services/">
+        <span class="arrow">→</span>
+        <div class="k">I run a Service Organization</div>
+        <div class="d">HVAC, plumbing, electrical, cleaning, pest control — every call, text, and lead caught, qualified, and booked before it walks to the next company.</div>
+      </a>
+      <a class="door" href="diagnostic/">
+        <span class="arrow">→</span>
+        <div class="k">I run a Corporate Sales Team</div>
+        <div class="d">AI that sells the way your best closers do — on a human level, not a louder one. See where it's quietly costing you replies and revenue.</div>
+      </a>
+    </div>
+  </div>
+</section>
 
-function renderResult(){
-  const r = computeResult();
-  card.innerHTML = `
-    <div class="reveal">
-      <div class="eyebrow">Your result</div>
-      <div class="scorewrap"><div class="score" style="color:${r.tier.color}">${r.total}</div><div class="score-max">/ 100</div></div>
-      <div class="tier" style="color:${r.tier.color}">${r.tier.name}</div>
-      <div class="bar"><span style="background:${r.tier.color}"></span></div>
-      <p class="readout">${r.tier.text}</p>
-      <div class="weakest">
-        <small>Lowest dimension · ${DIMS[r.weakest].label}</small>
-        <p>${WEAK[r.weakest]}</p>
-      </div>
-      <p class="gate-intro">Want the full breakdown — every dimension scored, plus the specific fixes for the two costing you most? I'll send it over.</p>
-      <button class="btn" id="toForm">Send me the full breakdown</button>
-    </div>`;
-  requestAnimationFrame(()=>{ const fill=card.querySelector('.bar span'); if(fill) fill.style.width=r.total+'%'; });
-  document.getElementById('toForm').onclick = ()=>renderForm(r);
-}
+<!-- BIO -->
+<section class="section band bio">
+  <div class="wrap">
+    <span class="eyebrow">Who's behind this</span>
+    <h2>I'm Amy Henry.</h2>
+    <p>I spent eight years closing deals inside Fortune 500 boardrooms and beat my quota by <b>400%</b> at the peak. Then I left to build my own companies — and learned to build with AI out of necessity. It turned into obsession fast: not with the tools, with the human underneath them. How people actually decide. What makes a message land. Why one sentence wins the customer and the next one loses them.</p>
+    <p class="cat">That overlap is rare. Most people teaching AI have never had to close. Most closers can't build. <b>I do both</b> — and I point it at the only thing every business runs on: winning customers and keeping them. I call it Persuasion-First AI.</p>
+    <p class="name">Amy Henry<span>Founder &amp; CEO, Persuasion First AI · 8 years Fortune 500 sales, 400% over quota · Georgia Institute of Technology · Atlanta, GA</span></p>
+  </div>
+</section>
 
-function renderForm(r){
-  card.innerHTML = `
-    <div class="reveal">
-      <div class="eyebrow">One step to your breakdown</div>
-      <h1 style="font-size:clamp(24px,5vw,32px)">Where should I<br>send it?</h1>
-      <div style="margin-top:24px">
-        <div class="field"><label>Name</label><input id="f_name" autocomplete="name"></div>
-        <div class="field"><label>Work email</label><input id="f_email" type="email" autocomplete="email"></div>
-        <div class="row">
-          <div class="field"><label>Company</label><input id="f_co"></div>
-          <div class="field"><label>Role</label><input id="f_role"></div>
-        </div>
-        <div class="field"><label>Sales methodology your team runs</label>
-          <select id="f_method">
-            <option value="">Select…</option>
-            <option>Challenger</option><option>Sandler</option><option>MEDDIC</option>
-            <option>SPIN</option><option>Solution Selling</option>
-            <option>None / in-house</option><option>Other</option>
-          </select>
-        </div>
-        <button class="btn" id="submit" style="width:100%;margin-top:6px">Get my breakdown</button>
-      </div>
-    </div>`;
-  document.getElementById('submit').onclick = ()=>submitLead(r);
-}
+<footer>
+  <div class="wrap">
+    <span>Persuasion First AI · Atlanta, GA</span>
+    <span>amy@persuasionfirstai.com</span>
+  </div>
+</footer>
 
-async function submitLead(r){
-  const lead = {
-    _subject: "New AI Sales Readiness lead",
-    _captcha: "false",
-    name: f_name.value.trim(), email: f_email.value.trim(),
-    company: f_co.value.trim(), role: f_role.value.trim(), methodology: f_method.value,
-    score: r.total, tier: r.tier.name, weakestDimension: DIMS[r.weakest].label,
-    dimensionBreakdown: Object.entries(r.dimPts).map(([k,v])=>`${DIMS[k].label}: ${v}/${DIMS[k].max}`).join(' · '),
-  };
-  if(!lead.email){ f_email.focus(); f_email.style.borderColor='var(--low)'; return; }
-
-  const sb = document.getElementById('submit');
-  if(sb){ sb.disabled = true; sb.textContent = 'Sending…'; }
-
-  // Delivers the lead to your inbox via FormSubmit (see LEAD_ENDPOINT at top).
-  try{
-    await fetch(LEAD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(lead)});
-  }catch(e){ /* don't trap the user if the network hiccups */ }
-
-  card.innerHTML = `
-    <div class="reveal center">
-      <div class="eyebrow">Got it</div>
-      <h1 style="font-size:clamp(26px,5.5vw,34px)">Thanks,<br><em>${lead.name? lead.name.split(' ')[0] : 'thanks'}</em>.</h1>
-      <p class="lede" style="margin:14px auto 0">I'll personally go through your answers and send your full breakdown to ${lead.email} — every dimension scored, and the two worth fixing first.</p>
-      <p class="next-line">${r.tier.next}</p>
-      <p style="margin-top:18px"><a href="about.html" style="color:var(--cyan);font-size:14px;text-decoration:none">While you wait — here's how I think about this →</a></p>
-    </div>`;
-}
-
-renderIntro();
-</script>
+</body>
+</html>
