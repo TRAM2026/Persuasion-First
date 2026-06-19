@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Persuasion First AI — Every call, text, and lead caught and booked</title>
+<meta name="description" content="For HVAC, plumbing, electrical, cleaning, and pest control. We catch every missed call and web lead, text them back in seconds, book the job, and bring your past customers back.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16212B;
+    --steel:#20567A;
+    --steel-deep:#143C56;
+    --amber:#DE7A2A;
+    --amber-press:#C56A1F;
+    --paper:#F4F6F2;
+    --card:#FFFFFF;
+    --line:#D9E0E0;
+    --muted:#566570;
+    --shadow:0 18px 50px -22px rgba(20,40,56,.40);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Inter",system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 22px}
+  h1,h2,h3,.eyebrow,.btn{font-family:"Archivo",sans-serif}
+  .serif{font-family:"Fraunces",Georgia,serif;font-style:italic}
+  .eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--steel)}
+
+  .btn{display:inline-flex;align-items:center;gap:.5em;background:var(--amber);color:#fff;text-decoration:none;
+    font-weight:700;font-size:1.02rem;letter-spacing:.01em;padding:15px 26px;border-radius:11px;border:none;cursor:pointer;
+    box-shadow:0 10px 24px -10px rgba(222,122,42,.7);transition:transform .15s ease, background .15s ease}
+  .btn:hover{background:var(--amber-press);transform:translateY(-2px)}
+  .btn:focus-visible{outline:3px solid var(--steel);outline-offset:3px}
+  .call-link{display:inline-block;margin-top:14px;color:var(--ink);font-weight:600;text-decoration:none;border-bottom:2px solid var(--amber);padding-bottom:1px}
+  .call-link span{color:var(--muted);font-weight:500;border:0}
+
+  .topbar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+  .top{display:flex;align-items:center;justify-content:space-between;padding:8px 0}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
+  .brand img{height:80px;width:auto;display:block;mix-blend-mode:multiply}
+  .brand-fallback{font-family:"Archivo";font-weight:800;font-size:1.05rem;letter-spacing:-.01em}
+  .brand-fallback small{display:block;font-size:.62rem;font-weight:600;letter-spacing:.16em;color:var(--steel);text-transform:uppercase}
+  .top .btn{padding:11px 18px;font-size:.92rem}
+  @media(max-width:520px){.brand img{height:58px}.top .btn{padding:10px 15px;font-size:.86rem}}
+
+  /* hero */
+  .hero{padding:34px 0 18px}
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:36px;align-items:center}
+  h1{font-size:clamp(2.05rem,7vw,3.45rem);font-weight:800;line-height:1.03;letter-spacing:-.02em;margin:16px 0 0}
+  h1 .hot{color:var(--amber)}
+  .hero p.sub{font-size:1.16rem;color:var(--muted);margin:20px 0 28px;max-width:40ch}
+  .hero p.sub b{color:var(--ink);font-weight:600}
+  .portrait{justify-self:center;width:330px;max-width:86vw;height:420px;border-radius:22px;object-fit:cover;
+    object-position:50% 14%;border:5px solid #fff;box-shadow:var(--shadow);background:var(--steel)}
+  .portrait.ph{display:flex;align-items:center;justify-content:center;color:#fff;font-family:"Archivo";font-weight:800;font-size:3rem}
+
+  .section{padding:56px 0}
+  .band{background:var(--ink);color:#fff}
+  .band .eyebrow{color:#8fb6cf}
+  h2{font-size:clamp(1.7rem,4.5vw,2.4rem);font-weight:800;letter-spacing:-.018em;line-height:1.08;margin-top:12px}
+  .lede{font-size:1.16rem;margin-top:20px;max-width:60ch;color:var(--muted)}
+  .band .lede{color:#c3d2dc}
+  .human{font-size:clamp(1.25rem,3.4vw,1.6rem);line-height:1.38;margin-top:24px;max-width:48ch;color:#fff}
+  .human b{font-style:normal;font-family:"Inter";font-weight:600;color:#ffd9b0}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:1fr;gap:22px;margin-top:40px}
+  .step{display:flex;gap:18px;align-items:flex-start}
+  .step .no{font-family:"Archivo";font-weight:800;font-size:1.05rem;color:#fff;background:var(--amber);
+    min-width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center}
+  .step h3{font-size:1.16rem;font-weight:700}
+  .step p{color:var(--muted);margin-top:3px}
+
+  .get{margin-top:36px;display:grid;grid-template-columns:1fr;gap:13px;max-width:58ch}
+  .get li{list-style:none;display:flex;gap:12px;align-items:flex-start;font-size:1.05rem}
+  .get .tick{color:var(--steel);font-weight:800;margin-top:1px}
+
+  /* add-on */
+  .addon{margin-top:40px;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--amber);
+    border-radius:14px;padding:24px 24px;box-shadow:0 12px 34px -26px rgba(20,40,56,.45);max-width:64ch}
+  .addon .tag{font-family:"Archivo";font-weight:800;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber)}
+  .addon h3{font-size:1.22rem;font-weight:800;margin-top:8px;letter-spacing:-.01em}
+  .addon p{color:var(--muted);margin-top:9px;font-size:1.02rem;line-height:1.5}
+
+  /* trades */
+  .trades{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .trades .chip{background:#1C2A37;color:#dfe9f0;font-family:"Archivo";font-weight:700;font-size:.95rem;
+    padding:10px 16px;border-radius:30px;border:1px solid rgba(255,255,255,.12)}
+  .routes{display:grid;grid-template-columns:1fr;gap:16px;margin-top:34px}
+  .route{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;justify-content:space-between;
+    background:#1C2A37;border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px 22px}
+  .route p{color:#cdd9e1;font-size:1.04rem;max-width:42ch}
+  .route p b{color:#fff;font-weight:600}
+  .route .go{background:var(--amber);color:#fff;text-decoration:none;font-family:"Archivo";font-weight:700;
+    font-size:.95rem;padding:11px 18px;border-radius:10px;white-space:nowrap;transition:background .15s ease}
+  .route .go:hover{background:var(--amber-press)}
+  .route .go.ghost{background:transparent;border:1.5px solid rgba(255,255,255,.4);color:#fff}
+  .route .go.ghost:hover{border-color:#fff}
+
+  /* who */
+  .who p{font-size:1.12rem;color:var(--ink);max-width:60ch}
+  .who .name{font-family:"Archivo";font-weight:700;margin-top:16px}
+  .who .name span{display:block;color:var(--muted);font-weight:500;font-family:"Inter";font-size:.95rem;line-height:1.55;margin-top:6px}
+
+  /* price + final */
+  .price-line{display:flex;flex-wrap:wrap;gap:8px 26px;align-items:baseline;margin-top:22px}
+  .price-line .big{font-family:"Archivo";font-weight:800;font-size:2rem;color:#fff;line-height:1}
+  .price-line .lbl{color:#bcccd6;font-size:.98rem}
+  .final{text-align:center}
+  .final .lede{margin:20px auto 18px;color:#c3d2dc}
+  .final .price-line{justify-content:center;margin-bottom:26px}
+  .final .btn{font-size:1.1rem;padding:17px 34px}
+
+  footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between;align-items:center}
+
+  @media(min-width:760px){
+    .hero{padding:48px 0 26px}
+    .hero-grid{grid-template-columns:1.05fr .95fr;gap:44px}
+    .steps{grid-template-columns:repeat(3,1fr);gap:30px}
+    .step{flex-direction:column;gap:14px}
+    .get{grid-template-columns:1fr 1fr;gap:13px 34px}
+    .route{flex-wrap:nowrap}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover,.route .go:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="" aria-label="Persuasion First AI home">
+        <img src="logo.jpg" alt="Persuasion First AI" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="brand-fallback" style="display:none">Persuasion First<small>AI</small></span>
+      </a>
+      <a class="btn" href="https://persuasionfirstai.zohobookings.com/#/4943760000000039045" target="_blank" rel="noopener">Book a call</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">For home service businesses</span>
+        <h1>The call you miss doesn't wait. <span class="hot">It calls the next company.</span></h1>
+        <p class="sub">HVAC, plumbing, electrical, cleaning, pest control — the job goes to whoever answers first. <b>I build the system that answers for you: every call, text, and form caught in seconds, booked onto your calendar, and your past customers brought back.</b></p>
+        <a class="btn" href="https://persuasionfirstai.zohobookings.com/#/4943760000000039045" target="_blank" rel="noopener">Book a 15-minute call →</a>
+        <a class="call-link" href="sms:+14045132822">or text Amy <span>· 404-513-2822</span></a>
+      </div>
+      <img class="portrait" src="amy2.jpg" alt="Amy Henry, founder of Persuasion First AI" onerror="this.classList.add('ph');this.removeAttribute('src');this.textContent='AH'">
+    </div>
+  </div>
+</header>
+
+<!-- PROBLEM -->
+<section class="section band">
+  <div class="wrap">
+    <span class="eyebrow">You already know this</span>
+    <h2>You can't answer the phone with both<br>hands on the job.</h2>
+    <p class="lede">Up a ladder, under a sink, between stops. It rings out — and by the time you call back, they've already booked someone else.</p>
+    <p class="human serif">It's not a hustle problem. The calls just don't wait — and right now, nothing's catching the ones you miss.</p>
+  </div>
+</section>
+
+<!-- WHAT I BUILD -->
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow">What I build</span>
+    <h2>Catch the lead. Book the job. Keep the customer.</h2>
+    <div class="steps">
+      <div class="step"><div class="no">01</div><div><h3>Catch it</h3><p>Every missed call gets a text back in seconds. Every website lead gets an instant reply. Nothing slips through while you're working.</p></div></div>
+      <div class="step"><div class="no">02</div><div><h3>Book it</h3><p>A link drops the job straight onto your calendar — no phone tag, no waiting on a callback that never comes.</p></div></div>
+      <div class="step"><div class="no">03</div><div><h3>Keep them</h3><p>I bring your dormant past customers back onto the schedule, and turn one-time jobs into repeat work and referrals.</p></div></div>
+    </div>
+
+    <ul class="get">
+      <li><span class="tick">✓</span> Instant text-back on every missed call</li>
+      <li><span class="tick">✓</span> Instant reply to every website lead</li>
+      <li><span class="tick">✓</span> A booking link that fills your calendar</li>
+      <li><span class="tick">✓</span> A win-back campaign to your old customer list</li>
+      <li><span class="tick">✓</span> Built inside your own accounts — yours, not rented</li>
+      <li><span class="tick">✓</span> Handed off with plain instructions, running in days</li>
+    </ul>
+
+    <div class="addon">
+      <div class="tag">Optional add-on</div>
+      <h3>Get found when customers ask AI, not just Google.</h3>
+      <p>More people now ask ChatGPT and Google's AI "who's the best plumber near me" instead of scrolling search results. I can set your site up so the AI names your business — not the competitor buried three pages down.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR + ROUTING -->
+<section class="section band">
+  <div class="wrap">
+    <span class="eyebrow">Who this is for</span>
+    <h2>Built for the trades that live or die by the phone.</h2>
+    <div class="trades">
+      <span class="chip">HVAC</span>
+      <span class="chip">Plumbing</span>
+      <span class="chip">Electrical</span>
+      <span class="chip">Cleaning</span>
+      <span class="chip">Pest Control</span>
+    </div>
+    <div class="routes">
+      <div class="route">
+        <p><b>Run an HVAC shop?</b> See exactly how it works, what it costs, and the guarantee.</p>
+        <a class="go" href="hvac/">See the HVAC page →</a>
+      </div>
+      <div class="route">
+        <p><b>Any other trade?</b> It's the same system, tuned to how your jobs come in. Let's talk for 15 minutes.</p>
+        <a class="go ghost" href="https://persuasionfirstai.zohobookings.com/#/4943760000000039045" target="_blank" rel="noopener">Book a call →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO BUILDS IT -->
+<section class="section who">
+  <div class="wrap">
+    <span class="eyebrow">Who builds it</span>
+    <p class="serif" style="font-size:1.22rem">I build these systems for service businesses right here in Atlanta — into your own accounts, handed off with simple instructions so it runs without me.</p>
+    <p class="name">Amy Henry<span>Founder &amp; CEO, Persuasion First AI · 15 years turning leads into clients · Local Atlanta · Georgia Institute of Technology</span></p>
+  </div>
+</section>
+
+<!-- PRICE + FINAL CTA -->
+<section class="section band final" id="book">
+  <div class="wrap">
+    <span class="eyebrow">What it costs</span>
+    <h2>One recovered job usually covers it.</h2>
+    <div class="price-line">
+      <div><span class="big">$497</span> <span class="lbl">to build &amp; install</span></div>
+      <div><span class="big">$297<span style="font-size:1rem;color:#bcccd6">/mo</span></span> <span class="lbl">to run &amp; maintain</span></div>
+    </div>
+    <p class="lede">Thirty-day guarantee — if it isn't catching jobs you'd have lost, you walk. No monthly, no hard feelings.</p>
+    <a class="btn" href="https://persuasionfirstai.zohobookings.com/#/4943760000000039045" target="_blank" rel="noopener">Book a 15-minute call →</a>
+    <p style="margin-top:16px;color:#bcccd6">or call / text <a href="tel:+14045132822" style="color:#fff;font-weight:600">404-513-2822</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Persuasion First AI · Atlanta, GA</span>
+    <span>amy@persuasionfirstai.com · 404-513-2822</span>
+  </div>
+</footer>
+
+</body>
+</html>
