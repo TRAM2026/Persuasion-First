@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Visibility for Law Firms — Persuasion First AI</title>
+<meta name="description" content="When someone injured asks AI for a lawyer, it answers with confidence — and usually with a directory, not a firm. An AI Visibility Audit shows where you appear, where directories and rivals appear instead, and how to make your firm the name AI recommends.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "AI Visibility Audit for Law Firms",
+  "provider": {"@type": "Organization", "name": "Persuasion First AI", "areaServed": "United States"},
+  "description": "A documented test of what ChatGPT, Perplexity, and Gemini say when injured people ask for a lawyer — twenty real buyer questions across every engine, showing where you appear, where directories and competitors appear instead, and the roadmap to become the firm AI recommends.",
+  "offers": {"@type": "Offer", "price": "1500", "priceCurrency": "USD"}
+}
+</script>
+<style>
+  :root{
+    --ink:#16212B;
+    --steel:#20567A;
+    --steel-deep:#143C56;
+    --amber:#DE7A2A;
+    --amber-press:#C56A1F;
+    --paper:#F4F6F2;
+    --card:#FFFFFF;
+    --line:#D9E0E0;
+    --muted:#566570;
+    --rose:#20567A;
+    --shadow:0 18px 50px -22px rgba(20,40,56,.40);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Inter",system-ui,sans-serif;color:var(--ink);background:var(--paper);
+    line-height:1.55;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{width:100%;max-width:1000px;margin:0 auto;padding:0 22px}
+  h1,h2,h3,.eyebrow,.btn{font-family:"Archivo",sans-serif}
+  .serif{font-family:"Fraunces",Georgia,serif;font-style:italic}
+  .eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--steel)}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:.5em;background:var(--amber);color:#fff;text-decoration:none;
+    font-weight:700;font-size:1.02rem;letter-spacing:.01em;padding:15px 26px;border-radius:11px;border:none;cursor:pointer;
+    box-shadow:0 10px 24px -10px rgba(222,122,42,.7);transition:transform .15s ease, background .15s ease;
+  }
+  .btn:hover{background:var(--amber-press);transform:translateY(-2px)}
+  .btn:focus-visible{outline:3px solid var(--steel);outline-offset:3px}
+
+  .topbar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+  .top{display:flex;align-items:center;justify-content:space-between;padding:8px 0}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
+  .brand img{height:70px;width:auto;display:block;mix-blend-mode:multiply}
+  .brand-fallback{font-family:"Archivo";font-weight:800;font-size:1.05rem;letter-spacing:-.01em}
+  .brand-fallback small{display:block;font-size:.62rem;font-weight:600;letter-spacing:.16em;color:var(--steel);text-transform:uppercase}
+  .backlink{font-size:.9rem;color:var(--muted);text-decoration:none;font-weight:600}
+  .backlink:hover{color:var(--ink)}
+  @media(max-width:520px){.brand img{height:52px}}
+
+  .hero{padding:52px 0 30px}
+  h1{font-size:clamp(2.1rem,6.6vw,3.3rem);font-weight:800;line-height:1.04;letter-spacing:-.025em;margin:14px 0 0;max-width:20ch}
+  h1 .hot{color:var(--amber)}
+  .hero p.sub{font-size:1.18rem;color:var(--muted);margin:20px 0 0;max-width:52ch}
+  .hero p.sub b{color:var(--ink);font-weight:600}
+  .hero .cta-row{margin-top:28px;display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center}
+  .hero .cta-note{font-size:.9rem;color:var(--muted)}
+
+  .section{padding:48px 0;border-top:1px solid var(--line)}
+  .section h2{font-size:clamp(1.5rem,4.4vw,2.15rem);font-weight:800;letter-spacing:-.018em;max-width:24ch}
+  .section .lead{font-size:1.12rem;color:var(--muted);margin-top:16px;max-width:62ch}
+  .section .lead b{color:var(--ink);font-weight:600}
+  .section p+p{margin-top:14px}
+  .q{font-family:"Fraunces",Georgia,serif;font-style:italic;color:var(--steel)}
+
+  .stat{background:var(--steel-deep);color:#fff;border-radius:18px;padding:30px 28px;margin-top:26px;box-shadow:var(--shadow)}
+  .stat .big{font-family:"Archivo";font-weight:800;font-size:clamp(2rem,6vw,3rem);letter-spacing:-.02em;color:#ffd9b0;line-height:1}
+  .stat p{color:#cfe0ec;margin-top:10px;font-size:1.06rem;max-width:56ch}
+  .stat p b{color:#fff}
+
+  .steps{display:grid;grid-template-columns:1fr;gap:16px;margin-top:26px}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px;box-shadow:0 12px 34px -24px rgba(20,40,56,.45)}
+  .step .n{font-family:"Archivo";font-weight:800;color:var(--steel);font-size:.8rem;letter-spacing:.12em}
+  .step h3{font-family:"Archivo";font-weight:800;font-size:1.12rem;margin-top:8px;letter-spacing:-.01em}
+  .step p{color:var(--muted);margin-top:8px;font-size:1rem}
+
+  .grid-mock{margin-top:26px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 12px 34px -24px rgba(20,40,56,.45)}
+  .grid-mock .gm-head{background:var(--ink);color:#fff;font-family:"Archivo";font-weight:700;font-size:.82rem;letter-spacing:.04em;padding:14px 18px}
+  .gm-row{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;border-top:1px solid var(--line);font-size:.9rem}
+  .gm-row>div{padding:12px 14px;border-left:1px solid var(--line)}
+  .gm-row>div:first-child{border-left:none;color:var(--ink);font-weight:600}
+  .gm-row .you-no{color:#b23b3b;font-weight:700}
+  .gm-row .comp{color:var(--muted);font-style:italic}
+  .gm-row .you-yes{color:#2e7d4f;font-weight:700}
+  .gm-cap{font-size:.86rem;color:var(--muted);padding:12px 16px;border-top:1px solid var(--line);background:var(--paper)}
+
+  .price{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 16px;margin-top:22px}
+  .price .amt{font-family:"Archivo";font-weight:800;font-size:2.4rem;letter-spacing:-.02em}
+  .price .when{color:var(--muted);font-size:1.05rem}
+
+  .formband{background:var(--steel-deep);color:#fff}
+  .formband .eyebrow{color:#8fb6cf}
+  .formband h2{color:#fff}
+  .form-grid{display:grid;grid-template-columns:1fr;gap:30px;margin-top:24px}
+  .formband p.lead{color:#cfe0ec}
+  .formband p.lead b{color:#fff}
+  .fd-card{background:#fff;color:var(--ink);border-radius:18px;padding:26px 24px;box-shadow:0 22px 54px -28px rgba(0,0,0,.6);align-self:start}
+  .fd-card h3{font-family:"Archivo";font-weight:800;font-size:1.15rem;letter-spacing:-.01em}
+  .fd-card .field{margin-top:12px}
+  .fd-card label{display:block;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+  .fd-card input{width:100%;background:var(--paper);border:1px solid var(--line);color:var(--ink);padding:12px 13px;border-radius:10px;font-family:inherit;font-size:1rem}
+  .fd-card input:focus{outline:none;border-color:var(--steel)}
+  .fd-card .btn{width:100%;justify-content:center;margin-top:16px}
+  .fd-note{font-size:.86rem;color:var(--muted);margin-top:12px;text-align:center}
+  .fd-thanks{font-size:1.02rem;line-height:1.5}
+
+  .bio{background:var(--ink);color:#fff}
+  .bio .eyebrow{color:#8fb6cf}
+  .bio h2{color:#fff}
+  .bio p{color:#cdd9e1;font-size:1.08rem;margin-top:16px;max-width:64ch}
+  .bio p b{color:#fff;font-weight:600}
+  .bio .name{font-family:"Archivo";font-weight:700;margin-top:22px;color:#fff}
+  .bio .name span{display:block;color:#9fb1bd;font-weight:500;font-family:"Inter";font-size:.92rem;margin-top:6px}
+
+  footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between;align-items:center}
+
+  @media(min-width:760px){
+    .steps{grid-template-columns:1fr 1fr}
+    .form-grid{grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="../" aria-label="Persuasion First AI home">
+        <img src="../logo.jpg" alt="Persuasion First AI" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="brand-fallback" style="display:none">Persuasion First<small>AI</small></span>
+      </a>
+      <a class="backlink" href="../">← All doors</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">For Personal Injury &amp; Trial Firms</span>
+    <h1>When someone injured asks AI for a lawyer, it answers with confidence. <span class="hot">Is it saying your name?</span></h1>
+    <p class="sub">Usually it isn't. It names a directory that lists seventeen hundred of you — or the mega-firm that outspends you. <b>The firms that structure their own authority get named directly.</b> That's the whole game, and there's a new front where the mega-firms haven't planted a flag yet.</p>
+    <div class="cta-row">
+      <a class="btn" href="#check">See Who's Getting Your Cases</a>
+      <span class="cta-note">Free screenshot check · sent to your inbox within 48 hours</span>
+    </div>
+  </div>
+</header>
+
+<!-- WHAT'S CHANGED -->
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow">What's changed</span>
+    <h2>The injured client stopped Googling. They started asking.</h2>
+    <p class="lead">Someone who's just been hurt is scared and looking for one trustworthy answer, fast. They no longer scroll a page of ten firms — they ask: <span class="q">"do I have a case worth taking,"</span> <span class="q">"best personal injury lawyer near me,"</span> <span class="q">"who do I call after a wreck."</span> The AI responds like a trusted friend: a couple of names, stated with total confidence.</p>
+    <p class="lead">Either your firm is one of those names, or, for that client, you're not in the room. <b>This runs on a completely different system than Google — and it's new enough that almost no firm is set up for it yet.</b></p>
+  </div>
+</section>
+
+<!-- THE PROBLEM -->
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow">The problem</span>
+    <h2>AI is quoting the middlemen — not you.</h2>
+    <p class="lead">In law, the answer layer is dominated by <b>directories</b> — Justia, Super Lawyers, Avvo, LawInfo — not firms. When someone asks AI for a lawyer, it cites the aggregator that lists seventeen hundred names, or the volume firm that bought its way to the top of every source. Named-partner boutiques with five hundred five-star reviews get skipped entirely, because the authority AI reads was never structured around them.</p>
+    <div class="stat">
+      <div class="big">One answer. One name gets the call.</div>
+      <p>Ten blue links let a client compare. An AI answer doesn't — it hands over a short list and the first callable name usually wins the case. <b>The mega-firms haven't locked this down yet.</b> The answer slot only holds a few names, and the firms that claim it first are the hardest to displace, because AI reinforces the sources it already trusts.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THE AUDIT -->
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow">The fix</span>
+    <h2>The AI Visibility Audit</h2>
+    <p class="lead">A documented test of what ChatGPT, Perplexity, and Gemini <b>actually say</b> when an injured person asks for a lawyer in your market. Not a theory — real buyer questions, every engine, on the record.</p>
+    <div class="steps">
+      <div class="step"><div class="n">01 · THE TEST</div><h3>Twenty real client questions</h3><p>The exact questions injured people ask — discovery, "do I have a case," firm-vs-firm comparison, and trust queries — phrased the way a real person types them, run across every major engine.</p></div>
+      <div class="step"><div class="n">02 · THE RESULTS</div><h3>Where you appear — and who appears instead</h3><p>A query-by-engine grid: your firm where it's cited, blank where it's invisible, and the directory or rival firm named in every cell where they got recommended in your place.</p></div>
+      <div class="step"><div class="n">03 · THE DIAGNOSIS</div><h3>Why the directories are beating you</h3><p>The three-to-five real reasons AI cites middlemen over your firm — entity consistency, answer-structured content, third-party citations, schema — each explained in two plain sentences.</p></div>
+      <div class="step"><div class="n">04 · THE ROADMAP</div><h3>A 30/60/90-day plan to flip it</h3><p>Prioritized and specific enough to prove the path is real. Whether you build it or I do, you leave knowing exactly what it takes to make AI name your firm instead of a directory.</p></div>
+    </div>
+
+    <div class="grid-mock" aria-label="Example results grid">
+      <div class="gm-head">Example results grid — "best injury lawyer near me"</div>
+      <div class="gm-row"><div>Query</div><div>ChatGPT</div><div>Perplexity</div><div>Gemini</div></div>
+      <div class="gm-row"><div>Best injury lawyer near me</div><div class="you-no">— your firm —</div><div class="comp">Directory</div><div class="comp">Mega-firm</div></div>
+      <div class="gm-row"><div>Do I have a case worth taking</div><div class="comp">Directory</div><div class="you-no">— your firm —</div><div class="comp">Directory</div></div>
+      <div class="gm-row"><div>Top trial lawyer in your county</div><div class="comp">Rival firm</div><div class="comp">Directory</div><div class="you-no">— your firm —</div></div>
+      <div class="gm-cap">Nothing you say on a sales call lands harder than a directory's name printed where yours should be, fourteen times over.</div>
+    </div>
+
+    <div class="price">
+      <span class="amt">$1,500</span>
+      <span class="when">delivered in one week · the audit is yours to keep either way</span>
+    </div>
+  </div>
+</section>
+
+<!-- NOT SEO -->
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow">Already have a marketing firm?</span>
+    <h2>Keep them. This isn't SEO.</h2>
+    <p class="lead">Your marketing firm gets you ranked on Google. This is about what AI assistants <b>say</b> when someone asks them directly — a different system, a different fix, and most legal-marketing shops haven't touched it yet. The audit will show you whether their work is carrying into AI answers at all. Usually, it isn't.</p>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="section formband" id="check">
+  <div class="wrap">
+    <span class="eyebrow">Start here</span>
+    <h2>See who's getting your cases</h2>
+    <div class="form-grid">
+      <div>
+        <p class="lead">Tell me your firm and market, and I'll run the questions injured clients actually ask through ChatGPT, Perplexity, and Gemini. <b>You'll get the screenshots — including the directories and firms being recommended instead of you — sent to your inbox within 48 hours.</b> No cost, no call required to see it.</p>
+      </div>
+      <div class="fd-card" id="fd-card">
+        <h3>Free screenshot check</h3>
+        <div class="field"><label for="v_name">Name</label><input id="v_name" autocomplete="name"></div>
+        <div class="field"><label for="v_business">Firm name</label><input id="v_business"></div>
+        <div class="field"><label for="v_city">City</label><input id="v_city" autocomplete="address-level2"></div>
+        <div class="field"><label for="v_email">Email</label><input id="v_email" type="email" autocomplete="email"></div>
+        <button class="btn" id="v_submit" type="button">See Who's Getting Your Cases</button>
+        <p class="fd-note">Free screenshot check, sent to your inbox within 48 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BIO -->
+<section class="section bio">
+  <div class="wrap">
+    <span class="eyebrow">Who's behind this</span>
+    <h2>I'm Amy Henry.</h2>
+    <p>I spent eight years closing deals with small and medium size businesses at American Express, beating my quota by <b>150% – 400%</b> at the peak — then left to build my own companies with AI. The obsession was never the tools. It was the human underneath them: how people decide, what makes a message land, why one sentence wins the client and the next one loses them.</p>
+    <p><b>These days that sentence is increasingly being written by an AI assistant — and I make sure it includes my clients' names.</b></p>
+    <p class="name">Amy Henry<span>Founder &amp; CEO, Persuasion First AI · Atlanta, GA · works nationwide</span></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Persuasion First AI · Atlanta, GA</span>
+    <span>amy@persuasionfirstai.com</span>
+  </div>
+</footer>
+
+<script>
+// Lead form → delivered to Amy's inbox via FormSubmit (no backend; works on GitHub Pages).
+const VIS_ENDPOINT = "https://formsubmit.co/ajax/07ca9bef515db2a4a2b9e2adeb6228e9";
+document.getElementById('v_submit').addEventListener('click', async function(){
+  const name = document.getElementById('v_name').value.trim();
+  const business = document.getElementById('v_business').value.trim();
+  const city = document.getElementById('v_city').value.trim();
+  const email = document.getElementById('v_email').value.trim();
+  const emailEl = document.getElementById('v_email');
+  if(!email){ emailEl.focus(); emailEl.style.borderColor = 'var(--amber)'; return; }
+  const btn = this; btn.disabled = true; btn.textContent = 'Sending…';
+  try{
+    await fetch(VIS_ENDPOINT, {
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({_subject:"New AI Visibility check — Law Firm", _captcha:"false", vertical:"Law Firm", name, business, city, email})
+    });
+  }catch(e){ /* don't trap the user on a network hiccup */ }
+  document.getElementById('fd-card').innerHTML =
+    '<h3>Got it' + (name ? ', ' + name.split(' ')[0] : '') + '.</h3>' +
+    '<p class="fd-thanks" style="margin-top:12px">I\'ll personally run ' +
+    (business ? '<b>' + business.replace(/</g,'&lt;') + '</b>' : 'your firm') +
+    ' through ChatGPT, Perplexity, and Gemini and send the screenshots to ' +
+    '<b>' + email.replace(/</g,'&lt;') + '</b> within 48 hours — including who\'s being recommended instead.</p>';
+});
+</script>
+
+</body>
+</html>
