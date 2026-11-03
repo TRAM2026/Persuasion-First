@@ -194,6 +194,12 @@
   .door.has-img .arrow{top:auto;bottom:22px}
   .door-img.photo{display:flex;border-width:0 0 1px}
   .tile.dark{background:rgba(255,255,255,.05);border-color:rgba(201,164,76,.25)}
+
+  .topbar{background:#0B0B0B !important;border-bottom:2px solid var(--amber) !important}
+  .top{padding:18px 0 !important;justify-content:center !important}
+  .wordmark{font-family:"Archivo",sans-serif;font-weight:800;font-size:clamp(1.3rem,4vw,2rem);letter-spacing:.12em;color:#fff}
+  .wordmark span{color:var(--amber)}
+  @media(min-width:760px){.fork{grid-template-columns:repeat(3,1fr) !important}}
   footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
   footer .wrap{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between;align-items:center}
 
@@ -215,10 +221,7 @@
 <div class="topbar">
   <div class="wrap">
     <div class="top">
-      <a class="brand" href="#top" aria-label="Persuasion First AI home">
-        <img src="logo.jpg" alt="Persuasion First AI" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-        <span class="brand-fallback" style="display:none">Persuasion First<small>AI</small></span>
-      </a>
+      <a class="brand" href="#top" aria-label="Persuasion First AI home"><span class="wordmark">PERSUASION FIRST <span>AI</span></span></a>
     </div>
   </div>
 </div>
@@ -291,9 +294,8 @@
     </div>
     <div class="fork">
       <a class="door has-img" href="services/"><img class="door-img" src="img/home-services.jpg" alt="HVAC, plumbing, and electrical technicians at work"><span class="arrow">→</span><div class="k">Home services</div><div class="d">HVAC, plumbing, electrical, cleaning, pest control. The 9pm no-AC call that goes to whoever answers.</div></a>
-      <a class="door has-img" href="medispa/"><div class="photo door-img" data-slot="medspa"><span>Med spa photo</span></div><span class="arrow">→</span><div class="k">Med spas and wellness</div><div class="d">The consult request that sits unanswered all weekend.</div></a>
-      <a class="door has-img" href="lawyer/"><div class="photo door-img" data-slot="law"><span>Law firm photo</span></div><span class="arrow">→</span><div class="k">Law firms</div><div class="d">The injured caller who signs with the first firm that picks up.</div></a>
-      <a class="door has-img" href="diagnostic/"><div class="photo door-img" data-slot="sales"><span>Sales team photo</span></div><span class="arrow">→</span><div class="k">Sales teams</div><div class="d">See where your messages are quietly costing you replies.</div></a>
+      <a class="door has-img" href="medispa/"><img class="door-img" src="img/med-spa.jpg" alt="Med spa treatment rooms and front desk"><span class="arrow">→</span><div class="k">Med spas and wellness</div><div class="d">The consult request that sits unanswered all weekend.</div></a>
+      <a class="door has-img" href="lawyer/"><img class="door-img" src="img/law-firm.jpg" alt="Law firm reception, library, and client meeting"><span class="arrow">→</span><div class="k">Law firms</div><div class="d">The injured caller who signs with the first firm that picks up.</div></a>
     </div>
   </div>
 </section>
