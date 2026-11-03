@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Persuasion First AI — Stop losing the job to whoever answered first</title>
-<meta name="description" content="For Atlanta HVAC shops. We catch every missed call and web lead, text them back in seconds, and book the job onto your calendar.">
+<title>HVAC Companies | Persuasion First AI</title>
+<meta name="description" content="Get found, get picked, and never miss a call. Free visibility audit, landing pages, and after-hours AI answering for HVAC, plumbing, electrical, cleaning, and pest control.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#16212B;
-    --steel:#20567A;
-    --steel-deep:#143C56;
-    --amber:#DE7A2A;
-    --amber-press:#C56A1F;
-    --paper:#F4F6F2;
+    --ink:#121212;
+    --steel:#5E6872;
+    --steel-deep:#2C3238;
+    --amber:#C9A44C;
+    --amber-press:#B08C38;
+    --paper:#F6F5F2;
     --card:#FFFFFF;
-    --line:#D9E0E0;
-    --muted:#566570;
+    --line:#DCDDDF;
+    --muted:#5A6067;
     --shadow:0 18px 50px -22px rgba(20,40,56,.40);
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -31,7 +31,7 @@
     -webkit-font-smoothing:antialiased;
   }
   .wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 22px}
-  h1,h2,h3,.eyebrow,.btn,.stat-num{font-family:"Archivo",sans-serif}
+  h1,h2,h3,.eyebrow,.btn{font-family:"Archivo",sans-serif}
   .serif{font-family:"Fraunces",Georgia,serif;font-style:italic}
 
   .eyebrow{
@@ -42,19 +42,14 @@
   /* ---- buttons ---- */
   .btn{
     display:inline-flex;align-items:center;gap:.5em;
-    background:var(--amber);color:#fff;text-decoration:none;
+    background:var(--amber);color:#121212;text-decoration:none;
     font-weight:700;font-size:1.02rem;letter-spacing:.01em;
     padding:15px 26px;border-radius:11px;border:none;cursor:pointer;
-    box-shadow:0 10px 24px -10px rgba(222,122,42,.7);
+    box-shadow:0 10px 24px -10px rgba(201,164,76,.6);
     transition:transform .15s ease, background .15s ease;
   }
   .btn:hover{background:var(--amber-press);transform:translateY(-2px)}
   .btn:focus-visible{outline:3px solid var(--steel);outline-offset:3px}
-  .call-link{
-    display:inline-block;margin-top:14px;color:var(--ink);font-weight:600;
-    text-decoration:none;border-bottom:2px solid var(--amber);padding-bottom:1px;
-  }
-  .call-link span{color:var(--muted);font-weight:500;border:0}
 
   /* ---- top bar ---- */
   .topbar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
@@ -63,134 +58,195 @@
   .brand img{height:80px;width:auto;display:block;mix-blend-mode:multiply}
   .brand-fallback{font-family:"Archivo";font-weight:800;font-size:1.05rem;letter-spacing:-.01em}
   .brand-fallback small{display:block;font-size:.62rem;font-weight:600;letter-spacing:.16em;color:var(--steel);text-transform:uppercase}
-  .top .btn{padding:11px 18px;font-size:.92rem}
-  @media(max-width:520px){.brand img{height:60px}.top .btn{padding:10px 15px;font-size:.86rem}}
+  @media(max-width:520px){.brand img{height:58px}}
 
   /* ---- hero ---- */
-  .hero{padding:34px 0 60px}
-  .hero-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+  .hero{padding:40px 0 16px}
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:34px;align-items:center}
   h1{
-    font-size:clamp(2.05rem,7vw,3.5rem);font-weight:800;line-height:1.02;
-    letter-spacing:-.02em;margin:16px 0 0;
+    font-size:clamp(2.4rem,8.5vw,4rem);font-weight:800;line-height:1.0;
+    letter-spacing:-.025em;margin:16px 0 0;
   }
   h1 .hot{color:var(--amber)}
-  .hero p.sub{font-size:1.16rem;color:var(--muted);margin:20px 0 28px;max-width:34ch}
+  .hero p.sub{font-size:1.18rem;color:var(--muted);margin:22px 0 0;max-width:40ch}
   .hero p.sub b{color:var(--ink);font-weight:600}
 
-  /* ---- phone / sms signature ---- */
-  .phone{
-    justify-self:center;width:300px;max-width:88vw;
-    background:var(--ink);border-radius:36px;padding:13px;
-    box-shadow:var(--shadow);position:relative;
+  /* ---- hero photo (very visible) ---- */
+  .portrait{
+    justify-self:center;width:340px;max-width:86vw;height:430px;
+    border-radius:22px;object-fit:cover;object-position:50% 16%;
+    border:5px solid #fff;box-shadow:var(--shadow);background:var(--steel);
   }
-  .phone::before{content:"";position:absolute;top:20px;left:50%;transform:translateX(-50%);
-    width:96px;height:7px;background:#0c141b;border-radius:5px}
-  .screen{background:#EDF1F4;border-radius:26px;padding:34px 14px 18px;min-height:430px;display:flex;flex-direction:column;gap:10px}
-  .sms-head{text-align:center;font-size:.78rem;color:var(--muted);margin-bottom:4px}
-  .sms-head b{display:block;color:var(--ink);font-size:.95rem;font-family:"Archivo";font-weight:700}
-  .chip{align-self:center;background:#dfe5ea;color:#48555f;font-size:.72rem;font-weight:600;
-    padding:5px 12px;border-radius:20px;display:flex;align-items:center;gap:6px}
-  .chip.booked{background:#1f7a4d;color:#fff}
-  .bub{max-width:80%;padding:10px 14px;border-radius:18px;font-size:.9rem;line-height:1.4}
-  .bub.them{align-self:flex-start;background:#fff;color:var(--ink);border-bottom-left-radius:5px;box-shadow:0 1px 2px rgba(0,0,0,.06)}
-  .bub.us{align-self:flex-end;background:var(--steel);color:#fff;border-bottom-right-radius:5px}
-  .bub .booklink{display:inline-block;margin-top:7px;background:rgba(255,255,255,.18);
-    border:1px solid rgba(255,255,255,.5);color:#fff;font-weight:600;font-size:.82rem;
-    padding:6px 12px;border-radius:8px}
-  /* reveal animation */
-  #phone.anim .reveal>*{opacity:0;transform:translateY(10px)}
-  #phone.anim.play .reveal>*{animation:pop .45s ease forwards}
-  .play .reveal>*:nth-child(1){animation-delay:.15s}
-  .play .reveal>*:nth-child(2){animation-delay:.7s}
-  .play .reveal>*:nth-child(3){animation-delay:1.3s}
-  .play .reveal>*:nth-child(4){animation-delay:1.9s}
-  .play .reveal>*:nth-child(5){animation-delay:2.5s}
-  .play .reveal>*:nth-child(6){animation-delay:3.1s}
-  @keyframes pop{to{opacity:1;transform:translateY(0)}}
+  .portrait.ph{display:flex;align-items:center;justify-content:center;color:#fff;font-family:"Archivo";font-weight:800;font-size:3rem}
 
-  /* ---- problem ---- */
-  .section{padding:58px 0}
+  /* ---- fork ---- */
+  .section{padding:54px 0}
+  .fork-head{text-align:center}
+  .fork-head h2{font-size:clamp(1.6rem,4.5vw,2.2rem);font-weight:800;letter-spacing:-.018em;margin-top:10px}
+  .fork{display:grid;grid-template-columns:1fr;gap:18px;margin-top:34px}
+  .door{
+    display:block;text-decoration:none;color:var(--ink);
+    background:var(--card);border:1px solid var(--line);border-radius:18px;
+    padding:28px 26px;box-shadow:0 12px 34px -24px rgba(20,40,56,.45);
+    transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+    position:relative;
+  }
+  .door:hover{transform:translateY(-3px);box-shadow:0 22px 48px -26px rgba(20,40,56,.55);border-color:#c4d2d2}
+  .door:focus-visible{outline:3px solid var(--steel);outline-offset:3px}
+  .door .k{font-family:"Archivo";font-weight:800;font-size:1.32rem;letter-spacing:-.01em;line-height:1.12}
+  .door .d{color:var(--muted);margin-top:10px;font-size:1.02rem;line-height:1.5;max-width:42ch}
+  .door .arrow{color:var(--amber);font-family:"Archivo";font-weight:800;font-size:1.4rem;
+    position:absolute;top:26px;right:26px;transition:transform .16s ease}
+  .door:hover .arrow{transform:translateX(4px)}
+
+  /* ---- bio ---- */
   .band{background:var(--ink);color:#fff}
-  .band .eyebrow{color:#8fb6cf}
-  h2{font-size:clamp(1.7rem,4.5vw,2.4rem);font-weight:800;letter-spacing:-.018em;line-height:1.08;margin-top:12px}
-  .lede{font-size:1.16rem;margin-top:20px;max-width:60ch;color:var(--muted)}
-  .band .lede{color:#c3d2dc}
-  .human{font-size:clamp(1.3rem,3.6vw,1.7rem);line-height:1.35;margin-top:26px;max-width:46ch;color:#fff}
-  .human b{font-style:normal;font-family:"Inter";font-weight:600;color:#ffd9b0}
+  .band .eyebrow{color:var(--amber)}
+  .bio h2{font-size:clamp(1.7rem,4.5vw,2.3rem);font-weight:800;letter-spacing:-.018em;margin-top:12px;color:#fff}
+  .bio p{font-size:1.12rem;margin-top:18px;max-width:64ch;color:#C9CCD0}
+  .bio p b{color:#fff;font-weight:600}
+  .bio .cat{font-family:"Fraunces",Georgia,serif;font-style:italic}
+  .bio .cat b{color:#ffd9b0;font-style:normal;font-family:"Inter";font-weight:600}
+  .bio .name{font-family:"Archivo";font-weight:700;margin-top:24px;color:#fff;font-size:1.05rem}
+  .bio .name span{display:block;color:#9fb1bd;font-weight:500;font-family:"Inter";font-size:.95rem;line-height:1.55;margin-top:6px}
 
-  /* ---- pain points ---- */
-  .pain-grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:36px}
-  .pain-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 22px;box-shadow:0 12px 34px -24px rgba(20,40,56,.45)}
-  .pain-when{font-family:"Archivo";font-weight:800;font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;color:var(--amber);margin-bottom:10px}
-  .pain-card p{color:var(--ink);font-size:1.02rem;line-height:1.5}
-  .pain-punch{font-family:"Fraunces",Georgia,serif;font-style:italic;font-size:clamp(1.22rem,3vw,1.55rem);line-height:1.42;margin-top:36px;max-width:60ch;color:var(--ink)}
-  .pain-punch b{font-style:normal;font-family:"Inter";font-weight:700;color:var(--steel-deep)}
+  /* ---- new front door ---- */
+  .frontdoor{background:var(--steel-deep);border-top:3px solid var(--amber);color:#fff}
+  .frontdoor .eyebrow{color:var(--amber)}
+  .frontdoor h2{font-size:clamp(1.6rem,4.4vw,2.2rem);font-weight:800;letter-spacing:-.018em;margin-top:12px;color:#fff;max-width:22ch}
+  .frontdoor .fd-grid{display:grid;grid-template-columns:1fr;gap:34px;margin-top:26px}
+  .frontdoor p{font-size:1.1rem;margin-top:16px;max-width:60ch;color:#C9CCD0}
+  .frontdoor p b{color:#fff;font-weight:600}
+  .frontdoor p .q{color:#ffd9b0;font-style:italic;font-family:"Fraunces",Georgia,serif}
+  .fd-card{
+    background:#fff;color:var(--ink);border-radius:18px;padding:26px 24px;
+    box-shadow:0 22px 54px -28px rgba(0,0,0,.6);align-self:start;
+  }
+  .fd-card h3{font-family:"Archivo";font-weight:800;font-size:1.15rem;letter-spacing:-.01em}
+  .fd-card .field{margin-top:12px}
+  .fd-card label{display:block;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+  .fd-card input{
+    width:100%;background:var(--paper);border:1px solid var(--line);color:var(--ink);
+    padding:12px 13px;border-radius:10px;font-family:inherit;font-size:1rem;
+  }
+  .fd-card input:focus{outline:none;border-color:var(--steel)}
+  .fd-card .btn{width:100%;justify-content:center;margin-top:16px}
+  .fd-note{font-size:.86rem;color:var(--muted);margin-top:12px;text-align:center}
+  .fd-thanks{font-size:1.02rem;line-height:1.5}
+  .fd-thanks b{font-weight:700}
 
-  /* ---- cost of loss ---- */
-  .loss-grid{display:grid;grid-template-columns:1fr;gap:1px;background:rgba(255,255,255,.12);
-    border:1px solid rgba(255,255,255,.14);border-radius:16px;overflow:hidden;margin-top:34px}
-  .loss-card{background:#1C2A37;padding:26px 24px}
-  .loss-num{font-family:"Archivo";font-weight:800;font-size:2rem;color:var(--amber);line-height:1.05}
-  .loss-num span{font-size:1rem;color:#9fb1bd;font-weight:600}
-  .loss-card p{margin-top:9px;color:#bcccd6;font-size:.97rem;line-height:1.45}
 
-  /* ---- how it works ---- */
-  .steps{display:grid;grid-template-columns:1fr;gap:22px;margin-top:40px}
-  .step{display:flex;gap:18px;align-items:flex-start}
-  .step .no{font-family:"Archivo";font-weight:800;font-size:1.05rem;color:#fff;background:var(--amber);
-    min-width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center}
-  .step h3{font-size:1.16rem;font-weight:700}
-  .step p{color:var(--muted);margin-top:3px}
+  .hero-cta{margin-top:30px}
+  .cta-note{font-size:.95rem;color:var(--muted);margin-top:12px;max-width:46ch}
+  .hero h1{max-width:16ch}
+  .grid3{display:grid;grid-template-columns:1fr;gap:18px;margin-top:34px}
+  .tile{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 24px}
+  .tile .num{font-family:"Archivo";font-weight:800;color:#9A7A2C;font-size:.9rem;letter-spacing:.1em}
+  .tile .k{font-family:"Archivo";font-weight:800;font-size:1.25rem;line-height:1.15;margin-top:8px}
+  .tile .d{color:var(--muted);margin-top:10px;font-size:1.02rem}
+  .tile.dark{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14)}
+  .tile.dark .k{color:#fff}.tile.dark .d{color:#C9CCD0}
+  .band .band-h{font-size:clamp(1.6rem,4.5vw,2.2rem);font-weight:800;letter-spacing:-.018em;margin-top:10px;color:#fff}
+  .steps{list-style:none;counter-reset:s;max-width:640px;margin:34px auto 0;display:grid;gap:14px}
+  .steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px 18px 64px;position:relative;font-size:1.05rem}
+  .steps li::before{content:counter(s);position:absolute;left:20px;top:16px;width:30px;height:30px;border-radius:50%;background:var(--amber);color:#121212;font-family:"Archivo";font-weight:800;display:flex;align-items:center;justify-content:center}
+  .soft{background:#ECEDEE}
+  @media(min-width:760px){.grid3{grid-template-columns:repeat(3,1fr)}}
 
-  /* ---- get list ---- */
-  .get{margin-top:34px;display:grid;grid-template-columns:1fr;gap:13px;max-width:58ch}
-  .get li{list-style:none;display:flex;gap:12px;align-items:flex-start;font-size:1.05rem}
-  .get .tick{color:var(--steel);font-weight:800;margin-top:1px}
+  .photo{background:repeating-linear-gradient(45deg,#E4E5E7,#E4E5E7 12px,#EDEEEF 12px,#EDEEEF 24px);border:1px dashed #B9BCC0;display:flex;align-items:center;justify-content:center;color:var(--muted);font-family:"Archivo";font-weight:600;font-size:.9rem}
+  .hero-photo{border-radius:20px;min-height:340px}
+  .door.has-img{padding:0;overflow:hidden}
+  .door.has-img .k,.door.has-img .d{padding:0 24px}
+  .door.has-img .k{padding-top:20px}.door.has-img .d{padding-bottom:22px}
+  .door-img{display:block;width:100%;height:190px;object-fit:cover;border:0;border-bottom:1px solid var(--line)}
+  .door.has-img .arrow{top:auto;bottom:22px}
+  .door-img.photo{display:flex;border-width:0 0 1px}
+  .tile.dark{background:rgba(255,255,255,.05);border-color:rgba(201,164,76,.25)}
 
-  /* ---- price ---- */
-  .price-card{background:var(--card);border:1px solid var(--line);border-radius:20px;
-    padding:36px 30px;box-shadow:var(--shadow);max-width:560px;margin-top:36px}
-  .price-row{display:flex;flex-wrap:wrap;gap:10px 34px;align-items:baseline}
-  .price-row .big{font-family:"Archivo";font-weight:800;font-size:2.5rem;color:var(--ink);line-height:1}
-  .price-row .lbl{color:var(--muted);font-size:.98rem}
-  .price-note{margin-top:18px;color:var(--muted)}
-  .guarantee{display:flex;gap:13px;align-items:flex-start;margin-top:22px;padding-top:22px;border-top:1px solid var(--line)}
-  .guarantee .seal{min-width:46px;height:46px;border-radius:50%;background:#eaf4ee;color:#1f7a4d;
-    display:flex;align-items:center;justify-content:center;font-weight:800;font-family:"Archivo"}
-  .guarantee b{font-weight:700}
-  .guarantee p{color:var(--muted);margin-top:2px}
-
-  /* ---- who ---- */
-  .who{display:grid;grid-template-columns:1fr;gap:26px;align-items:center;justify-items:center;text-align:center}
-  .who .photo{width:208px;height:296px;border-radius:18px;object-fit:cover;object-position:50% 14%;border:4px solid #fff;box-shadow:var(--shadow);background:var(--steel)}
-  .who .photo.ph{display:flex;align-items:center;justify-content:center;color:#fff;font-family:"Archivo";font-weight:800;font-size:2.4rem}
-  .who p{font-size:1.12rem;color:var(--ink);max-width:56ch}
-  .who .name{font-family:"Archivo";font-weight:700;margin-top:14px}
-  .who .name span{display:block;color:#C5CFD6;font-weight:500;font-family:"Inter";font-size:.95rem;line-height:1.55;margin-top:6px}
-
-  /* ---- final cta ---- */
-  .final{text-align:center}
-  .final .lede{margin:20px auto 30px}
-  .final .btn{font-size:1.1rem;padding:17px 34px}
-
+  .topbar{background:#0B0B0B !important;border-bottom:2px solid var(--amber) !important}
+  .top{padding:18px 0 !important;justify-content:center !important}
+  .wordmark{font-family:"Archivo",sans-serif;font-weight:800;font-size:clamp(1.3rem,4vw,2rem);letter-spacing:.12em;color:#fff}
+  .wordmark span{color:var(--amber)}
+  @media(min-width:760px){.fork{grid-template-columns:repeat(3,1fr) !important}}
   footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
   footer .wrap{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between;align-items:center}
 
   /* ---- responsive ---- */
   @media(min-width:760px){
-    .hero-grid{grid-template-columns:1.05fr .95fr;gap:30px}
-    .pain-grid{grid-template-columns:repeat(3,1fr)}
-    .loss-grid{grid-template-columns:repeat(3,1fr)}
-    .steps{grid-template-columns:repeat(3,1fr);gap:30px}
-    .step{flex-direction:column;gap:14px}
-    .who{grid-template-columns:auto 1fr;gap:40px;justify-items:start;text-align:left}
-    .get{grid-template-columns:1fr 1fr;gap:13px 34px}
+    .hero{padding:56px 0 24px}
+    .hero-grid{grid-template-columns:1.05fr .95fr;gap:44px}
+    .fork{grid-template-columns:1fr 1fr;gap:22px}
+    .frontdoor .fd-grid{grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
   }
   @media(prefers-reduced-motion:reduce){
-    .reveal>*{opacity:1!important;transform:none!important;animation:none!important}
     html{scroll-behavior:auto}
-    .btn:hover{transform:none}
+    .btn:hover,.door:hover{transform:none}
   }
+
+  /* ===== premium dark + metallic gold ===== */
+  :root{--gold-metal:linear-gradient(100deg,#8C6A22 0%,#E9CE7A 22%,#FFF3C4 38%,#C9A44C 55%,#7A5A1A 72%,#E3C46E 100%)}
+  body{background:radial-gradient(1200px 600px at 75% -10%,rgba(120,150,190,.18),transparent 60%),linear-gradient(180deg,#141A22 0%,#0E1217 40%,#11161D 100%);color:#E8EAED}
+  .eyebrow{color:#C9A44C !important}
+  h1,h2{color:#F3F4F6}
+  .hot,.wordmark span{background:var(--gold-metal);-webkit-background-clip:text;background-clip:text;color:transparent !important;filter:drop-shadow(0 2px 12px rgba(201,164,76,.35))}
+  .wordmark{color:#F3F4F6}
+  .topbar{background:linear-gradient(180deg,#000,#0A0C0F) !important;border-bottom:1px solid transparent !important;border-image:var(--gold-metal) 1 !important;box-shadow:0 8px 30px -10px rgba(201,164,76,.25)}
+  .hero p.sub,.cta-note,.tile .d,.door .d,.fd-note{color:#A9B0B8 !important}
+  .hero p.sub b{color:#fff}
+  .btn{background:var(--gold-metal) !important;background-size:200% 100% !important;color:#141414 !important;border:1px solid rgba(255,236,170,.5);box-shadow:0 0 0 1px rgba(0,0,0,.4),0 10px 30px -8px rgba(201,164,76,.55),inset 0 1px 0 rgba(255,255,255,.5) !important;transition:background-position .6s ease,transform .15s ease}
+  .btn:hover{background-position:100% 0 !important}
+  .hero-photo{-webkit-box-reflect:below 6px linear-gradient(transparent 70%,rgba(255,255,255,.18));box-shadow:0 30px 80px -30px rgba(120,160,210,.45),0 0 0 1px rgba(201,164,76,.35)}
+  .photo{background:linear-gradient(135deg,#1C232C,#2A323C);border:1px solid rgba(201,164,76,.3);color:#8A929B}
+  .tile,.door,.steps li{background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02)) !important;border:1px solid rgba(201,164,76,.22) !important;box-shadow:0 20px 50px -30px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.06) !important;color:#E8EAED}
+  .tile .k,.door .k{color:#F3F4F6 !important}
+  .tile .num{color:#E3C46E !important}
+  .door:hover,.tile:hover{border-color:rgba(233,206,122,.6) !important;box-shadow:0 0 30px -6px rgba(201,164,76,.35) !important}
+  .door-img{border-bottom:1px solid rgba(201,164,76,.3) !important;-webkit-mask-image:linear-gradient(#000 80%,rgba(0,0,0,.85))}
+  .steps li::before{background:var(--gold-metal) !important;color:#141414 !important}
+  .band{background:linear-gradient(180deg,#07090C,#0F141A) !important;border-top:1px solid rgba(201,164,76,.2);border-bottom:1px solid rgba(201,164,76,.2)}
+  .soft{background:radial-gradient(900px 400px at 50% 0,rgba(201,164,76,.08),transparent 70%),#10151B !important}
+  .frontdoor{background:radial-gradient(800px 400px at 20% 100%,rgba(201,164,76,.12),transparent 70%),linear-gradient(180deg,#1A212A,#0E1217) !important;border-top:1px solid rgba(201,164,76,.4) !important}
+  .frontdoor p{color:#B7BDC4}
+  .fd-card{background:linear-gradient(160deg,#1E252E,#141A21) !important;color:#E8EAED !important;border:1px solid rgba(201,164,76,.35);box-shadow:0 30px 80px -30px rgba(0,0,0,.9),0 0 40px -15px rgba(201,164,76,.3) !important}
+  .fd-card h3{color:#F3F4F6}
+  .fd-card input{background:#0E1217 !important;border:1px solid #2E3741 !important;color:#E8EAED !important}
+  .fd-card input:focus{border-color:#C9A44C !important}
+  .fd-card label{color:#9AA2AB !important}
+  footer{background:#07090C;border-top:1px solid rgba(201,164,76,.25) !important;color:#8A929B !important}
+  .section{position:relative}
+  .hero-img{width:100%;height:auto;display:block;min-height:0}
+  .brand{display:flex;align-items:center;gap:14px}
+  .brand img.badge{mix-blend-mode:normal;width:64px;height:64px;}
+  .badge{width:52px;height:52px;border-radius:50%;filter:drop-shadow(0 0 10px rgba(201,164,76,.45))}
+  .foot-brand{display:flex;align-items:center;gap:12px}
+  .foot-badge{width:64px;height:64px}
+  @media(max-width:520px){.badge{width:40px;height:40px}}
+  .gold{color:#E3C46E;font-weight:600}
+  .addon{max-width:640px;margin:18px auto 0;padding:16px 20px;border:1px dashed rgba(201,164,76,.45);border-radius:14px;color:#C9CCD0;font-size:1rem}
+  .pill{display:inline-block;background:var(--gold-metal);color:#141414;font-family:"Archivo";font-weight:800;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:999px;margin-right:8px;vertical-align:middle}
+  .cost-grid{display:grid;grid-template-columns:1fr;gap:28px;margin-top:34px;align-items:center}
+  .calc{background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(201,164,76,.35);border-radius:18px;padding:10px 24px 18px;box-shadow:0 0 40px -16px rgba(201,164,76,.35)}
+  .calc .row{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.08);color:#B7BDC4}
+  .calc .row b{color:#F3F4F6;font-family:"Archivo";text-align:right}
+  .calc .row:last-of-type{border-bottom:0}
+  .calc .row:last-of-type b{background:var(--gold-metal);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.45rem}
+  .calc-note{font-size:.82rem;color:#7F8790;margin-top:6px}
+  .cost-copy .big{font-size:1.25rem;line-height:1.5;color:#E8EAED}
+  .named{margin-top:22px;padding:18px 20px;border-left:3px solid #C9A44C;background:rgba(201,164,76,.06);border-radius:0 12px 12px 0}
+  .named p{color:#C9CCD0;margin-top:8px}
+  .assess{background:radial-gradient(900px 420px at 50% 0,rgba(201,164,76,.10),transparent 70%),#0B0E12;border-top:1px solid rgba(201,164,76,.25);border-bottom:1px solid rgba(201,164,76,.25)}
+  .assess-sub{color:#A9B0B8;max-width:58ch;margin:14px auto 0;font-size:1.08rem}
+  .deliv{display:grid;grid-template-columns:1fr;gap:16px;margin-top:36px}
+  .dv{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.015));border:1px solid rgba(201,164,76,.22);border-radius:16px;padding:22px}
+  .dv .dn{font-family:"Archivo";font-weight:800;font-size:.85rem;letter-spacing:.1em;background:var(--gold-metal);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .dv .k{font-family:"Archivo";font-weight:800;font-size:1.08rem;color:#F3F4F6;margin-top:6px}
+  .dv .d{color:#A9B0B8;font-size:.95rem;margin-top:8px}
+  .nobrainer{display:grid;grid-template-columns:1fr;gap:14px;margin-top:30px}
+  .nobrainer div{border:1px solid rgba(201,164,76,.5);border-radius:14px;padding:18px 20px;background:rgba(201,164,76,.07)}
+  .nobrainer b{display:block;font-family:"Archivo";color:#E3C46E;font-size:1.05rem}
+  .nobrainer span{color:#C9CCD0;font-size:.95rem}
+  .assess-cta{text-align:center;margin-top:30px}
+  @media(min-width:760px){.cost-grid{grid-template-columns:1fr 1fr;gap:44px}.deliv{grid-template-columns:repeat(4,1fr)}.nobrainer{grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
 <body>
@@ -198,184 +254,176 @@
 <div class="topbar">
   <div class="wrap">
     <div class="top">
-      <a class="brand" href="#top" aria-label="Persuasion First AI home">
-        <img src="../logo.jpg" alt="Persuasion First AI" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-        <span class="brand-fallback" style="display:none">Persuasion First<small>AI · for HVAC</small></span>
-      </a>
-      <a class="btn" href="https://persuasionfirstai.zohobookings.com/#/4943760000000039045" target="_blank" rel="noopener">Book a call</a>
+      <a class="brand" href="../" aria-label="Persuasion First AI home"><img class="badge" src="../img/logo-badge.png" alt=""><span class="wordmark">PERSUASION FIRST <span>AI</span></span></a>
     </div>
   </div>
 </div>
 
-<!-- HERO -->
 <header class="hero" id="top">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <span class="eyebrow">For Atlanta HVAC shops</span>
-        <h1>Stop losing the job to whoever <span class="hot">answered first.</span></h1>
-        <p class="sub">When a call rings out, it doesn't leave a voicemail — it dials the next company. <b>We catch every missed call and web lead, text them back in seconds, and book the job onto your calendar.</b></p>
-        <a class="btn" href="https://persuasionfirstai.zohobookings.com/#/4943760000000039045" target="_blank" rel="noopener">Book a 15-minute call →</a>
-        <a class="call-link" href="sms:+14045132822">or text Amy <span>· 404-513-2822</span></a>
-      </div>
-
-      <!-- SIGNATURE: the text-back, playing out -->
-      <div class="phone" id="phone">
-        <div class="screen">
-          <div class="sms-head"><b>Northside Heating &amp; Air</b>Text message · just now</div>
-          <div class="reveal" style="display:flex;flex-direction:column;gap:10px">
-            <div class="chip">📞 Missed call · 7:42 PM</div>
-            <div class="bub us">Hey, this is Northside Heating &amp; Air — sorry we missed you, we're on a job. Want us to grab you a spot today?</div>
-            <div class="bub them">Yes please — AC's out and it's 96° in here 🥵</div>
-            <div class="bub us">Got you. Here's our next opening:<a class="booklink" href="https://persuasionfirstai.zohobookings.com/#/4943760000000039045" target="_blank" rel="noopener">Tomorrow, 8:00 AM →</a></div>
-            <div class="bub them">Perfect, book it 🙏</div>
-            <div class="chip booked">✓ Booked — Tomorrow 8:00 AM</div>
-          </div>
-        </div>
-      </div>
+  <div class="wrap hero-grid">
+    <div>
+    <span class="eyebrow">AC · Heating · Replacements · Maintenance</span>
+    <h1>The AC dies at 9pm. <span class="hot">Your phone should ring.</span></h1>
+    <p class="sub">Homeowners with a dead system call the first company they find and book the first one that answers. The ones pricing a new system go quiet after your quote. You lose both, and you never see it. <b>We fix that.</b></p>
+    <div class="hero-cta">
+      <a class="btn" href="#audit">Get my free visibility audit</a>
+      <p class="cta-note">See how you show up on Google and in AI search, and who's getting picked instead of you.</p>
     </div>
+    </div>
+    <img class="hero-photo hero-img" src="../img/hvac.jpg" alt="HVAC technicians servicing an AC unit, a furnace, and a thermostat">
   </div>
 </header>
 
-<!-- PROBLEM -->
-<section class="section band">
-  <div class="wrap">
-    <span class="eyebrow">You already know this</span>
-    <h2>The call comes in while you're<br>on the job.</h2>
-    <p class="lede">Up on a roof. Under a unit. Driving between stops. It rings out — and by the time you check your phone, the job's already booked with someone else.</p>
-    <p class="human serif">Nobody can be elbow-deep in a condenser and answer the phone at the same time. <b>It's not a hustle problem.</b> The calls just don't wait — and right now, nothing catches them.</p>
-  </div>
-</section>
-
-<!-- PAIN POINTS -->
-<section class="section" style="padding-top:46px">
-  <div class="wrap">
-    <span class="eyebrow">You know exactly how this happens</span>
-    <h2>The phone never rings at a good time.</h2>
-    <div class="pain-grid">
-      <div class="pain-card">
-        <div class="pain-when">After hours</div>
-        <p>It's 9 PM, a system just died, and the house is already getting hot. Your phone's charging in the other room. They're scrolling to the next name before you ever hear it.</p>
-      </div>
-      <div class="pain-card">
-        <div class="pain-when">Lunch &amp; drive time</div>
-        <p>Noon rush, or you're between jobs with both hands on the wheel. The call rings out. You see it an hour later — they booked someone forty minutes ago.</p>
-      </div>
-      <div class="pain-card">
-        <div class="pain-when">Every line's tied up</div>
-        <p>One person, three calls at once. Two get answered. The third hears ringing, then nothing — and quietly moves on.</p>
-      </div>
-    </div>
-    <p class="pain-punch">Here's the truth: your customer doesn't care who gets there first — they just want the heat fixed. <b>You're the one who has to care.</b> Because miss that first call and you don't lose one job. You lose every tune-up, every repair, every referral that customer would have sent you for years. You lose them for life.</p>
-  </div>
-</section>
-
-<!-- HOW -->
 <section class="section">
   <div class="wrap">
-    <span class="eyebrow">Here's what gets fixed</span>
-    <h2>Three steps. It runs itself.</h2>
-    <div class="steps">
-      <div class="step"><div class="no">01</div><div><h3>A call comes in</h3><p>You can't grab it — you're on the job. After hours, weekend, doesn't matter.</p></div></div>
-      <div class="step"><div class="no">02</div><div><h3>We text them back</h3><p>Within seconds, with a friendly message and a link to book a time right then.</p></div></div>
-      <div class="step"><div class="no">03</div><div><h3>The job lands on your calendar</h3><p>Instead of your competitor's. You just show up and do the work.</p></div></div>
+    <div class="fork-head">
+      <span class="eyebrow">Where customers slip away</span>
+      <h2>Where your HVAC jobs are going.</h2>
     </div>
-
-    <ul class="get">
-      <li><span class="tick">✓</span> Instant text-back on every missed call</li>
-      <li><span class="tick">✓</span> Instant response to every website lead</li>
-      <li><span class="tick">✓</span> A booking link that drops jobs onto your calendar</li>
-      <li><span class="tick">✓</span> Built inside your own accounts — it's yours, not rented</li>
-      <li><span class="tick">✓</span> Handed to you with plain instructions</li>
-      <li><span class="tick">✓</span> Up and running in days, not months</li>
-    </ul>
+    <div class="grid3">
+      <div class="tile"><span class="num">01</span><div class="k">They search and don't see you.</div><div class="d">"AC not cooling near me." Google and ChatGPT name a few companies. If you are not one of them, the call goes somewhere else.</div></div>
+      <div class="tile"><span class="num">02</span><div class="k">Your replacement quote went quiet.</div><div class="d">One follow-up, then nothing. The $9,000 system goes to whoever called back.</div></div>
+      <div class="tile"><span class="num">03</span><div class="k">They call after hours and get voicemail.</div><div class="d">Nobody leaves a message when the house is 88 degrees. They dial the next company.</div></div>
+    </div>
   </div>
 </section>
 
-<!-- COST OF LOSS -->
-<section class="section band">
+<!-- COST -->
+<section class="section cost">
   <div class="wrap">
-    <span class="eyebrow">The cost of a missed call</span>
-    <h2>You already paid for your phone to ring.</h2>
-    <p class="lede">You spend real money to make that phone ring — Google, mailers, ValPak, the truck wraps, the yard signs. When it rings out, that money's already gone, and the job walks out with it.</p>
-    <div class="loss-grid">
-      <div class="loss-card"><div class="loss-num">$80–$150</div><p>What a single call costs you to earn — across ads, mailers, and ValPak</p></div>
-      <div class="loss-card"><div class="loss-num">$300–$600</div><p>The repair that walks — and a new system runs $6,000 and up</p></div>
-      <div class="loss-card"><div class="loss-num">$2,500–$10,000</div><p>What one loyal customer is worth over the years you'll never get back</p></div>
+    <div class="fork-head">
+      <span class="eyebrow">The math nobody shows you</span>
+      <h2>What one missed call really costs you.</h2>
     </div>
-    <p class="human serif">A dozen missed calls a month costs a shop around <b>$3,900</b> — gone to whoever picked up first. And a customer lost that way is usually gone for good.</p>
-  </div>
-</section>
-
-<!-- PRICE -->
-<section class="section" style="padding-top:0">
-  <div class="wrap">
-    <span class="eyebrow">What it costs</span>
-    <h2>One recovered repair covers it.</h2>
-    <div class="price-card">
-      <div class="price-row">
-        <div><div class="big">$497</div><div class="lbl">to build &amp; install</div></div>
-        <div><div class="big">$297<span style="font-size:1rem;color:var(--muted)">/mo</span></div><div class="lbl">to run &amp; maintain</div></div>
+    <div class="cost-grid">
+      <div class="calc">
+        <div class="row"><span>Average repair call</span><b>$450</b></div><div class="row"><span>After-hours calls missed a week</span><b>3</b></div><div class="row"><span>Ones you would have booked</span><b>Half</b></div><div class="row"><span>Lost every month on repairs alone</span><b>$2,700</b></div>
+        <p class="calc-note">Example numbers. In the assessment, we run this with yours.</p>
       </div>
-      <p class="price-note">Everything after that first recovered job is revenue you were already losing.</p>
-      <div class="guarantee">
-        <div class="seal">30</div>
-        <div><b>Thirty days.</b><p>If it isn't catching leads you'd have lost, you walk — no monthly, no hard feelings.</p></div>
+      <div class="cost-copy">
+        <p class="big">Now add the caller who needed a new system. That is a $9,000 job that went to the shop that answered, plus every tune-up and referral that customer would have brought you for years.</p>
+        <div class="named"><span class="pill">Not named</span><p>When a homeowner asks ChatGPT or Google "who should I call for AC repair," it names a few companies. If you are not one of them, you lose every one of those calls, and it never shows up in your numbers.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHO -->
 <section class="section band">
   <div class="wrap">
-    <div class="who">
-      <img class="photo" src="../amy.jpg" alt="Amy Henry" onerror="this.classList.add('ph');this.removeAttribute('src');this.textContent='AH'">
+    <span class="eyebrow">What we build</span>
+    <h2 class="band-h">What we fix.</h2>
+    <div class="grid3">
+      <div class="tile dark"><div class="k">Get found</div><div class="d">We fix your listings on Google, Bing, Yelp, Facebook, and the other sites AI reads, and set up automatic review requests after every job.</div></div>
+      <div class="tile dark"><div class="k">A landing page that books</div><div class="d">One clear page each for repairs, replacements, and tune-ups. Phone number up top, real reviews, financing, and a reason to call now.</div></div>
+      <div class="tile dark"><div class="k"><span class="pill">Add-on</span><br>After-hours AI answering</div><div class="d">Every call and text answered in seconds, day or night. It asks the right questions, books the job, and texts you the details.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="fork-head">
+      <span class="eyebrow">How it works</span>
+      <h2>From free audit to fixed, in about a month.</h2>
+    </div>
+    <ol class="steps">
+      <li><b>Free audit. 48 hours.</b> Screenshots of where you show up on Google and in AI search, and who shows up instead of you.</li>
+      <li><b>Full assessment. $1,500, 7 days.</b> We run 20 real customer searches across Google, ChatGPT, Perplexity, and Gemini, check your listings and reviews against your top competitors, and call and message you the way a real customer would, after hours included. You get a dollar figure for what you're missing, a written fix plan, and a 45-minute walkthrough. <span class="gold">The $1,500 comes off your build if you move forward within 30 days.</span></li>
+      <li><b>10-day build.</b> We fix your listings everywhere Google and AI look, set up automatic review requests, and rewrite your website and service pages so the right customer picks up the phone. Built in your own accounts and handed off with a short video and a one-page guide.</li>
+      <li><b>Day 30 check.</b> We rerun the same searches and show you the before and after.</li>
+    </ol>
+    <p class="addon"><span class="pill">Add-on</span> After-hours AI answering. Every call and text answered and booked, nights and weekends, so the leads your new pages bring in don't go to voicemail.</p>
+  </div>
+</section>
+
+<!-- ASSESSMENT -->
+<section class="section assess">
+  <div class="wrap">
+    <div class="fork-head">
+      <span class="eyebrow">The full assessment · $1,500</span>
+      <h2>Everything costing you customers, found and priced in 7 days.</h2>
+      <p class="assess-sub">This is not a sales call dressed up as a report. You walk away with the full picture and a plan, whether you hire us or not.</p>
+    </div>
+    <div class="deliv">
+      <div class="dv"><span class="dn">01</span><div class="k">20-search visibility test</div><div class="d">The real questions your customers ask, run in Google, the Map Pack, ChatGPT, Perplexity, and Gemini. Who gets named, every time.</div></div>
+      <div class="dv"><span class="dn">02</span><div class="k">Competitor breakdown</div><div class="d">Your top 3 competitors side by side. Why AI picks them, and exactly what they have that you don't.</div></div>
+      <div class="dv"><span class="dn">03</span><div class="k">Listings and reviews check</div><div class="d">Every site Google and AI read. Wrong phone numbers, missing listings, old hours, and unanswered reviews, all flagged.</div></div>
+      <div class="dv"><span class="dn">04</span><div class="k">Customer test calls</div><div class="d">We call and message you like a real customer, day, night, and weekend. You hear the recordings and see how long they waited.</div></div>
+      <div class="dv"><span class="dn">05</span><div class="k">Website teardown</div><div class="d">What a customer sees on their phone in the first five seconds, and a rewritten headline and call to action you can use right away.</div></div>
+      <div class="dv"><span class="dn">06</span><div class="k">Your opportunity number</div><div class="d">What fixing each leak is worth, figured with your own job values, call volume, open estimates, and margin.</div></div>
+      <div class="dv"><span class="dn">07</span><div class="k">90-day fix plan</div><div class="d">Every fix, ranked by how much money it brings back. What you can do yourself and what we would build.</div></div>
+      <div class="dv"><span class="dn">08</span><div class="k">45-minute walkthrough</div><div class="d">We go through every finding together, play the calls, and answer every question.</div></div>
+    </div>
+    <div class="nobrainer">
+      <div><b>Pays for itself with one job.</b><span>One customer you would have lost covers the whole cost.</span></div>
+      <div><b>Credited to your build.</b><span>Move forward within 30 days and the $1,500 comes off.</span></div>
+      <div><b>Yours to keep.</b><span>The report, recordings, and plan are yours, even if you never hire us.</span></div>
+    </div>
+    <div class="assess-cta"><a class="btn" href="#audit">Start with the free audit</a></div>
+  </div>
+</section>
+
+<section class="section frontdoor" id="audit">
+  <div class="wrap">
+    <div class="fd-grid">
       <div>
-        <span class="eyebrow">Who builds it</span>
-        <p style="color:#fff" class="serif" >I build these systems for service businesses right here in Atlanta — into your own accounts, handed off with simple instructions so it runs without me.</p>
-        <p class="name" style="color:#fff">Amy Henry<span>CEO of Persuasion First AI · 15 years of turning leads into clients · AI Automation Expert · Local Atlanta connection · Georgia Institute of Technology graduate</span></p>
+        <span class="eyebrow">Free visibility audit</span>
+        <h2>Find out who's getting the HVAC calls you should be getting.</h2>
+        <p>We search for your company the way a homeowner does, on Google and in ChatGPT, Perplexity, and Gemini. You get screenshots of what comes up, which shops show up instead of you, and the first thing to fix.</p>
+        <p><b>No call required. No pitch in your inbox.</b></p>
+      </div>
+      <div class="fd-card" id="fd-card">
+        <h3>Get my free audit</h3>
+        <div class="field"><label for="v_name">Name</label><input id="v_name" autocomplete="name"></div>
+        <div class="field"><label for="v_business">Company</label><input id="v_business"></div>
+        <div class="field"><label for="v_city">City</label><input id="v_city" autocomplete="address-level2"></div>
+        <div class="field"><label for="v_email">Email</label><input id="v_email" type="email" autocomplete="email"></div>
+        <button class="btn" id="v_submit" type="button">Send my audit</button>
+        <p class="fd-note">Delivered to your inbox within 48 hours.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="section final" id="book">
-  <div class="wrap">
-    <span class="eyebrow">Let's talk</span>
-    <h2>See what your shop is missing.</h2>
-    <p class="lede">Fifteen minutes. I'll show you the calls slipping through right now and what they're worth. If it fits, the rest is easy.</p>
-    <!-- Live booking: Zoho Bookings 15-minute call -->
-    <a class="btn" href="https://persuasionfirstai.zohobookings.com/#/4943760000000039045" target="_blank" rel="noopener">Book a 15-minute call →</a>
-    <p style="margin-top:16px;color:var(--muted)">or call / text <a href="tel:+14045132822" style="color:var(--ink);font-weight:600">404-513-2822</a></p>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <span>Persuasion First AI · Atlanta, GA</span>
-    <span>amy@persuasionfirstai.com · 404-513-2822</span>
+    <span class="foot-brand"><img class="badge foot-badge" src="../img/logo-badge.png" alt="Persuasion First AI logo">Persuasion First AI · Atlanta, GA</span>
+    <span>amy@persuasionfirstai.com</span>
   </div>
 </footer>
 
 <script>
-  // Play the text-back thread when the phone scrolls into view.
-  // Bubbles are visible by default; we only hide+animate when JS + motion are available.
-  (function(){
-    var phone = document.getElementById('phone');
-    if(!phone) return;
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(reduce) return;                 // leave the thread fully visible
-    phone.classList.add('anim');       // engage the hidden start state
-    function play(){ phone.classList.add('play'); }
-    if('IntersectionObserver' in window){
-      var io = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){ if(e.isIntersecting){ play(); io.unobserve(phone);} });
-      },{threshold:.35});
-      io.observe(phone);
-    } else { play(); }
-  })();
+// AI Visibility lead form → delivered to Amy's inbox via FormSubmit (no backend; works on GitHub Pages).
+// Uses the same activated endpoint as the diagnostic tool.
+const VIS_ENDPOINT = "https://formsubmit.co/ajax/07ca9bef515db2a4a2b9e2adeb6228e9";
+document.getElementById('v_submit').addEventListener('click', async function(){
+  const name = document.getElementById('v_name').value.trim();
+  const business = document.getElementById('v_business').value.trim();
+  const city = document.getElementById('v_city').value.trim();
+  const email = document.getElementById('v_email').value.trim();
+  const emailEl = document.getElementById('v_email');
+  if(!email){ emailEl.focus(); emailEl.style.borderColor = 'var(--amber)'; return; }
+  const btn = this;
+  btn.disabled = true; btn.textContent = 'Sending…';
+  try{
+    await fetch(VIS_ENDPOINT, {
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({
+        _subject:"HVAC audit request",
+        _captcha:"false",
+        name, business, city, email
+      })
+    });
+  }catch(e){ /* don't trap the user on a network hiccup */ }
+  document.getElementById('fd-card').innerHTML =
+    '<h3>Got it' + (name ? ', ' + name.split(' ')[0] : '') + '.</h3>' +
+    '<p class="fd-thanks" style="margin-top:12px">We\'ll run ' +
+    (business ? '<b>' + business.replace(/</g,'&lt;') + '</b>' : 'your business') +
+    ' through Google, ChatGPT, Perplexity, and Gemini and send the screenshots to ' +
+    '<b>' + (email.replace(/</g,'&lt;')) + '</b> within 48 hours, including who\'s showing up instead.</p>';
+});
 </script>
+
 </body>
 </html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Residential Cleaning Companies | Persuasion First AI</title>
+<meta name="description" content="Get found, get picked, and never miss a call. Free visibility audit, landing pages, and after-hours AI answering for HVAC, plumbing, electrical, cleaning, and pest control.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#121212;
+    --steel:#5E6872;
+    --steel-deep:#2C3238;
+    --amber:#C9A44C;
+    --amber-press:#B08C38;
+    --paper:#F6F5F2;
+    --card:#FFFFFF;
+    --line:#DCDDDF;
+    --muted:#5A6067;
+    --shadow:0 18px 50px -22px rgba(20,40,56,.40);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Inter",system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 22px}
+  h1,h2,h3,.eyebrow,.btn{font-family:"Archivo",sans-serif}
+  .serif{font-family:"Fraunces",Georgia,serif;font-style:italic}
+
+  .eyebrow{
+    font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--steel);
+  }
+
+  /* ---- buttons ---- */
+  .btn{
+    display:inline-flex;align-items:center;gap:.5em;
+    background:var(--amber);color:#121212;text-decoration:none;
+    font-weight:700;font-size:1.02rem;letter-spacing:.01em;
+    padding:15px 26px;border-radius:11px;border:none;cursor:pointer;
+    box-shadow:0 10px 24px -10px rgba(201,164,76,.6);
+    transition:transform .15s ease, background .15s ease;
+  }
+  .btn:hover{background:var(--amber-press);transform:translateY(-2px)}
+  .btn:focus-visible{outline:3px solid var(--steel);outline-offset:3px}
+
+  /* ---- top bar ---- */
+  .topbar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+  .top{display:flex;align-items:center;justify-content:space-between;padding:8px 0}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
+  .brand img{height:80px;width:auto;display:block;mix-blend-mode:multiply}
+  .brand-fallback{font-family:"Archivo";font-weight:800;font-size:1.05rem;letter-spacing:-.01em}
+  .brand-fallback small{display:block;font-size:.62rem;font-weight:600;letter-spacing:.16em;color:var(--steel);text-transform:uppercase}
+  @media(max-width:520px){.brand img{height:58px}}
+
+  /* ---- hero ---- */
+  .hero{padding:40px 0 16px}
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:34px;align-items:center}
+  h1{
+    font-size:clamp(2.4rem,8.5vw,4rem);font-weight:800;line-height:1.0;
+    letter-spacing:-.025em;margin:16px 0 0;
+  }
+  h1 .hot{color:var(--amber)}
+  .hero p.sub{font-size:1.18rem;color:var(--muted);margin:22px 0 0;max-width:40ch}
+  .hero p.sub b{color:var(--ink);font-weight:600}
+
+  /* ---- hero photo (very visible) ---- */
+  .portrait{
+    justify-self:center;width:340px;max-width:86vw;height:430px;
+    border-radius:22px;object-fit:cover;object-position:50% 16%;
+    border:5px solid #fff;box-shadow:var(--shadow);background:var(--steel);
+  }
+  .portrait.ph{display:flex;align-items:center;justify-content:center;color:#fff;font-family:"Archivo";font-weight:800;font-size:3rem}
+
+  /* ---- fork ---- */
+  .section{padding:54px 0}
+  .fork-head{text-align:center}
+  .fork-head h2{font-size:clamp(1.6rem,4.5vw,2.2rem);font-weight:800;letter-spacing:-.018em;margin-top:10px}
+  .fork{display:grid;grid-template-columns:1fr;gap:18px;margin-top:34px}
+  .door{
+    display:block;text-decoration:none;color:var(--ink);
+    background:var(--card);border:1px solid var(--line);border-radius:18px;
+    padding:28px 26px;box-shadow:0 12px 34px -24px rgba(20,40,56,.45);
+    transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+    position:relative;
+  }
+  .door:hover{transform:translateY(-3px);box-shadow:0 22px 48px -26px rgba(20,40,56,.55);border-color:#c4d2d2}
+  .door:focus-visible{outline:3px solid var(--steel);outline-offset:3px}
+  .door .k{font-family:"Archivo";font-weight:800;font-size:1.32rem;letter-spacing:-.01em;line-height:1.12}
+  .door .d{color:var(--muted);margin-top:10px;font-size:1.02rem;line-height:1.5;max-width:42ch}
+  .door .arrow{color:var(--amber);font-family:"Archivo";font-weight:800;font-size:1.4rem;
+    position:absolute;top:26px;right:26px;transition:transform .16s ease}
+  .door:hover .arrow{transform:translateX(4px)}
+
+  /* ---- bio ---- */
+  .band{background:var(--ink);color:#fff}
+  .band .eyebrow{color:var(--amber)}
+  .bio h2{font-size:clamp(1.7rem,4.5vw,2.3rem);font-weight:800;letter-spacing:-.018em;margin-top:12px;color:#fff}
+  .bio p{font-size:1.12rem;margin-top:18px;max-width:64ch;color:#C9CCD0}
+  .bio p b{color:#fff;font-weight:600}
+  .bio .cat{font-family:"Fraunces",Georgia,serif;font-style:italic}
+  .bio .cat b{color:#ffd9b0;font-style:normal;font-family:"Inter";font-weight:600}
+  .bio .name{font-family:"Archivo";font-weight:700;margin-top:24px;color:#fff;font-size:1.05rem}
+  .bio .name span{display:block;color:#9fb1bd;font-weight:500;font-family:"Inter";font-size:.95rem;line-height:1.55;margin-top:6px}
+
+  /* ---- new front door ---- */
+  .frontdoor{background:var(--steel-deep);border-top:3px solid var(--amber);color:#fff}
+  .frontdoor .eyebrow{color:var(--amber)}
+  .frontdoor h2{font-size:clamp(1.6rem,4.4vw,2.2rem);font-weight:800;letter-spacing:-.018em;margin-top:12px;color:#fff;max-width:22ch}
+  .frontdoor .fd-grid{display:grid;grid-template-columns:1fr;gap:34px;margin-top:26px}
+  .frontdoor p{font-size:1.1rem;margin-top:16px;max-width:60ch;color:#C9CCD0}
+  .frontdoor p b{color:#fff;font-weight:600}
+  .frontdoor p .q{color:#ffd9b0;font-style:italic;font-family:"Fraunces",Georgia,serif}
+  .fd-card{
+    background:#fff;color:var(--ink);border-radius:18px;padding:26px 24px;
+    box-shadow:0 22px 54px -28px rgba(0,0,0,.6);align-self:start;
+  }
+  .fd-card h3{font-family:"Archivo";font-weight:800;font-size:1.15rem;letter-spacing:-.01em}
+  .fd-card .field{margin-top:12px}
+  .fd-card label{display:block;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+  .fd-card input{
+    width:100%;background:var(--paper);border:1px solid var(--line);color:var(--ink);
+    padding:12px 13px;border-radius:10px;font-family:inherit;font-size:1rem;
+  }
+  .fd-card input:focus{outline:none;border-color:var(--steel)}
+  .fd-card .btn{width:100%;justify-content:center;margin-top:16px}
+  .fd-note{font-size:.86rem;color:var(--muted);margin-top:12px;text-align:center}
+  .fd-thanks{font-size:1.02rem;line-height:1.5}
+  .fd-thanks b{font-weight:700}
+
+
+  .hero-cta{margin-top:30px}
+  .cta-note{font-size:.95rem;color:var(--muted);margin-top:12px;max-width:46ch}
+  .hero h1{max-width:16ch}
+  .grid3{display:grid;grid-template-columns:1fr;gap:18px;margin-top:34px}
+  .tile{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 24px}
+  .tile .num{font-family:"Archivo";font-weight:800;color:#9A7A2C;font-size:.9rem;letter-spacing:.1em}
+  .tile .k{font-family:"Archivo";font-weight:800;font-size:1.25rem;line-height:1.15;margin-top:8px}
+  .tile .d{color:var(--muted);margin-top:10px;font-size:1.02rem}
+  .tile.dark{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14)}
+  .tile.dark .k{color:#fff}.tile.dark .d{color:#C9CCD0}
+  .band .band-h{font-size:clamp(1.6rem,4.5vw,2.2rem);font-weight:800;letter-spacing:-.018em;margin-top:10px;color:#fff}
+  .steps{list-style:none;counter-reset:s;max-width:640px;margin:34px auto 0;display:grid;gap:14px}
+  .steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px 18px 64px;position:relative;font-size:1.05rem}
+  .steps li::before{content:counter(s);position:absolute;left:20px;top:16px;width:30px;height:30px;border-radius:50%;background:var(--amber);color:#121212;font-family:"Archivo";font-weight:800;display:flex;align-items:center;justify-content:center}
+  .soft{background:#ECEDEE}
+  @media(min-width:760px){.grid3{grid-template-columns:repeat(3,1fr)}}
+
+  .photo{background:repeating-linear-gradient(45deg,#E4E5E7,#E4E5E7 12px,#EDEEEF 12px,#EDEEEF 24px);border:1px dashed #B9BCC0;display:flex;align-items:center;justify-content:center;color:var(--muted);font-family:"Archivo";font-weight:600;font-size:.9rem}
+  .hero-photo{border-radius:20px;min-height:340px}
+  .door.has-img{padding:0;overflow:hidden}
+  .door.has-img .k,.door.has-img .d{padding:0 24px}
+  .door.has-img .k{padding-top:20px}.door.has-img .d{padding-bottom:22px}
+  .door-img{display:block;width:100%;height:190px;object-fit:cover;border:0;border-bottom:1px solid var(--line)}
+  .door.has-img .arrow{top:auto;bottom:22px}
+  .door-img.photo{display:flex;border-width:0 0 1px}
+  .tile.dark{background:rgba(255,255,255,.05);border-color:rgba(201,164,76,.25)}
+
+  .topbar{background:#0B0B0B !important;border-bottom:2px solid var(--amber) !important}
+  .top{padding:18px 0 !important;justify-content:center !important}
+  .wordmark{font-family:"Archivo",sans-serif;font-weight:800;font-size:clamp(1.3rem,4vw,2rem);letter-spacing:.12em;color:#fff}
+  .wordmark span{color:var(--amber)}
+  @media(min-width:760px){.fork{grid-template-columns:repeat(3,1fr) !important}}
+  footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between;align-items:center}
+
+  /* ---- responsive ---- */
+  @media(min-width:760px){
+    .hero{padding:56px 0 24px}
+    .hero-grid{grid-template-columns:1.05fr .95fr;gap:44px}
+    .fork{grid-template-columns:1fr 1fr;gap:22px}
+    .frontdoor .fd-grid{grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+  }
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .btn:hover,.door:hover{transform:none}
+  }
+
+  /* ===== premium dark + metallic gold ===== */
+  :root{--gold-metal:linear-gradient(100deg,#8C6A22 0%,#E9CE7A 22%,#FFF3C4 38%,#C9A44C 55%,#7A5A1A 72%,#E3C46E 100%)}
+  body{background:radial-gradient(1200px 600px at 75% -10%,rgba(120,150,190,.18),transparent 60%),linear-gradient(180deg,#141A22 0%,#0E1217 40%,#11161D 100%);color:#E8EAED}
+  .eyebrow{color:#C9A44C !important}
+  h1,h2{color:#F3F4F6}
+  .hot,.wordmark span{background:var(--gold-metal);-webkit-background-clip:text;background-clip:text;color:transparent !important;filter:drop-shadow(0 2px 12px rgba(201,164,76,.35))}
+  .wordmark{color:#F3F4F6}
+  .topbar{background:linear-gradient(180deg,#000,#0A0C0F) !important;border-bottom:1px solid transparent !important;border-image:var(--gold-metal) 1 !important;box-shadow:0 8px 30px -10px rgba(201,164,76,.25)}
+  .hero p.sub,.cta-note,.tile .d,.door .d,.fd-note{color:#A9B0B8 !important}
+  .hero p.sub b{color:#fff}
+  .btn{background:var(--gold-metal) !important;background-size:200% 100% !important;color:#141414 !important;border:1px solid rgba(255,236,170,.5);box-shadow:0 0 0 1px rgba(0,0,0,.4),0 10px 30px -8px rgba(201,164,76,.55),inset 0 1px 0 rgba(255,255,255,.5) !important;transition:background-position .6s ease,transform .15s ease}
+  .btn:hover{background-position:100% 0 !important}
+  .hero-photo{-webkit-box-reflect:below 6px linear-gradient(transparent 70%,rgba(255,255,255,.18));box-shadow:0 30px 80px -30px rgba(120,160,210,.45),0 0 0 1px rgba(201,164,76,.35)}
+  .photo{background:linear-gradient(135deg,#1C232C,#2A323C);border:1px solid rgba(201,164,76,.3);color:#8A929B}
+  .tile,.door,.steps li{background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02)) !important;border:1px solid rgba(201,164,76,.22) !important;box-shadow:0 20px 50px -30px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.06) !important;color:#E8EAED}
+  .tile .k,.door .k{color:#F3F4F6 !important}
+  .tile .num{color:#E3C46E !important}
+  .door:hover,.tile:hover{border-color:rgba(233,206,122,.6) !important;box-shadow:0 0 30px -6px rgba(201,164,76,.35) !important}
+  .door-img{border-bottom:1px solid rgba(201,164,76,.3) !important;-webkit-mask-image:linear-gradient(#000 80%,rgba(0,0,0,.85))}
+  .steps li::before{background:var(--gold-metal) !important;color:#141414 !important}
+  .band{background:linear-gradient(180deg,#07090C,#0F141A) !important;border-top:1px solid rgba(201,164,76,.2);border-bottom:1px solid rgba(201,164,76,.2)}
+  .soft{background:radial-gradient(900px 400px at 50% 0,rgba(201,164,76,.08),transparent 70%),#10151B !important}
+  .frontdoor{background:radial-gradient(800px 400px at 20% 100%,rgba(201,164,76,.12),transparent 70%),linear-gradient(180deg,#1A212A,#0E1217) !important;border-top:1px solid rgba(201,164,76,.4) !important}
+  .frontdoor p{color:#B7BDC4}
+  .fd-card{background:linear-gradient(160deg,#1E252E,#141A21) !important;color:#E8EAED !important;border:1px solid rgba(201,164,76,.35);box-shadow:0 30px 80px -30px rgba(0,0,0,.9),0 0 40px -15px rgba(201,164,76,.3) !important}
+  .fd-card h3{color:#F3F4F6}
+  .fd-card input{background:#0E1217 !important;border:1px solid #2E3741 !important;color:#E8EAED !important}
+  .fd-card input:focus{border-color:#C9A44C !important}
+  .fd-card label{color:#9AA2AB !important}
+  footer{background:#07090C;border-top:1px solid rgba(201,164,76,.25) !important;color:#8A929B !important}
+  .section{position:relative}
+  .hero-img{width:100%;height:auto;display:block;min-height:0}
+  .brand{display:flex;align-items:center;gap:14px}
+  .brand img.badge{mix-blend-mode:normal;width:64px;height:64px;}
+  .badge{width:52px;height:52px;border-radius:50%;filter:drop-shadow(0 0 10px rgba(201,164,76,.45))}
+  .foot-brand{display:flex;align-items:center;gap:12px}
+  .foot-badge{width:64px;height:64px}
+  @media(max-width:520px){.badge{width:40px;height:40px}}
+  .gold{color:#E3C46E;font-weight:600}
+  .addon{max-width:640px;margin:18px auto 0;padding:16px 20px;border:1px dashed rgba(201,164,76,.45);border-radius:14px;color:#C9CCD0;font-size:1rem}
+  .pill{display:inline-block;background:var(--gold-metal);color:#141414;font-family:"Archivo";font-weight:800;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:999px;margin-right:8px;vertical-align:middle}
+  .cost-grid{display:grid;grid-template-columns:1fr;gap:28px;margin-top:34px;align-items:center}
+  .calc{background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(201,164,76,.35);border-radius:18px;padding:10px 24px 18px;box-shadow:0 0 40px -16px rgba(201,164,76,.35)}
+  .calc .row{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.08);color:#B7BDC4}
+  .calc .row b{color:#F3F4F6;font-family:"Archivo";text-align:right}
+  .calc .row:last-of-type{border-bottom:0}
+  .calc .row:last-of-type b{background:var(--gold-metal);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.45rem}
+  .calc-note{font-size:.82rem;color:#7F8790;margin-top:6px}
+  .cost-copy .big{font-size:1.25rem;line-height:1.5;color:#E8EAED}
+  .named{margin-top:22px;padding:18px 20px;border-left:3px solid #C9A44C;background:rgba(201,164,76,.06);border-radius:0 12px 12px 0}
+  .named p{color:#C9CCD0;margin-top:8px}
+  .assess{background:radial-gradient(900px 420px at 50% 0,rgba(201,164,76,.10),transparent 70%),#0B0E12;border-top:1px solid rgba(201,164,76,.25);border-bottom:1px solid rgba(201,164,76,.25)}
+  .assess-sub{color:#A9B0B8;max-width:58ch;margin:14px auto 0;font-size:1.08rem}
+  .deliv{display:grid;grid-template-columns:1fr;gap:16px;margin-top:36px}
+  .dv{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.015));border:1px solid rgba(201,164,76,.22);border-radius:16px;padding:22px}
+  .dv .dn{font-family:"Archivo";font-weight:800;font-size:.85rem;letter-spacing:.1em;background:var(--gold-metal);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .dv .k{font-family:"Archivo";font-weight:800;font-size:1.08rem;color:#F3F4F6;margin-top:6px}
+  .dv .d{color:#A9B0B8;font-size:.95rem;margin-top:8px}
+  .nobrainer{display:grid;grid-template-columns:1fr;gap:14px;margin-top:30px}
+  .nobrainer div{border:1px solid rgba(201,164,76,.5);border-radius:14px;padding:18px 20px;background:rgba(201,164,76,.07)}
+  .nobrainer b{display:block;font-family:"Archivo";color:#E3C46E;font-size:1.05rem}
+  .nobrainer span{color:#C9CCD0;font-size:.95rem}
+  .assess-cta{text-align:center;margin-top:30px}
+  @media(min-width:760px){.cost-grid{grid-template-columns:1fr 1fr;gap:44px}.deliv{grid-template-columns:repeat(4,1fr)}.nobrainer{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="../" aria-label="Persuasion First AI home"><img class="badge" src="../img/logo-badge.png" alt=""><span class="wordmark">PERSUASION FIRST <span>AI</span></span></a>
+    </div>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+    <span class="eyebrow">Recurring · Deep Cleans · Move-In / Move-Out</span>
+    <h1>They booked one deep clean. <span class="hot">Why didn't they book again?</span></h1>
+    <p class="sub">People hire a cleaner to get time back, but they are letting a stranger into their home. They choose the company that feels trustworthy, makes booking easy, and gives them a reason to make it every other week. <b>We make sure that's you.</b></p>
+    <div class="hero-cta">
+      <a class="btn" href="#audit">Get my free visibility audit</a>
+      <p class="cta-note">See how you show up on Google and in AI search, and who's getting picked instead of you.</p>
+    </div>
+    </div>
+    <img class="hero-photo hero-img" src="../img/cleaning.jpg" alt="House cleaners in a kitchen and bedroom, greeting a homeowner">
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <div class="fork-head">
+      <span class="eyebrow">Where customers slip away</span>
+      <h2>Where your cleaning clients are going.</h2>
+    </div>
+    <div class="grid3">
+      <div class="tile"><span class="num">01</span><div class="k">They search and don't see you.</div><div class="d">"House cleaning near me." The few names Google and ChatGPT show get the quote requests.</div></div>
+      <div class="tile"><span class="num">02</span><div class="k">They aren't sure who's coming into their home.</div><div class="d">No team photos, no clear checklist of what's included. They keep looking.</div></div>
+      <div class="tile"><span class="num">03</span><div class="k">The one-time clean never turns recurring.</div><div class="d">No follow-up after the visit, so a lifetime client becomes a single job.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COST -->
+<section class="section cost">
+  <div class="wrap">
+    <div class="fork-head">
+      <span class="eyebrow">The math nobody shows you</span>
+      <h2>What one lost repeat client really costs you.</h2>
+    </div>
+    <div class="cost-grid">
+      <div class="calc">
+        <div class="row"><span>Biweekly clean</span><b>$150</b></div><div class="row"><span>Visits a year from one recurring client</span><b>26</b></div><div class="row"><span>One-time clients who never rebook a month</span><b>4</b></div><div class="row"><span>Lost if just 1 in 4 had stayed</span><b>$3,900 a year, every month</b></div>
+        <p class="calc-note">Example numbers. In the assessment, we run this with yours.</p>
+      </div>
+      <div class="cost-copy">
+        <p class="big">A recurring client is worth 26 visits a year. A one-time clean is worth one. The difference is a follow-up text.</p>
+        <div class="named"><span class="pill">Not named</span><p>When someone asks ChatGPT or Google "who is the best house cleaner near me," it names a few companies. If you are not one of them, they never see your reviews.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section band">
+  <div class="wrap">
+    <span class="eyebrow">What we build</span>
+    <h2 class="band-h">What we fix.</h2>
+    <div class="grid3">
+      <div class="tile dark"><div class="k">Get found</div><div class="d">We fix your listings on Google, Bing, Yelp, Facebook, and the other sites AI reads, and set up automatic review requests after every job.</div></div>
+      <div class="tile dark"><div class="k">Pages that build trust</div><div class="d">Your team, your checklist, your pricing, and an easy way to book recurring service.</div></div>
+      <div class="tile dark"><div class="k"><span class="pill">Add-on</span><br>After-hours AI answering</div><div class="d">Every call and text answered in seconds, day or night. It asks the right questions, books the job, and texts you the details.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="fork-head">
+      <span class="eyebrow">How it works</span>
+      <h2>From free audit to fixed, in about a month.</h2>
+    </div>
+    <ol class="steps">
+      <li><b>Free audit. 48 hours.</b> Screenshots of where you show up on Google and in AI search, and who shows up instead of you.</li>
+      <li><b>Full assessment. $1,500, 7 days.</b> We run 20 real customer searches across Google, ChatGPT, Perplexity, and Gemini, check your listings and reviews against your top competitors, and call and message you the way a real customer would, after hours included. You get a dollar figure for what you're missing, a written fix plan, and a 45-minute walkthrough. <span class="gold">The $1,500 comes off your build if you move forward within 30 days.</span></li>
+      <li><b>10-day build.</b> We fix your listings everywhere Google and AI look, set up automatic review requests, and rewrite your website and service pages so the right customer picks up the phone. Built in your own accounts and handed off with a short video and a one-page guide.</li>
+      <li><b>Day 30 check.</b> We rerun the same searches and show you the before and after.</li>
+    </ol>
+    <p class="addon"><span class="pill">Add-on</span> After-hours AI answering. Every call and text answered and booked, nights and weekends, so the leads your new pages bring in don't go to voicemail.</p>
+  </div>
+</section>
+
+<!-- ASSESSMENT -->
+<section class="section assess">
+  <div class="wrap">
+    <div class="fork-head">
+      <span class="eyebrow">The full assessment · $1,500</span>
+      <h2>Everything costing you customers, found and priced in 7 days.</h2>
+      <p class="assess-sub">This is not a sales call dressed up as a report. You walk away with the full picture and a plan, whether you hire us or not.</p>
+    </div>
+    <div class="deliv">
+      <div class="dv"><span class="dn">01</span><div class="k">20-search visibility test</div><div class="d">The real questions your customers ask, run in Google, the Map Pack, ChatGPT, Perplexity, and Gemini. Who gets named, every time.</div></div>
+      <div class="dv"><span class="dn">02</span><div class="k">Competitor breakdown</div><div class="d">Your top 3 competitors side by side. Why AI picks them, and exactly what they have that you don't.</div></div>
+      <div class="dv"><span class="dn">03</span><div class="k">Listings and reviews check</div><div class="d">Every site Google and AI read. Wrong phone numbers, missing listings, old hours, and unanswered reviews, all flagged.</div></div>
+      <div class="dv"><span class="dn">04</span><div class="k">Customer test calls</div><div class="d">We call and message you like a real customer, day, night, and weekend. You hear the recordings and see how long they waited.</div></div>
+      <div class="dv"><span class="dn">05</span><div class="k">Website teardown</div><div class="d">What a customer sees on their phone in the first five seconds, and a rewritten headline and call to action you can use right away.</div></div>
+      <div class="dv"><span class="dn">06</span><div class="k">Your opportunity number</div><div class="d">What fixing each leak is worth, figured with your own job values, call volume, open estimates, and margin.</div></div>
+      <div class="dv"><span class="dn">07</span><div class="k">90-day fix plan</div><div class="d">Every fix, ranked by how much money it brings back. What you can do yourself and what we would build.</div></div>
+      <div class="dv"><span class="dn">08</span><div class="k">45-minute walkthrough</div><div class="d">We go through every finding together, play the calls, and answer every question.</div></div>
+    </div>
+    <div class="nobrainer">
+      <div><b>Pays for itself with one job.</b><span>One customer you would have lost covers the whole cost.</span></div>
+      <div><b>Credited to your build.</b><span>Move forward within 30 days and the $1,500 comes off.</span></div>
+      <div><b>Yours to keep.</b><span>The report, recordings, and plan are yours, even if you never hire us.</span></div>
+    </div>
+    <div class="assess-cta"><a class="btn" href="#audit">Start with the free audit</a></div>
+  </div>
+</section>
+
+<section class="section frontdoor" id="audit">
+  <div class="wrap">
+    <div class="fd-grid">
+      <div>
+        <span class="eyebrow">Free visibility audit</span>
+        <h2>Find out who's getting the clients you should be getting.</h2>
+        <p>We search for your company the way a homeowner does, on Google and in ChatGPT, Perplexity, and Gemini. You get screenshots of what comes up, which shops show up instead of you, and the first thing to fix.</p>
+        <p><b>No call required. No pitch in your inbox.</b></p>
+      </div>
+      <div class="fd-card" id="fd-card">
+        <h3>Get my free audit</h3>
+        <div class="field"><label for="v_name">Name</label><input id="v_name" autocomplete="name"></div>
+        <div class="field"><label for="v_business">Company</label><input id="v_business"></div>
+        <div class="field"><label for="v_city">City</label><input id="v_city" autocomplete="address-level2"></div>
+        <div class="field"><label for="v_email">Email</label><input id="v_email" type="email" autocomplete="email"></div>
+        <button class="btn" id="v_submit" type="button">Send my audit</button>
+        <p class="fd-note">Delivered to your inbox within 48 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="foot-brand"><img class="badge foot-badge" src="../img/logo-badge.png" alt="Persuasion First AI logo">Persuasion First AI · Atlanta, GA</span>
+    <span>amy@persuasionfirstai.com</span>
+  </div>
+</footer>
+
+<script>
+// AI Visibility lead form → delivered to Amy's inbox via FormSubmit (no backend; works on GitHub Pages).
+// Uses the same activated endpoint as the diagnostic tool.
+const VIS_ENDPOINT = "https://formsubmit.co/ajax/07ca9bef515db2a4a2b9e2adeb6228e9";
+document.getElementById('v_submit').addEventListener('click', async function(){
+  const name = document.getElementById('v_name').value.trim();
+  const business = document.getElementById('v_business').value.trim();
+  const city = document.getElementById('v_city').value.trim();
+  const email = document.getElementById('v_email').value.trim();
+  const emailEl = document.getElementById('v_email');
+  if(!email){ emailEl.focus(); emailEl.style.borderColor = 'var(--amber)'; return; }
+  const btn = this;
+  btn.disabled = true; btn.textContent = 'Sending…';
+  try{
+    await fetch(VIS_ENDPOINT, {
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({
+        _subject:"Cleaning audit request",
+        _captcha:"false",
+        name, business, city, email
+      })
+    });
+  }catch(e){ /* don't trap the user on a network hiccup */ }
+  document.getElementById('fd-card').innerHTML =
+    '<h3>Got it' + (name ? ', ' + name.split(' ')[0] : '') + '.</h3>' +
+    '<p class="fd-thanks" style="margin-top:12px">We\'ll run ' +
+    (business ? '<b>' + business.replace(/</g,'&lt;') + '</b>' : 'your business') +
+    ' through Google, ChatGPT, Perplexity, and Gemini and send the screenshots to ' +
+    '<b>' + (email.replace(/</g,'&lt;')) + '</b> within 48 hours, including who\'s showing up instead.</p>';
+});
+</script>
+
+</body>
+</html>
