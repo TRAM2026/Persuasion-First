@@ -42,15 +42,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#16212B;
-    --steel:#20567A;
-    --steel-deep:#143C56;
-    --amber:#DE7A2A;
-    --amber-press:#C56A1F;
-    --paper:#F4F6F2;
+    --ink:#121212;
+    --steel:#5E6872;
+    --steel-deep:#2C3238;
+    --amber:#C9A44C;
+    --amber-press:#B08C38;
+    --paper:#F6F5F2;
     --card:#FFFFFF;
-    --line:#D9E0E0;
-    --muted:#566570;
+    --line:#DCDDDF;
+    --muted:#5A6067;
     --shadow:0 18px 50px -22px rgba(20,40,56,.40);
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -74,10 +74,10 @@
   /* ---- buttons ---- */
   .btn{
     display:inline-flex;align-items:center;gap:.5em;
-    background:var(--amber);color:#fff;text-decoration:none;
+    background:var(--amber);color:#121212;text-decoration:none;
     font-weight:700;font-size:1.02rem;letter-spacing:.01em;
     padding:15px 26px;border-radius:11px;border:none;cursor:pointer;
-    box-shadow:0 10px 24px -10px rgba(222,122,42,.7);
+    box-shadow:0 10px 24px -10px rgba(201,164,76,.6);
     transition:transform .15s ease, background .15s ease;
   }
   .btn:hover{background:var(--amber-press);transform:translateY(-2px)}
@@ -133,9 +133,9 @@
 
   /* ---- bio ---- */
   .band{background:var(--ink);color:#fff}
-  .band .eyebrow{color:#8fb6cf}
+  .band .eyebrow{color:var(--amber)}
   .bio h2{font-size:clamp(1.7rem,4.5vw,2.3rem);font-weight:800;letter-spacing:-.018em;margin-top:12px;color:#fff}
-  .bio p{font-size:1.12rem;margin-top:18px;max-width:64ch;color:#cdd9e1}
+  .bio p{font-size:1.12rem;margin-top:18px;max-width:64ch;color:#C9CCD0}
   .bio p b{color:#fff;font-weight:600}
   .bio .cat{font-family:"Fraunces",Georgia,serif;font-style:italic}
   .bio .cat b{color:#ffd9b0;font-style:normal;font-family:"Inter";font-weight:600}
@@ -143,11 +143,11 @@
   .bio .name span{display:block;color:#9fb1bd;font-weight:500;font-family:"Inter";font-size:.95rem;line-height:1.55;margin-top:6px}
 
   /* ---- new front door ---- */
-  .frontdoor{background:var(--steel-deep);color:#fff}
-  .frontdoor .eyebrow{color:#8fb6cf}
+  .frontdoor{background:var(--steel-deep);border-top:3px solid var(--amber);color:#fff}
+  .frontdoor .eyebrow{color:var(--amber)}
   .frontdoor h2{font-size:clamp(1.6rem,4.4vw,2.2rem);font-weight:800;letter-spacing:-.018em;margin-top:12px;color:#fff;max-width:22ch}
   .frontdoor .fd-grid{display:grid;grid-template-columns:1fr;gap:34px;margin-top:26px}
-  .frontdoor p{font-size:1.1rem;margin-top:16px;max-width:60ch;color:#cfe0ec}
+  .frontdoor p{font-size:1.1rem;margin-top:16px;max-width:60ch;color:#C9CCD0}
   .frontdoor p b{color:#fff;font-weight:600}
   .frontdoor p .q{color:#ffd9b0;font-style:italic;font-family:"Fraunces",Georgia,serif}
   .fd-card{
@@ -173,17 +173,27 @@
   .hero h1{max-width:16ch}
   .grid3{display:grid;grid-template-columns:1fr;gap:18px;margin-top:34px}
   .tile{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 24px}
-  .tile .num{font-family:"Archivo";font-weight:800;color:var(--amber);font-size:.9rem;letter-spacing:.1em}
+  .tile .num{font-family:"Archivo";font-weight:800;color:#9A7A2C;font-size:.9rem;letter-spacing:.1em}
   .tile .k{font-family:"Archivo";font-weight:800;font-size:1.25rem;line-height:1.15;margin-top:8px}
   .tile .d{color:var(--muted);margin-top:10px;font-size:1.02rem}
   .tile.dark{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14)}
-  .tile.dark .k{color:#fff}.tile.dark .d{color:#cdd9e1}
+  .tile.dark .k{color:#fff}.tile.dark .d{color:#C9CCD0}
   .band .band-h{font-size:clamp(1.6rem,4.5vw,2.2rem);font-weight:800;letter-spacing:-.018em;margin-top:10px;color:#fff}
   .steps{list-style:none;counter-reset:s;max-width:640px;margin:34px auto 0;display:grid;gap:14px}
   .steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px 18px 64px;position:relative;font-size:1.05rem}
-  .steps li::before{content:counter(s);position:absolute;left:20px;top:16px;width:30px;height:30px;border-radius:50%;background:var(--amber);color:#fff;font-family:"Archivo";font-weight:800;display:flex;align-items:center;justify-content:center}
-  .soft{background:#E9EEEA}
+  .steps li::before{content:counter(s);position:absolute;left:20px;top:16px;width:30px;height:30px;border-radius:50%;background:var(--amber);color:#121212;font-family:"Archivo";font-weight:800;display:flex;align-items:center;justify-content:center}
+  .soft{background:#ECEDEE}
   @media(min-width:760px){.grid3{grid-template-columns:repeat(3,1fr)}}
+
+  .photo{background:repeating-linear-gradient(45deg,#E4E5E7,#E4E5E7 12px,#EDEEEF 12px,#EDEEEF 24px);border:1px dashed #B9BCC0;display:flex;align-items:center;justify-content:center;color:var(--muted);font-family:"Archivo";font-weight:600;font-size:.9rem}
+  .hero-photo{border-radius:20px;min-height:340px}
+  .door.has-img{padding:0;overflow:hidden}
+  .door.has-img .k,.door.has-img .d{padding:0 24px}
+  .door.has-img .k{padding-top:20px}.door.has-img .d{padding-bottom:22px}
+  .door-img{display:block;width:100%;height:190px;object-fit:cover;border:0;border-bottom:1px solid var(--line)}
+  .door.has-img .arrow{top:auto;bottom:22px}
+  .door-img.photo{display:flex;border-width:0 0 1px}
+  .tile.dark{background:rgba(255,255,255,.05);border-color:rgba(201,164,76,.25)}
   footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
   footer .wrap{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between;align-items:center}
 
@@ -215,7 +225,8 @@
 
 <!-- HERO -->
 <header class="hero" id="top">
-  <div class="wrap">
+  <div class="wrap hero-grid">
+    <div>
     <span class="eyebrow">For service businesses</span>
     <h1>Be the business they find, trust, and <span class="hot">reach first.</span></h1>
     <p class="sub">Most businesses lose customers in three places. They don't show up when people search. The website doesn't convince. And the call after hours goes to voicemail. <b>We fix all three.</b></p>
@@ -223,6 +234,8 @@
       <a class="btn" href="#audit">Get my free visibility audit</a>
       <p class="cta-note">See how you show up on Google and in AI search, and what your competitors are doing that you're not.</p>
     </div>
+    </div>
+    <div class="photo hero-photo" data-slot="hero"><span>Hero photo</span></div>
   </div>
 </header>
 
@@ -277,10 +290,10 @@
       <h2>See what this looks like for you.</h2>
     </div>
     <div class="fork">
-      <a class="door" href="services/"><span class="arrow">→</span><div class="k">Home services</div><div class="d">HVAC, plumbing, electrical, cleaning, pest control. The 9pm no-AC call that goes to whoever answers.</div></a>
-      <a class="door" href="medispa/"><span class="arrow">→</span><div class="k">Med spas and wellness</div><div class="d">The consult request that sits unanswered all weekend.</div></a>
-      <a class="door" href="lawyer/"><span class="arrow">→</span><div class="k">Law firms</div><div class="d">The injured caller who signs with the first firm that picks up.</div></a>
-      <a class="door" href="diagnostic/"><span class="arrow">→</span><div class="k">Sales teams</div><div class="d">See where your messages are quietly costing you replies.</div></a>
+      <a class="door has-img" href="services/"><img class="door-img" src="img/home-services.jpg" alt="HVAC, plumbing, and electrical technicians at work"><span class="arrow">→</span><div class="k">Home services</div><div class="d">HVAC, plumbing, electrical, cleaning, pest control. The 9pm no-AC call that goes to whoever answers.</div></a>
+      <a class="door has-img" href="medispa/"><div class="photo door-img" data-slot="medspa"><span>Med spa photo</span></div><span class="arrow">→</span><div class="k">Med spas and wellness</div><div class="d">The consult request that sits unanswered all weekend.</div></a>
+      <a class="door has-img" href="lawyer/"><div class="photo door-img" data-slot="law"><span>Law firm photo</span></div><span class="arrow">→</span><div class="k">Law firms</div><div class="d">The injured caller who signs with the first firm that picks up.</div></a>
+      <a class="door has-img" href="diagnostic/"><div class="photo door-img" data-slot="sales"><span>Sales team photo</span></div><span class="arrow">→</span><div class="k">Sales teams</div><div class="d">See where your messages are quietly costing you replies.</div></a>
     </div>
   </div>
 </section>
