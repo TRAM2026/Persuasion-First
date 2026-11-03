@@ -256,6 +256,29 @@
   .gold{color:#E3C46E;font-weight:600}
   .addon{max-width:640px;margin:18px auto 0;padding:16px 20px;border:1px dashed rgba(201,164,76,.45);border-radius:14px;color:#C9CCD0;font-size:1rem}
   .pill{display:inline-block;background:var(--gold-metal);color:#141414;font-family:"Archivo";font-weight:800;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:999px;margin-right:8px;vertical-align:middle}
+  .cost-grid{display:grid;grid-template-columns:1fr;gap:28px;margin-top:34px;align-items:center}
+  .calc{background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(201,164,76,.35);border-radius:18px;padding:10px 24px 18px;box-shadow:0 0 40px -16px rgba(201,164,76,.35)}
+  .calc .row{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.08);color:#B7BDC4}
+  .calc .row b{color:#F3F4F6;font-family:"Archivo";text-align:right}
+  .calc .row:last-of-type{border-bottom:0}
+  .calc .row:last-of-type b{background:var(--gold-metal);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.45rem}
+  .calc-note{font-size:.82rem;color:#7F8790;margin-top:6px}
+  .cost-copy .big{font-size:1.25rem;line-height:1.5;color:#E8EAED}
+  .named{margin-top:22px;padding:18px 20px;border-left:3px solid #C9A44C;background:rgba(201,164,76,.06);border-radius:0 12px 12px 0}
+  .named p{color:#C9CCD0;margin-top:8px}
+  .assess{background:radial-gradient(900px 420px at 50% 0,rgba(201,164,76,.10),transparent 70%),#0B0E12;border-top:1px solid rgba(201,164,76,.25);border-bottom:1px solid rgba(201,164,76,.25)}
+  .assess-sub{color:#A9B0B8;max-width:58ch;margin:14px auto 0;font-size:1.08rem}
+  .deliv{display:grid;grid-template-columns:1fr;gap:16px;margin-top:36px}
+  .dv{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.015));border:1px solid rgba(201,164,76,.22);border-radius:16px;padding:22px}
+  .dv .dn{font-family:"Archivo";font-weight:800;font-size:.85rem;letter-spacing:.1em;background:var(--gold-metal);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .dv .k{font-family:"Archivo";font-weight:800;font-size:1.08rem;color:#F3F4F6;margin-top:6px}
+  .dv .d{color:#A9B0B8;font-size:.95rem;margin-top:8px}
+  .nobrainer{display:grid;grid-template-columns:1fr;gap:14px;margin-top:30px}
+  .nobrainer div{border:1px solid rgba(201,164,76,.5);border-radius:14px;padding:18px 20px;background:rgba(201,164,76,.07)}
+  .nobrainer b{display:block;font-family:"Archivo";color:#E3C46E;font-size:1.05rem}
+  .nobrainer span{color:#C9CCD0;font-size:.95rem}
+  .assess-cta{text-align:center;margin-top:30px}
+  @media(min-width:760px){.cost-grid{grid-template-columns:1fr 1fr;gap:44px}.deliv{grid-template-columns:repeat(4,1fr)}.nobrainer{grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
 <body>
@@ -300,6 +323,26 @@
 </section>
 
 <!-- WHAT WE BUILD -->
+<!-- COST -->
+<section class="section cost">
+  <div class="wrap">
+    <div class="fork-head">
+      <span class="eyebrow">The math nobody shows you</span>
+      <h2>What one missed customer really costs you.</h2>
+    </div>
+    <div class="cost-grid">
+      <div class="calc">
+        <div class="row"><span>Average customer value</span><b>$1,000</b></div><div class="row"><span>Calls or leads missed a week</span><b>3</b></div><div class="row"><span>Ones you would have closed</span><b>Half</b></div><div class="row"><span>Walking to a competitor every month</span><b>$6,000</b></div>
+        <p class="calc-note">Example numbers. In the assessment, we run this with yours.</p>
+      </div>
+      <div class="cost-copy">
+        <p class="big">That is $72,000 a year. And it never shows up on a report, because you never knew they called.</p>
+        <div class="named"><span class="pill">Not named</span><p>When someone asks ChatGPT or Google who to hire, it names a few businesses. If you are not one of them, you lose 100% of those people. Not some. All of them.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section band">
   <div class="wrap">
     <span class="eyebrow">What we build</span>
@@ -326,6 +369,33 @@
       <li><b>Day 30 check.</b> We rerun the same searches and show you the before and after.</li>
     </ol>
     <p class="addon"><span class="pill">Add-on</span> After-hours AI answering. Every call and text answered and booked, nights and weekends, so the leads your new pages bring in don't go to voicemail.</p>
+  </div>
+</section>
+
+<!-- ASSESSMENT -->
+<section class="section assess">
+  <div class="wrap">
+    <div class="fork-head">
+      <span class="eyebrow">The full assessment · $1,500</span>
+      <h2>Everything costing you customers, found and priced in 7 days.</h2>
+      <p class="assess-sub">This is not a sales call dressed up as a report. You walk away with the full picture and a plan, whether you hire us or not.</p>
+    </div>
+    <div class="deliv">
+      <div class="dv"><span class="dn">01</span><div class="k">20-search visibility test</div><div class="d">The real questions your customers ask, run in Google, the Map Pack, ChatGPT, Perplexity, and Gemini. Who gets named, every time.</div></div>
+      <div class="dv"><span class="dn">02</span><div class="k">Competitor breakdown</div><div class="d">Your top 3 competitors side by side. Why AI picks them, and exactly what they have that you don't.</div></div>
+      <div class="dv"><span class="dn">03</span><div class="k">Listings and reviews check</div><div class="d">Every site Google and AI read. Wrong phone numbers, missing listings, old hours, and unanswered reviews, all flagged.</div></div>
+      <div class="dv"><span class="dn">04</span><div class="k">Customer test calls</div><div class="d">We call and message you like a real customer, day, night, and weekend. You hear the recordings and see how long they waited.</div></div>
+      <div class="dv"><span class="dn">05</span><div class="k">Website teardown</div><div class="d">What a customer sees on their phone in the first five seconds, and a rewritten headline and call to action you can use right away.</div></div>
+      <div class="dv"><span class="dn">06</span><div class="k">Your missed revenue number</div><div class="d">The dollar amount walking out the door each month, figured with your own job values and call volume.</div></div>
+      <div class="dv"><span class="dn">07</span><div class="k">90-day fix plan</div><div class="d">Every fix, ranked by how much money it brings back. What you can do yourself and what we would build.</div></div>
+      <div class="dv"><span class="dn">08</span><div class="k">45-minute walkthrough</div><div class="d">We go through every finding together, play the calls, and answer every question.</div></div>
+    </div>
+    <div class="nobrainer">
+      <div><b>Pays for itself with one job.</b><span>One customer you would have lost covers the whole cost.</span></div>
+      <div><b>Credited to your build.</b><span>Move forward within 30 days and the $1,500 comes off.</span></div>
+      <div><b>Yours to keep.</b><span>The report, recordings, and plan are yours, even if you never hire us.</span></div>
+    </div>
+    <div class="assess-cta"><a class="btn" href="#audit">Start with the free audit</a></div>
   </div>
 </section>
 
