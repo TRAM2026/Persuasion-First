@@ -247,6 +247,12 @@
   footer{background:#07090C;border-top:1px solid rgba(201,164,76,.25) !important;color:#8A929B !important}
   .section{position:relative}
   .hero-img{width:100%;height:auto;display:block;min-height:0}
+  .brand{display:flex;align-items:center;gap:14px}
+  .brand img.badge{mix-blend-mode:normal;width:64px;height:64px;}
+  .badge{width:52px;height:52px;border-radius:50%;filter:drop-shadow(0 0 10px rgba(201,164,76,.45))}
+  .foot-brand{display:flex;align-items:center;gap:12px}
+  .foot-badge{width:64px;height:64px}
+  @media(max-width:520px){.badge{width:40px;height:40px}}
 </style>
 </head>
 <body>
@@ -254,7 +260,7 @@
 <div class="topbar">
   <div class="wrap">
     <div class="top">
-      <a class="brand" href="#top" aria-label="Persuasion First AI home"><span class="wordmark">PERSUASION FIRST <span>AI</span></span></a>
+      <a class="brand" href="#top" aria-label="Persuasion First AI home"><img class="badge" src="img/logo-badge.png" alt=""><span class="wordmark">PERSUASION FIRST <span>AI</span></span></a>
     </div>
   </div>
 </div>
@@ -358,7 +364,7 @@
 
 <footer>
   <div class="wrap">
-    <span>Persuasion First AI · Atlanta, GA</span>
+    <span class="foot-brand"><img class="badge foot-badge" src="img/logo-badge.png" alt="Persuasion First AI logo">Persuasion First AI · Atlanta, GA</span>
     <span>amy@persuasionfirstai.com</span>
   </div>
 </footer>
