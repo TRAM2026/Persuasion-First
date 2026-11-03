@@ -3,132 +3,224 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Visibility for Med Spas — Persuasion First AI</title>
-<meta name="description" content="Ask ChatGPT to name the best med spa in your area — see if it says your name. An AI Visibility Audit shows where you appear, where competitors appear instead, and how to become the name AI recommends.">
+<title>Med Spas | Persuasion First AI</title>
+<meta name="description" content="Fill your book with the right clients. Free visibility audit, landing pages, and after-hours AI answering for med spas and wellness practices.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "AI Visibility Audit for Med Spas",
-  "provider": {"@type": "Organization", "name": "Persuasion First AI", "areaServed": "United States"},
-  "description": "A documented test of what ChatGPT, Perplexity, and Gemini say when clients ask for a med spa — twenty real buyer questions across every engine, showing where you appear, where competitors appear instead, and the roadmap to become the name AI recommends.",
-  "offers": {"@type": "Offer", "price": "1500", "priceCurrency": "USD"}
-}
-</script>
 <style>
   :root{
-    --ink:#16212B;
-    --steel:#20567A;
-    --steel-deep:#143C56;
-    --amber:#DE7A2A;
-    --amber-press:#C56A1F;
-    --paper:#F4F6F2;
+    --ink:#121212;
+    --steel:#5E6872;
+    --steel-deep:#2C3238;
+    --amber:#C9A44C;
+    --amber-press:#B08C38;
+    --paper:#F6F5F2;
     --card:#FFFFFF;
-    --line:#D9E0E0;
-    --muted:#566570;
-    --rose:#B0567A;
+    --line:#DCDDDF;
+    --muted:#5A6067;
     --shadow:0 18px 50px -22px rgba(20,40,56,.40);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
-    font-family:"Inter",system-ui,sans-serif;color:var(--ink);background:var(--paper);
-    line-height:1.6;-webkit-font-smoothing:antialiased;
+    font-family:"Inter",system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
   }
-  .wrap{width:100%;max-width:940px;margin:0 auto;padding:0 22px}
+  .wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 22px}
   h1,h2,h3,.eyebrow,.btn{font-family:"Archivo",sans-serif}
   .serif{font-family:"Fraunces",Georgia,serif;font-style:italic}
-  .eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--steel)}
 
+  .eyebrow{
+    font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--steel);
+  }
+
+  /* ---- buttons ---- */
   .btn{
-    display:inline-flex;align-items:center;gap:.5em;background:var(--amber);color:#fff;text-decoration:none;
-    font-weight:700;font-size:1.02rem;letter-spacing:.01em;padding:15px 26px;border-radius:11px;border:none;cursor:pointer;
-    box-shadow:0 10px 24px -10px rgba(222,122,42,.7);transition:transform .15s ease, background .15s ease;
+    display:inline-flex;align-items:center;gap:.5em;
+    background:var(--amber);color:#121212;text-decoration:none;
+    font-weight:700;font-size:1.02rem;letter-spacing:.01em;
+    padding:15px 26px;border-radius:11px;border:none;cursor:pointer;
+    box-shadow:0 10px 24px -10px rgba(201,164,76,.6);
+    transition:transform .15s ease, background .15s ease;
   }
   .btn:hover{background:var(--amber-press);transform:translateY(-2px)}
   .btn:focus-visible{outline:3px solid var(--steel);outline-offset:3px}
 
+  /* ---- top bar ---- */
   .topbar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
   .top{display:flex;align-items:center;justify-content:space-between;padding:8px 0}
   .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
-  .brand img{height:70px;width:auto;display:block;mix-blend-mode:multiply}
+  .brand img{height:80px;width:auto;display:block;mix-blend-mode:multiply}
   .brand-fallback{font-family:"Archivo";font-weight:800;font-size:1.05rem;letter-spacing:-.01em}
   .brand-fallback small{display:block;font-size:.62rem;font-weight:600;letter-spacing:.16em;color:var(--steel);text-transform:uppercase}
-  .backlink{font-size:.9rem;color:var(--muted);text-decoration:none;font-weight:600}
-  .backlink:hover{color:var(--ink)}
-  @media(max-width:520px){.brand img{height:52px}}
+  @media(max-width:520px){.brand img{height:58px}}
 
-  .hero{padding:56px 0 34px}
-  .hero .eyebrow{color:var(--rose)}
-  h1{font-size:clamp(2rem,5.6vw,3rem);font-weight:800;line-height:1.08;letter-spacing:-.022em;margin:14px 0 0;max-width:22ch}
-  .hero p.sub{font-size:1.2rem;color:var(--muted);margin:22px 0 0;max-width:56ch}
+  /* ---- hero ---- */
+  .hero{padding:40px 0 16px}
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:34px;align-items:center}
+  h1{
+    font-size:clamp(2.4rem,8.5vw,4rem);font-weight:800;line-height:1.0;
+    letter-spacing:-.025em;margin:16px 0 0;
+  }
+  h1 .hot{color:var(--amber)}
+  .hero p.sub{font-size:1.18rem;color:var(--muted);margin:22px 0 0;max-width:40ch}
   .hero p.sub b{color:var(--ink);font-weight:600}
-  .cta-row{margin-top:28px}
-  .cta-note{display:block;font-size:.92rem;color:var(--muted);margin-top:12px}
-  .cta-note a{color:var(--steel);text-decoration:none;font-weight:600}
 
-  .section{padding:46px 0;border-top:1px solid var(--line)}
-  .section h2{font-size:clamp(1.5rem,4.2vw,2.05rem);font-weight:800;letter-spacing:-.018em;line-height:1.15;max-width:26ch}
-  .section p{font-size:1.12rem;color:var(--muted);margin-top:16px;max-width:64ch}
-  .section p:first-of-type{margin-top:20px}
-  .section p b{color:var(--ink);font-weight:600}
-  .section p .q{color:var(--ink);font-weight:600}
+  /* ---- hero photo (very visible) ---- */
+  .portrait{
+    justify-self:center;width:340px;max-width:86vw;height:430px;
+    border-radius:22px;object-fit:cover;object-position:50% 16%;
+    border:5px solid #fff;box-shadow:var(--shadow);background:var(--steel);
+  }
+  .portrait.ph{display:flex;align-items:center;justify-content:center;color:#fff;font-family:"Archivo";font-weight:800;font-size:3rem}
 
-  .deliver{list-style:none;margin-top:20px;max-width:64ch}
-  .deliver li{position:relative;padding-left:24px;margin-top:12px;color:var(--muted);font-size:1.1rem}
-  .deliver li b{color:var(--ink);font-weight:600}
-  .deliver li:before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;border-radius:2px;background:var(--amber)}
-  .keep{margin-top:22px;font-size:1.12rem;color:var(--ink)}
-  .keep b{font-weight:700}
+  /* ---- fork ---- */
+  .section{padding:54px 0}
+  .fork-head{text-align:center}
+  .fork-head h2{font-size:clamp(1.6rem,4.5vw,2.2rem);font-weight:800;letter-spacing:-.018em;margin-top:10px}
+  .fork{display:grid;grid-template-columns:1fr;gap:18px;margin-top:34px}
+  .door{
+    display:block;text-decoration:none;color:var(--ink);
+    background:var(--card);border:1px solid var(--line);border-radius:18px;
+    padding:28px 26px;box-shadow:0 12px 34px -24px rgba(20,40,56,.45);
+    transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+    position:relative;
+  }
+  .door:hover{transform:translateY(-3px);box-shadow:0 22px 48px -26px rgba(20,40,56,.55);border-color:#c4d2d2}
+  .door:focus-visible{outline:3px solid var(--steel);outline-offset:3px}
+  .door .k{font-family:"Archivo";font-weight:800;font-size:1.32rem;letter-spacing:-.01em;line-height:1.12}
+  .door .d{color:var(--muted);margin-top:10px;font-size:1.02rem;line-height:1.5;max-width:42ch}
+  .door .arrow{color:var(--amber);font-family:"Archivo";font-weight:800;font-size:1.4rem;
+    position:absolute;top:26px;right:26px;transition:transform .16s ease}
+  .door:hover .arrow{transform:translateX(4px)}
 
-  /* results grid mock */
-  .grid-mock{margin-top:28px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 12px 34px -24px rgba(20,40,56,.45)}
-  .grid-mock .gm-head{background:var(--ink);color:#fff;font-family:"Archivo";font-weight:700;font-size:.82rem;letter-spacing:.04em;padding:14px 18px}
-  .gm-row{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;border-top:1px solid var(--line);font-size:.9rem}
-  .gm-row>div{padding:12px 14px;border-left:1px solid var(--line)}
-  .gm-row>div:first-child{border-left:none;color:var(--ink);font-weight:600}
-  .gm-row .you-no{color:#b23b3b;font-weight:700}
-  .gm-row .comp{color:var(--muted);font-style:italic}
-  .gm-cap{font-size:.9rem;color:var(--muted);margin-top:14px;font-style:italic;max-width:60ch}
+  /* ---- bio ---- */
+  .band{background:var(--ink);color:#fff}
+  .band .eyebrow{color:var(--amber)}
+  .bio h2{font-size:clamp(1.7rem,4.5vw,2.3rem);font-weight:800;letter-spacing:-.018em;margin-top:12px;color:#fff}
+  .bio p{font-size:1.12rem;margin-top:18px;max-width:64ch;color:#C9CCD0}
+  .bio p b{color:#fff;font-weight:600}
+  .bio .cat{font-family:"Fraunces",Georgia,serif;font-style:italic}
+  .bio .cat b{color:#ffd9b0;font-style:normal;font-family:"Inter";font-weight:600}
+  .bio .name{font-family:"Archivo";font-weight:700;margin-top:24px;color:#fff;font-size:1.05rem}
+  .bio .name span{display:block;color:#9fb1bd;font-weight:500;font-family:"Inter";font-size:.95rem;line-height:1.55;margin-top:6px}
 
-  /* form */
-  .formband{background:var(--steel-deep);color:#fff}
-  .formband .eyebrow{color:#8fb6cf}
-  .formband h2{color:#fff}
-  .form-grid{display:grid;grid-template-columns:1fr;gap:30px;margin-top:24px}
-  .formband p{color:#cfe0ec}
-  .formband p b{color:#fff}
-  .fd-card{background:#fff;color:var(--ink);border-radius:18px;padding:26px 24px;box-shadow:0 22px 54px -28px rgba(0,0,0,.6);align-self:start}
+  /* ---- new front door ---- */
+  .frontdoor{background:var(--steel-deep);border-top:3px solid var(--amber);color:#fff}
+  .frontdoor .eyebrow{color:var(--amber)}
+  .frontdoor h2{font-size:clamp(1.6rem,4.4vw,2.2rem);font-weight:800;letter-spacing:-.018em;margin-top:12px;color:#fff;max-width:22ch}
+  .frontdoor .fd-grid{display:grid;grid-template-columns:1fr;gap:34px;margin-top:26px}
+  .frontdoor p{font-size:1.1rem;margin-top:16px;max-width:60ch;color:#C9CCD0}
+  .frontdoor p b{color:#fff;font-weight:600}
+  .frontdoor p .q{color:#ffd9b0;font-style:italic;font-family:"Fraunces",Georgia,serif}
+  .fd-card{
+    background:#fff;color:var(--ink);border-radius:18px;padding:26px 24px;
+    box-shadow:0 22px 54px -28px rgba(0,0,0,.6);align-self:start;
+  }
   .fd-card h3{font-family:"Archivo";font-weight:800;font-size:1.15rem;letter-spacing:-.01em}
   .fd-card .field{margin-top:12px}
   .fd-card label{display:block;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
-  .fd-card input{width:100%;background:var(--paper);border:1px solid var(--line);color:var(--ink);padding:12px 13px;border-radius:10px;font-family:inherit;font-size:1rem}
+  .fd-card input{
+    width:100%;background:var(--paper);border:1px solid var(--line);color:var(--ink);
+    padding:12px 13px;border-radius:10px;font-family:inherit;font-size:1rem;
+  }
   .fd-card input:focus{outline:none;border-color:var(--steel)}
   .fd-card .btn{width:100%;justify-content:center;margin-top:16px}
   .fd-note{font-size:.86rem;color:var(--muted);margin-top:12px;text-align:center}
-  .fd-thanks{font-size:1.05rem;line-height:1.55;color:var(--muted);margin-top:12px}
+  .fd-thanks{font-size:1.02rem;line-height:1.5}
+  .fd-thanks b{font-weight:700}
 
-  .bio{background:var(--ink);color:#fff}
-  .bio .eyebrow{color:#8fb6cf}
-  .bio h2{color:#fff}
-  .bio p{color:#cdd9e1;font-size:1.1rem;margin-top:16px;max-width:66ch}
-  .bio p b{color:#fff;font-weight:600}
-  .bio .name{font-family:"Archivo";font-weight:700;margin-top:22px;color:#fff}
-  .bio .name span{display:block;color:#9fb1bd;font-weight:500;font-family:"Inter";font-size:.92rem;margin-top:6px}
 
-  .close h2{max-width:20ch}
-  .close .btn{margin-top:24px}
+  .hero-cta{margin-top:30px}
+  .cta-note{font-size:.95rem;color:var(--muted);margin-top:12px;max-width:46ch}
+  .hero h1{max-width:16ch}
+  .grid3{display:grid;grid-template-columns:1fr;gap:18px;margin-top:34px}
+  .tile{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 24px}
+  .tile .num{font-family:"Archivo";font-weight:800;color:#9A7A2C;font-size:.9rem;letter-spacing:.1em}
+  .tile .k{font-family:"Archivo";font-weight:800;font-size:1.25rem;line-height:1.15;margin-top:8px}
+  .tile .d{color:var(--muted);margin-top:10px;font-size:1.02rem}
+  .tile.dark{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14)}
+  .tile.dark .k{color:#fff}.tile.dark .d{color:#C9CCD0}
+  .band .band-h{font-size:clamp(1.6rem,4.5vw,2.2rem);font-weight:800;letter-spacing:-.018em;margin-top:10px;color:#fff}
+  .steps{list-style:none;counter-reset:s;max-width:640px;margin:34px auto 0;display:grid;gap:14px}
+  .steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px 18px 64px;position:relative;font-size:1.05rem}
+  .steps li::before{content:counter(s);position:absolute;left:20px;top:16px;width:30px;height:30px;border-radius:50%;background:var(--amber);color:#121212;font-family:"Archivo";font-weight:800;display:flex;align-items:center;justify-content:center}
+  .soft{background:#ECEDEE}
+  @media(min-width:760px){.grid3{grid-template-columns:repeat(3,1fr)}}
 
+  .photo{background:repeating-linear-gradient(45deg,#E4E5E7,#E4E5E7 12px,#EDEEEF 12px,#EDEEEF 24px);border:1px dashed #B9BCC0;display:flex;align-items:center;justify-content:center;color:var(--muted);font-family:"Archivo";font-weight:600;font-size:.9rem}
+  .hero-photo{border-radius:20px;min-height:340px}
+  .door.has-img{padding:0;overflow:hidden}
+  .door.has-img .k,.door.has-img .d{padding:0 24px}
+  .door.has-img .k{padding-top:20px}.door.has-img .d{padding-bottom:22px}
+  .door-img{display:block;width:100%;height:190px;object-fit:cover;border:0;border-bottom:1px solid var(--line)}
+  .door.has-img .arrow{top:auto;bottom:22px}
+  .door-img.photo{display:flex;border-width:0 0 1px}
+  .tile.dark{background:rgba(255,255,255,.05);border-color:rgba(201,164,76,.25)}
+
+  .topbar{background:#0B0B0B !important;border-bottom:2px solid var(--amber) !important}
+  .top{padding:18px 0 !important;justify-content:center !important}
+  .wordmark{font-family:"Archivo",sans-serif;font-weight:800;font-size:clamp(1.3rem,4vw,2rem);letter-spacing:.12em;color:#fff}
+  .wordmark span{color:var(--amber)}
+  @media(min-width:760px){.fork{grid-template-columns:repeat(3,1fr) !important}}
   footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
   footer .wrap{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between;align-items:center}
 
+  /* ---- responsive ---- */
   @media(min-width:760px){
-    .form-grid{grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+    .hero{padding:56px 0 24px}
+    .hero-grid{grid-template-columns:1.05fr .95fr;gap:44px}
+    .fork{grid-template-columns:1fr 1fr;gap:22px}
+    .frontdoor .fd-grid{grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
   }
-  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover{transform:none}}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .btn:hover,.door:hover{transform:none}
+  }
+
+  /* ===== premium dark + metallic gold ===== */
+  :root{--gold-metal:linear-gradient(100deg,#8C6A22 0%,#E9CE7A 22%,#FFF3C4 38%,#C9A44C 55%,#7A5A1A 72%,#E3C46E 100%)}
+  body{background:radial-gradient(1200px 600px at 75% -10%,rgba(120,150,190,.18),transparent 60%),linear-gradient(180deg,#141A22 0%,#0E1217 40%,#11161D 100%);color:#E8EAED}
+  .eyebrow{color:#C9A44C !important}
+  h1,h2{color:#F3F4F6}
+  .hot,.wordmark span{background:var(--gold-metal);-webkit-background-clip:text;background-clip:text;color:transparent !important;filter:drop-shadow(0 2px 12px rgba(201,164,76,.35))}
+  .wordmark{color:#F3F4F6}
+  .topbar{background:linear-gradient(180deg,#000,#0A0C0F) !important;border-bottom:1px solid transparent !important;border-image:var(--gold-metal) 1 !important;box-shadow:0 8px 30px -10px rgba(201,164,76,.25)}
+  .hero p.sub,.cta-note,.tile .d,.door .d,.fd-note{color:#A9B0B8 !important}
+  .hero p.sub b{color:#fff}
+  .btn{background:var(--gold-metal) !important;background-size:200% 100% !important;color:#141414 !important;border:1px solid rgba(255,236,170,.5);box-shadow:0 0 0 1px rgba(0,0,0,.4),0 10px 30px -8px rgba(201,164,76,.55),inset 0 1px 0 rgba(255,255,255,.5) !important;transition:background-position .6s ease,transform .15s ease}
+  .btn:hover{background-position:100% 0 !important}
+  .hero-photo{-webkit-box-reflect:below 6px linear-gradient(transparent 70%,rgba(255,255,255,.18));box-shadow:0 30px 80px -30px rgba(120,160,210,.45),0 0 0 1px rgba(201,164,76,.35)}
+  .photo{background:linear-gradient(135deg,#1C232C,#2A323C);border:1px solid rgba(201,164,76,.3);color:#8A929B}
+  .tile,.door,.steps li{background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02)) !important;border:1px solid rgba(201,164,76,.22) !important;box-shadow:0 20px 50px -30px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.06) !important;color:#E8EAED}
+  .tile .k,.door .k{color:#F3F4F6 !important}
+  .tile .num{color:#E3C46E !important}
+  .door:hover,.tile:hover{border-color:rgba(233,206,122,.6) !important;box-shadow:0 0 30px -6px rgba(201,164,76,.35) !important}
+  .door-img{border-bottom:1px solid rgba(201,164,76,.3) !important;-webkit-mask-image:linear-gradient(#000 80%,rgba(0,0,0,.85))}
+  .steps li::before{background:var(--gold-metal) !important;color:#141414 !important}
+  .band{background:linear-gradient(180deg,#07090C,#0F141A) !important;border-top:1px solid rgba(201,164,76,.2);border-bottom:1px solid rgba(201,164,76,.2)}
+  .soft{background:radial-gradient(900px 400px at 50% 0,rgba(201,164,76,.08),transparent 70%),#10151B !important}
+  .frontdoor{background:radial-gradient(800px 400px at 20% 100%,rgba(201,164,76,.12),transparent 70%),linear-gradient(180deg,#1A212A,#0E1217) !important;border-top:1px solid rgba(201,164,76,.4) !important}
+  .frontdoor p{color:#B7BDC4}
+  .fd-card{background:linear-gradient(160deg,#1E252E,#141A21) !important;color:#E8EAED !important;border:1px solid rgba(201,164,76,.35);box-shadow:0 30px 80px -30px rgba(0,0,0,.9),0 0 40px -15px rgba(201,164,76,.3) !important}
+  .fd-card h3{color:#F3F4F6}
+  .fd-card input{background:#0E1217 !important;border:1px solid #2E3741 !important;color:#E8EAED !important}
+  .fd-card input:focus{border-color:#C9A44C !important}
+  .fd-card label{color:#9AA2AB !important}
+  footer{background:#07090C;border-top:1px solid rgba(201,164,76,.25) !important;color:#8A929B !important}
+  .section{position:relative}
+  .hero-img{width:100%;height:auto;display:block;min-height:0}
+  .brand{display:flex;align-items:center;gap:14px}
+  .brand img.badge{mix-blend-mode:normal;width:64px;height:64px;}
+  .badge{width:52px;height:52px;border-radius:50%;filter:drop-shadow(0 0 10px rgba(201,164,76,.45))}
+  .foot-brand{display:flex;align-items:center;gap:12px}
+  .foot-badge{width:64px;height:64px}
+  @media(max-width:520px){.badge{width:40px;height:40px}}
 </style>
 </head>
 <body>
@@ -136,130 +228,83 @@
 <div class="topbar">
   <div class="wrap">
     <div class="top">
-      <a class="brand" href="../" aria-label="Persuasion First AI home">
-        <img src="../logo.jpg" alt="Persuasion First AI" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-        <span class="brand-fallback" style="display:none">Persuasion First<small>AI</small></span>
-      </a>
-      <a class="backlink" href="../">← All doors</a>
+      <a class="brand" href="../" aria-label="Persuasion First AI home"><img class="badge" src="../img/logo-badge.png" alt=""><span class="wordmark">PERSUASION FIRST <span>AI</span></span></a>
     </div>
   </div>
 </div>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="wrap">
-    <span class="eyebrow">For Med Spas &amp; Wellness Practices</span>
-    <h1>Ask ChatGPT to name the best med spa in your area. See if it says your name.</h1>
-    <p class="sub">Your future clients already did. Every day, people ask AI assistants where to get Botox, filler, and laser — and the AI gives them one answer, not ten blue links. <b>Either you're the answer, or someone else is.</b></p>
-    <div class="cta-row">
-      <a class="btn" href="#check">See What AI Says About Your Spa</a>
-      <span class="cta-note">Free screenshot check. No call required. Sent to your inbox within 48 hours.</span>
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+    <span class="eyebrow">Med Spas · Aesthetics · Wellness</span>
+    <h1>She's ready to book tonight. <span class="hot">Are you open?</span></h1>
+    <p class="sub">Most new clients look you up after work, compare a few spas, and book wherever answers first. A form that sits until Monday is a client you never meet. <b>We make sure you answer first.</b></p>
+    <div class="hero-cta">
+      <a class="btn" href="#audit">Get my free visibility audit</a>
+      <p class="cta-note">See how you show up on Google and in AI search, and who's getting picked instead of you.</p>
     </div>
+    </div>
+    <img class="hero-photo hero-img" src="../img/med-spa.jpg" alt="Med spa treatment rooms and front desk">
   </div>
 </header>
 
-<!-- SECTION 2 · RECOGNITION -->
 <section class="section">
   <div class="wrap">
-    <h2>The clients who stopped showing up didn't find someone better. They found someone first.</h2>
-    <p>There is a pattern happening to established med spas right now, and most owners haven't seen it yet.</p>
-    <p>A spa builds five hundred five-star reviews over years of real work. Clients love them. Referrals flow. Then new-client bookings soften — quietly, with no obvious cause. The ads still run. The Instagram still posts. Google still ranks them.</p>
-    <p>But the newest patients aren't Googling anymore. They're asking ChatGPT, Perplexity, and Gemini a simple question: <span class="q">"Who's the best med spa near me?"</span></p>
-    <p>And the AI names three spas. Confidently. Like a trusted friend would.</p>
-    <p>If yours isn't one of them, that conversation ends without you in it — and you never see it happen.</p>
-  </div>
-</section>
-
-<!-- SECTION 3 · IDENTITY PROTECTION + EXPLANATION -->
-<section class="section">
-  <div class="wrap">
-    <h2>This is not a marketing failure. It's a different system.</h2>
-    <p>Nothing you built was wrong. Your reviews, your website, your Google ranking — all of it still matters.</p>
-    <p>But AI assistants don't rank pages. They recommend names. And they decide which names to recommend based on a completely different set of signals: how consistently your business is described across the web, whether your content answers questions the way AI reads them, and whether trusted third-party sources mention you at all.</p>
-    <p>Most spas score high on Google and near zero on this new layer — because nobody ever asked them to build it. It didn't exist two years ago.</p>
-    <p>The spas getting named in AI answers right now aren't better. They're just <b>legible to the machine.</b> That's the entire difference — and it's fixable.</p>
-  </div>
-</section>
-
-<!-- SECTION 4 · CONTROLLED THREAT -->
-<section class="section">
-  <div class="wrap">
-    <h2>The answer slot only holds a few names.</h2>
-    <p>In Buckhead alone, there are over 240 med spas. When someone asks AI for a recommendation, it names about three of them.</p>
-    <p>That math doesn't change. What changes is whose names fill the slots — and the spas that claim them early are hard to displace, because AI systems reinforce the sources they already trust.</p>
-    <p><b>Moments like this do not always stay obvious for very long.</b></p>
-  </div>
-</section>
-
-<!-- SECTION 5 · WHAT I DO -->
-<section class="section">
-  <div class="wrap">
-    <span class="eyebrow">What I do</span>
-    <h2>The AI Visibility Audit</h2>
-    <p>I run your spa through the questions your actual clients ask — twenty buyer questions across ChatGPT, Perplexity, and Gemini — and document exactly what comes back.</p>
-    <p style="margin-top:18px;color:var(--ink);font-weight:600">You receive:</p>
-    <ul class="deliver">
-      <li><b>Your AI Visibility Score</b> — how many times you appear across twenty real client questions</li>
-      <li><b>The results grid</b> — every question, every engine, who got recommended (you'll see your competitors' names in the cells where yours should be)</li>
-      <li><b>The diagnosis</b> — why the AI can't cite you, in plain English, no jargon</li>
-      <li><b>The 30/60/90 roadmap</b> — exactly what it takes to flip invisible into recommended</li>
-    </ul>
-    <p class="keep">The audit is <b>$1,500</b>, delivered in one week, and it's yours to keep whether we ever work together again. Most owners use it as the blueprint for whoever does the work — some hire me to do it, on a monthly basis, measured on one thing: whether AI starts saying your name.</p>
-    <div class="cta-row">
-      <a class="btn" href="#check">Start With the Free Screenshot Check</a>
+    <div class="fork-head">
+      <span class="eyebrow">Where customers slip away</span>
+      <h2>Where your new clients are going.</h2>
     </div>
-
-    <div class="grid-mock" aria-label="Example results grid">
-      <div class="gm-head">Example results grid — "best med spa near me"</div>
-      <div class="gm-row"><div>Query</div><div>ChatGPT</div><div>Perplexity</div><div>Gemini</div></div>
-      <div class="gm-row"><div>Best med spa in your area</div><div class="you-no">— you —</div><div class="comp">Competitor</div><div class="comp">Competitor</div></div>
-      <div class="gm-row"><div>Top injector near me</div><div class="comp">Competitor</div><div class="you-no">— you —</div><div class="comp">Competitor</div></div>
-      <div class="gm-row"><div>Who's reputable for filler</div><div class="comp">Competitor</div><div class="comp">Competitor</div><div class="you-no">— you —</div></div>
+    <div class="grid3">
+      <div class="tile"><span class="num">01</span><div class="k">They search and don't see you.</div><div class="d">"Best Botox near me." Google and ChatGPT name a few spas. If you're not one of them, she books somewhere else.</div></div>
+      <div class="tile"><span class="num">02</span><div class="k">They find you and don't feel sure.</div><div class="d">Thin reviews, unclear pricing, no before-and-afters. She closes the tab and keeps looking.</div></div>
+      <div class="tile"><span class="num">03</span><div class="k">They reach out and wait.</div><div class="d">A consult request on Friday night. No reply until Monday. By then she's booked across town.</div></div>
     </div>
-    <p class="gm-cap">Sample audit output. Competitor names appear where yours should be.</p>
   </div>
 </section>
 
-<!-- SECTION 6 · ABOUT -->
-<section class="section bio">
+<section class="section band">
   <div class="wrap">
-    <span class="eyebrow">About</span>
-    <h2>About Amy Henry</h2>
-    <p>I spent seven years at American Express beating my targets by 150–400%, working with business owners on exactly one problem: what makes a customer say yes. Then I spent years building AI systems — websites, content engines, and the visibility architecture that decides who gets found. I built and launched a complete wellness brand of my own, end to end, using these exact systems. The wellness world is my world; I hold certifications in nutrition and wellness coaching and have counseled hundreds of clients in it.</p>
-    <p><b>I'm not an agency. There's no account manager between you and the person doing the work. When you hire me, you get me.</b></p>
-    <p class="name">Amy Henry<span>Founder &amp; CEO, Persuasion First AI · Atlanta, GA · works nationwide</span></p>
+    <span class="eyebrow">What we build</span>
+    <h2 class="band-h">One system that closes every leak.</h2>
+    <div class="grid3">
+      <div class="tile dark"><div class="k">Visibility audit</div><div class="d">How you show up on Google, in your reviews, and in ChatGPT next to the spas you compete with. Free, in 48 hours.</div></div>
+      <div class="tile dark"><div class="k">Treatment pages that book</div><div class="d">A clear page for each top treatment. What to expect, real reviews, and an easy way to book a consult.</div></div>
+      <div class="tile dark"><div class="k">After-hours AI front desk</div><div class="d">Every call, text, and form answered in seconds. It answers common questions, books the consult, and sends reminders so she shows up.</div></div>
+    </div>
   </div>
 </section>
 
-<!-- SECTION 7 · CLOSING -->
-<section class="section close">
+<section class="section">
   <div class="wrap">
-    <h2>One question before you go.</h2>
-    <p>Think about how you found the last professional you hired — the accountant, the contractor, the dentist.</p>
-    <p>Now think about how the next wave of clients is finding theirs.</p>
-    <p>If this fits, the next step usually becomes obvious.</p>
-    <a class="btn" href="#check">See What AI Says About Your Spa</a>
-    <span class="cta-note">Free screenshot check → <a href="mailto:amy@persuasionfirstai.com">amy@persuasionfirstai.com</a></span>
+    <div class="fork-head">
+      <span class="eyebrow">How it works</span>
+      <h2>Simple from start to finish.</h2>
+    </div>
+    <ol class="steps">
+      <li><b>Free audit.</b> You get it in your inbox within 48 hours.</li>
+      <li><b>15-minute walkthrough.</b> We go over what we found and what to fix first.</li>
+      <li><b>Built in 10 days.</b> Set up inside your own accounts, with a short video and a one-page guide so it runs without us.</li>
+    </ol>
   </div>
 </section>
 
-<!-- LEAD FORM -->
-<section class="section formband" id="check">
+<section class="section frontdoor" id="audit">
   <div class="wrap">
-    <span class="eyebrow">Start here</span>
-    <h2>See what AI says about your spa</h2>
-    <div class="form-grid">
+    <div class="fd-grid">
       <div>
-        <p>Tell me your spa and city, and I'll run the questions your clients actually ask through ChatGPT, Perplexity, and Gemini — then send you the screenshots, <b>including who's being recommended instead of you.</b></p>
+        <span class="eyebrow">Free visibility audit</span>
+        <h2>Find out who's getting the clients you should be getting.</h2>
+        <p>We search for your spa the way a new client does, on Google and in ChatGPT, Perplexity, and Gemini. You get screenshots of what comes up, which spas show up instead of you, and the first thing to fix.</p>
+        <p><b>No call required. No pitch in your inbox.</b></p>
       </div>
       <div class="fd-card" id="fd-card">
-        <h3>Free screenshot check</h3>
+        <h3>Get my free audit</h3>
         <div class="field"><label for="v_name">Name</label><input id="v_name" autocomplete="name"></div>
-        <div class="field"><label for="v_business">Med Spa Name</label><input id="v_business"></div>
+        <div class="field"><label for="v_business">Spa name</label><input id="v_business"></div>
         <div class="field"><label for="v_city">City</label><input id="v_city" autocomplete="address-level2"></div>
         <div class="field"><label for="v_email">Email</label><input id="v_email" type="email" autocomplete="email"></div>
-        <button class="btn" id="v_submit" type="button">Send My Free Check</button>
-        <p class="fd-note">Free screenshot check, sent to your inbox within 48 hours.</p>
+        <button class="btn" id="v_submit" type="button">Send my audit</button>
+        <p class="fd-note">Delivered to your inbox within 48 hours.</p>
       </div>
     </div>
   </div>
@@ -267,13 +312,14 @@
 
 <footer>
   <div class="wrap">
-    <span>Persuasion First AI · Atlanta, GA</span>
+    <span class="foot-brand"><img class="badge foot-badge" src="../img/logo-badge.png" alt="Persuasion First AI logo">Persuasion First AI · Atlanta, GA</span>
     <span>amy@persuasionfirstai.com</span>
   </div>
 </footer>
 
 <script>
-// Lead form → delivered to Amy's inbox via FormSubmit (no backend; works on GitHub Pages).
+// AI Visibility lead form → delivered to Amy's inbox via FormSubmit (no backend; works on GitHub Pages).
+// Uses the same activated endpoint as the diagnostic tool.
 const VIS_ENDPOINT = "https://formsubmit.co/ajax/07ca9bef515db2a4a2b9e2adeb6228e9";
 document.getElementById('v_submit').addEventListener('click', async function(){
   const name = document.getElementById('v_name').value.trim();
@@ -282,17 +328,25 @@ document.getElementById('v_submit').addEventListener('click', async function(){
   const email = document.getElementById('v_email').value.trim();
   const emailEl = document.getElementById('v_email');
   if(!email){ emailEl.focus(); emailEl.style.borderColor = 'var(--amber)'; return; }
-  const btn = this; btn.disabled = true; btn.textContent = 'Sending…';
+  const btn = this;
+  btn.disabled = true; btn.textContent = 'Sending…';
   try{
     await fetch(VIS_ENDPOINT, {
       method:'POST',
       headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify({_subject:"New AI Visibility check — Med Spa", _captcha:"false", vertical:"Med Spa", name, medSpaName:business, city, email})
+      body:JSON.stringify({
+        _subject:"Med spa audit request",
+        _captcha:"false",
+        name, business, city, email
+      })
     });
   }catch(e){ /* don't trap the user on a network hiccup */ }
   document.getElementById('fd-card').innerHTML =
-    '<h3>Got it.</h3>' +
-    '<p class="fd-thanks">I\'ll send your screenshot check within 48 hours. — Amy</p>';
+    '<h3>Got it' + (name ? ', ' + name.split(' ')[0] : '') + '.</h3>' +
+    '<p class="fd-thanks" style="margin-top:12px">We\'ll run ' +
+    (business ? '<b>' + business.replace(/</g,'&lt;') + '</b>' : 'your business') +
+    ' through Google, ChatGPT, Perplexity, and Gemini and send the screenshots to ' +
+    '<b>' + (email.replace(/</g,'&lt;')) + '</b> within 48 hours, including who\'s showing up instead.</p>';
 });
 </script>
 
